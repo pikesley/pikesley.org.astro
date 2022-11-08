@@ -1,0 +1,27 @@
+---
+import Base from "../layouts/Base.astro";
+import { marked } from 'marked';
+
+// https://stackoverflow.com/a/40403285
+const readme = await fetch(
+  "https://api.github.com/repos/pikesley/jlock/readme",
+  {
+    headers: {
+      Accept: "application/vnd.github+json"
+    },
+  }
+)
+  .then(function (response) {
+    return response.json();
+  })
+  .then(function (data) {
+    return data;
+  });
+
+// https://docs.astro.build/en/guides/markdown-content/#fetching-remote-markdown
+const markdown = marked.parse(atob(readme.content));
+---
+
+<Base>
+  <div set:html={markdown}></div>
+</Base>
