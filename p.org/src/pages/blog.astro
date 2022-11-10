@@ -4,7 +4,14 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 
 const posts = await Astro.glob("./blog/**/*");
-const publishedPosts = posts.filter(post => post.frontmatter.publish).reverse()
+const publishedPosts = posts
+  .filter(
+    (post) =>
+      post.frontmatter &&
+      "publish" in post.frontmatter &&
+      post.frontmatter.publish == true
+  )
+  .reverse();
 
 export function getPostTitle(url: string) {
   const parts = url.split("/");
