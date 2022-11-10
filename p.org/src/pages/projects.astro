@@ -1,27 +1,17 @@
 ---
 import Base from "../layouts/Base.astro";
-import { marked } from 'marked';
+import Projects from "../data/projects.json";
 
-// https://stackoverflow.com/a/40403285
-const readme = await fetch(
-  "https://api.github.com/repos/pikesley/jlock/readme",
-  {
-    headers: {
-      Accept: "application/vnd.github+json"
-    },
-  }
-)
-  .then(function (response) {
-    return response.json();
-  })
-  .then(function (data) {
-    return data;
-  });
-
-// https://docs.astro.build/en/guides/markdown-content/#fetching-remote-markdown
-const markdown = marked.parse(atob(readme.content));
 ---
 
-<Base>
-  <div set:html={markdown}></div>
+<Base title="Projects">
+  <ul>
+    {
+      Projects.map((project) => (
+        <li>
+          <a href=`/projects/${project.name}`>{project.name}</a>
+        </li>
+      ))
+    }
+  </ul>
 </Base>

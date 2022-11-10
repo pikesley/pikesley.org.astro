@@ -1,11 +1,14 @@
-{
-  "jlock": {
+[
+  {
+    "name": "jlock",
     "github": "pikesley/jlock"
   },
-  "wen": {
+  {
+    "name": "wen",
     "github": "pikesley/wen"
   },
-  "potado": {
+  {
+    "name": "potado",
     "github": "pikesley/potado"
   }
-}
+]

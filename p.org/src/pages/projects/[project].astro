@@ -1,46 +1,26 @@
 ---
 import Base from "../../layouts/Base.astro";
-import { marked } from 'marked';
+import Projects from "../../data/projects.json";
 
-const data = {
-    "jlock": {
-        "github": "pikesley/jlock"
-    },
-    "wen": {
-        "github": "pikesley/wen"
-    },
-    "potado": {
-        "github": "pikesley/potado"
-    },
-}
+import { marked } from "marked";
 
 export function getStaticPaths() {
-    // Get this from the keys above
-    // https://stackoverflow.com/a/38622270
-    // return new Map(Object.keys(data).map(f => [["params", {"project": f}]]));
-  return [
-    { params: {
-        project: "jlock"
-    } },
-    { params: {
-        project: "potado"
-    } },
-    { params: {
-        project: "wen"
-    } },
-  ];
+  return Projects.map((proj) => {
+    return {
+      params: { project: proj.name },
+      props: { proj },
+    };
+  });
 }
 
-const { project } = Astro.params;
-
-const localData = data[project]
+const { proj } = Astro.props;
 
 // https://stackoverflow.com/a/40403285
 const readme = await fetch(
-  `https://api.github.com/repos/${ localData["github"] }/readme`,
+  `https://api.github.com/repos/${proj.github}/readme`,
   {
     headers: {
-      Accept: "application/vnd.github+json"
+      Accept: "application/vnd.github+json",
     },
   }
 )
@@ -53,10 +33,8 @@ const readme = await fetch(
 
 // https://docs.astro.build/en/guides/markdown-content/#fetching-remote-markdown
 const markdown = marked.parse(atob(readme.content));
-
-
 ---
 
 <Base>
-  <div set:html={markdown}></div>
+  <div set:html={markdown} />
 </Base>
