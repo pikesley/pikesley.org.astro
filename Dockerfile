@@ -1,13 +1,13 @@
 FROM node
 
 ENV PROJECT ssg
-WORKDIR /opt/${PROJECT}
+WORKDIR /opt/${PROJECT}/p.org
 
 COPY ./ /opt/${PROJECT}
 COPY docker-config/bashrc /root/.bashrc
 
-# RUN npm install
-# RUN npm completion >> /root/.bashrc
+RUN npm install
+RUN npm completion >> /root/.bashrc
 
 COPY ./docker-config/entrypoint.sh /usr/local/bin/entrypoint
 RUN chmod +x /usr/local/bin/entrypoint
