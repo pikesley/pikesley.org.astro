@@ -1,5 +1,7 @@
 ---
 publish: true
+layout: ../../../../../layouts/BlogPost.astro
+title: Calculate Π By Throwing Darts
 ---
 <p>
     We can approximate <em>π</em> using nothing more than random numbers and some

@@ -12,16 +12,6 @@ const publishedPosts = posts
       post.frontmatter.publish == true
   )
   .reverse();
-
-export function getPostTitle(url: string) {
-  const parts = url.split("/");
-  const kebabCase = parts[parts.length - 1];
-
-  return kebabCase
-    .split("-")
-    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-    .join(" ");
-}
 ---
 
 <!DOCTYPE html>
@@ -37,7 +27,7 @@ export function getPostTitle(url: string) {
           {
             publishedPosts.map((post) => (
               <li>
-                <a href={post.url}>{getPostTitle(post.url)}</a>
+                <a href={post.url}>{post.frontmatter.title}</a>
               </li>
             ))
           }

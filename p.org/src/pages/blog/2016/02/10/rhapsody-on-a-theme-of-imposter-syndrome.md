@@ -1,5 +1,7 @@
 ---
 publish: true
+layout: ../../../../../layouts/BlogPost.astro
+title: Rhapsody On A Theme Of Imposter Syndrome
 ---
 
 I have written a [blogpost for work](http://labs.theodi.org/blog/2016/01/07/kicking-aruba-into-a-bin/) after I uncovered some new (to me) features in [Rspec](http://rspec.info/); these discoveries made a previously-intimidating realm seem suddenly utterly benign, and I hoped a write-up of my bumblings might be useful to others.
