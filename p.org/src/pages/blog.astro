@@ -1,7 +1,5 @@
 ---
-import BaseHead from "../components/BaseHead.astro";
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
+import Base from "../layouts/Base.astro";
 
 const posts = await Astro.glob("./blog/**/*");
 const publishedPosts = posts
@@ -14,26 +12,14 @@ const publishedPosts = posts
   .reverse();
 ---
 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <BaseHead />
-  </head>
-  <body>
-    <Header />
-    <main>
-      <section>
-        <ul>
-          {
-            publishedPosts.map((post) => (
-              <li>
-                <a href={post.url}>{post.frontmatter.title}</a>
-              </li>
-            ))
-          }
-        </ul>
-      </section>
-    </main>
-    <Footer />
-  </body>
-</html>
+<Base title="Blog">
+  <ul>
+    {
+      publishedPosts.map((post) => (
+        <li>
+          <a href={post.url}>{post.frontmatter.title}</a>
+        </li>
+      ))
+    }
+  </ul>
+</Base>
