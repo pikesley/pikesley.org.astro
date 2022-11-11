@@ -1,0 +1,54 @@
+---
+import Base from "../layouts/Base.astro";
+
+import Skills from "../data/cv/skills.json";
+import Employment from "../data/cv/employers.json";
+import Interests from "../data/cv/interests.json";
+import Contact from "../data/cv/contact.json";
+---
+
+<Base title="My CV">
+  <h2>Skills</h2>
+  <ul>
+    {
+      Skills.map((skill) => (
+        <li>
+          <a href={skill.url}>{skill.skill}</a>
+        </li>
+      ))
+    }
+  </ul>
+
+  <h2>Employment</h2>
+  <ul>
+    {
+      Employment.map((employer) => (
+        <li>
+          <a href={employer.url}>{employer.name}</a>
+        </li>
+      ))
+    }
+  </ul>
+
+  <h2>Interests</h2>
+  <ul>
+    {
+      Interests.map((interest) => (
+        <li>
+          <a href={interest.url}>{interest.thing}</a>
+        </li>
+      ))
+    }
+  </ul>
+
+  <h2>Contact</h2>
+  <ul>
+    {
+      Contact.map((method) => (
+        <li>
+          <a href={method.link}>{method.method}</a>
+        </li>
+      ))
+    }
+  </ul>
+</Base>
