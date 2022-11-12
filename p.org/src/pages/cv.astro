@@ -5,6 +5,8 @@ import Skills from "../data/cv/skills.json";
 import Employment from "../data/cv/employers.json";
 import Interests from "../data/cv/interests.json";
 import Contact from "../data/cv/contact.json";
+
+import Employer from "../layouts/Employer.astro"
 ---
 
 <Base title="My CV">
@@ -23,9 +25,8 @@ import Contact from "../data/cv/contact.json";
   <ul>
     {
       Employment.map((employer) => (
-        <li>
-          <a href={employer.url}>{employer.name}</a>
-        </li>
+        <Employer employer={employer} />
+
       ))
     }
   </ul>
