@@ -1,6 +1,26 @@
 ---
+const footerItems = [
+  {
+    url: "//creativecommons.org/licenses/by-nc-sa/4.0/",
+    title: "all content released under a CC BY-NC-SA 4.0 license",
+    mdi: "creative-commons",
+  },
+  {
+    url: "//github.com/pikesley/pikesley.org.astro",
+    title: "this repo on github",
+    mdi: "github",
+  },
+];
 ---
 
 <footer>
-	Some footer stuff
+  {
+    footerItems.map((item) => (
+      <span>
+        <a href={item.url} title={item.title}>
+          <span class:list={["mdi", `mdi-${item.mdi}`]} />
+        </a>
+      </span>
+    ))
+  }
 </footer>

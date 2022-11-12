@@ -1,11 +1,11 @@
 ---
-import Base from "../../layouts/Base.astro";
+import ProjectPage from "../../layouts/ProjectPage.astro";
 import Projects from "../../data/projects.json";
 
-import { marked } from "marked";
+import { GHLink, refineReadme } from "../../tools";
 
 export function getStaticPaths() {
-  return Projects.map((proj) => {
+  return Projects.filter((proj) => proj.publish).map((proj) => {
     return {
       params: { project: proj.name },
       props: { proj },
@@ -21,6 +21,7 @@ const readme = await fetch(
   {
     headers: {
       Accept: "application/vnd.github+json",
+      Authorization: `Bearer ${process.env.GH_TOKEN}`,
     },
   }
 )
@@ -31,10 +32,12 @@ const readme = await fetch(
     return data;
   });
 
-// https://docs.astro.build/en/guides/markdown-content/#fetching-remote-markdown
-const markdown = marked.parse(atob(readme.content));
+const rendered = refineReadme(readme.content, proj);
 ---
 
-<Base>
-  <div set:html={markdown} />
-</Base>
+<ProjectPage
+  content={rendered}
+  title={proj.title}
+  description={proj.description}
+  GHslug={proj.ghlink}
+/>

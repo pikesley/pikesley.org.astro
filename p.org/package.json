@@ -8,17 +8,29 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "lint": "eslint \"src/**/*.{js,astro}\""
   },
   "dependencies": {
     "@astrojs/mdx": "^0.11.5",
     "@astrojs/rss": "^1.0.3",
     "@astrojs/sitemap": "^1.0.0",
+    "@mdi/font": "^7.0.96",
     "astro": "^1.6.0"
   },
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.43.0",
+    "@typescript-eslint/parser": "^5.43.0",
+    "eslint": "^8.27.0",
+    "eslint-config-standard-with-typescript": "^23.0.0",
+    "eslint-plugin-astro": "^0.21.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jsx-a11y": "^6.6.1",
+    "eslint-plugin-n": "^15.5.1",
+    "eslint-plugin-promise": "^6.1.1",
     "marked": "^4.2.2",
     "prettier": "^2.7.1",
-    "prettier-plugin-astro": "^0.7.0"
+    "prettier-plugin-astro": "^0.7.0",
+    "typescript": "^4.9.3"
   }
 }

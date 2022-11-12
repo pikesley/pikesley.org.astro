@@ -1,0 +1,59 @@
+footer > ul,
+ul.li,
+ul.me-links > li,
+ul.employer-list > li,
+ul.video-list > li,
+ul.skills-list > li
+ {
+  list-style-type: none;
+}
+
+ul {
+  margin-left: 0;
+  padding-left: 0;
+}
+
+ul.me-links {
+  display: grid;
+  gap: var(--grid-gap);
+  grid-template-columns: repeat(var(--me-links), 1fr);
+}
+
+ul.me-links > li {
+  text-align: center;
+}
+.projects-list,
+.skills-list,
+.interests-list,
+.contact-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--grid-gap);
+  align-items: center;
+}
+
+.projects-list > li {
+  margin: auto;
+}
+
+.skills-list,
+.interests-list,
+.contact-list {
+  margin-inline: auto;
+  width: 80%;
+}
+
+.skills-list > li,
+.interests-list > li,
+.contact-list > li {
+  text-align: center;
+  flex-grow: 1;
+}
+
+/* lists within rendered content */
+.employer > div > ul > li,
+.project-readme > ul > li,
+.blog-list > li {
+  list-style-type: disc;
+  margin-left: 2rem;
+}

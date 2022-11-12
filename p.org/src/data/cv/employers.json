@@ -1,19 +1,30 @@
 [
   {
+    "name": "Cervest",
+    "url": "//cervest.earth/",
+    "location": "London",
+    "role": "Senior Infrastructure Engineer",
+    "dates": {
+      "start": "October 2021",
+      "end": "present"
+    },
+    "headline": "Cervest is architecting a new era of climate intelligence.\n"
+  },
+  {
     "name": "Demand Logic",
-    "url": "https://www.demandlogic.co.uk/",
+    "url": "//www.demandlogic.co.uk/",
     "location": "London",
     "role": "Senior Infrastructure Engineer",
     "dates": {
       "start": "February 2019",
-      "end": "present"
+      "end": "September 2021"
     },
     "headline": "Demand Logic is a software tool which provides actionable intelligence to property managers and building contractors. It is intended to deliver quantifiable benefits in a short space of time and to make the management of buildings easier.\n",
-    "profile": "I joined Demand Logic at the beginning of a project to shift their infrastructure away from [Rackspace Cloud](//www.rackspace.com/en-gb/cloud) and into [Google Cloud](//cloud.google.com). As part of this, I introduced [Terraform](//www.terraform.io), which now describes every GCP resource at DL in a repeatable way.\n\nI was also responsible for introducing [Concourse CI](//concourse-ci.org) (to replace Jenkins) and have built extensive (Python) tooling around this to, among other things, bring the platform towards Continuous Delivery.\n"
+    "profile": "I joined Demand Logic at the beginning of a project to shift their infrastructure away from [Rackspace Cloud](//www.rackspace.com/en-gb/cloud) and into [Google Cloud](//cloud.google.com). As part of this, I introduced [Terraform](//www.terraform.io), which now describes every GCP resource at DL in a repeatable way.I was also responsible for introducing [Concourse CI](//concourse-ci.org) (to replace Jenkins) and have built extensive (Python) tooling around this to, among other things, bring the platform towards Continuous Delivery.\n"
   },
   {
     "name": "OpenCorporates",
-    "url": "https://opencorporates.com/",
+    "url": "//opencorporates.com/",
     "location": "London",
     "role": "Backend Engineer",
     "dates": {
@@ -25,7 +36,7 @@
   },
   {
     "name": "Moo",
-    "url": "http://moo.com",
+    "url": "//moo.com",
     "location": "London",
     "role": "Operations Engineer",
     "dates": {
@@ -37,7 +48,7 @@
   },
   {
     "name": "The Open Data Institute",
-    "url": "http://theodi.org",
+    "url": "//theodi.org",
     "location": "London",
     "role": "Head Of Robots",
     "dates": {
@@ -45,11 +56,11 @@
       "end": "December 2016"
     },
     "headline": "The ODI connects, equips and inspires people around the world to innovate with data.\n",
-    "profile": "My role at the ODI encompassed many things - initially, leading on the building and maintenance of all of the [test-driven Chef infrastructure](https://github.com/theodi/chef-skellington) for the ODI's first round of core tools, primarily [Open Data Certificates](http://toolbox.theodi.org/tools/certificates/) and [CSV Lint](http://toolbox.theodi.org/tools/csvlint/), and our [adoption of GDS's CMS suite](https://skillsmatter.com/skillscasts/5181-adventures-in-early-adoption-of-open-source-code).\n\nSubsequent highlights include:\n\n  * Gaining a comprehensive grasp of HTTP and REST (mainly from working under the guidance of [Jeni Tennison](https://theodi.org/team/jeni-tennison))\n  * Learning to love TDD, primarily through heavy exposure to RSpec and Cucumber\n  * Embracing the Github -> Travis -> Heroku continuous deployment chain\n  * Building front-end apps (e.g. the TfL [Train Data Demonstrator](http://goingunderground.herokuapp.com/)) and so getting a handle on Bootstrap, JavaScript, Sass and D3\n  * Providing technical mentoring for one of our PhD students from the [WDAqua](http://wdaqua.eu/) programme\n  * Occasional speaking engagements, primarily on the subject of Working In The Open\n\n*Everything* we ever built at the ODI has been built in the open and all of our code is [up on Github](https://github.com/theodi).\n"
+    "profile": "My role at the ODI encompassed many things - initially, leading on the building and maintenance of all of the [test-driven Chef infrastructure](//github.com/theodi/chef-skellington) for the ODI's first round of core tools, primarily [Open Data Certificates](//toolbox.theodi.org/tools/certificates/) and [CSV Lint](//toolbox.theodi.org/tools/csvlint/), and our [adoption of GDS's CMS suite](//skillsmatter.com/skillscasts/5181-adventures-in-early-adoption-of-open-source-code).\n\nSubsequent highlights include:\n\n  * Gaining a comprehensive grasp of HTTP and REST (mainly from working under the guidance of [Jeni Tennison](//theodi.org/team/jeni-tennison))\n  * Learning to love TDD, primarily through heavy exposure to RSpec and Cucumber\n  * Embracing the Github -> Travis -> Heroku continuous deployment chain\n  * Building front-end apps (e.g. the TfL [Train Data Demonstrator](//goingunderground.herokuapp.com/)) and so getting a handle on Bootstrap, JavaScript, Sass and D3\n  * Providing technical mentoring for one of our PhD students from the [WDAqua](//wdaqua.eu/) programme\n  * Occasional speaking engagements, primarily on the subject of Working In The Open\n\n*Everything* we ever built at the ODI has been built in the open and all of our code is [up on Github](//github.com/theodi).\n"
   },
   {
     "name": "AMEE UK",
-    "url": "http://amee.com",
+    "url": "//amee.com",
     "location": "London",
     "role": "DevOps Engineer",
     "dates": {
@@ -57,11 +68,11 @@
       "end": "January 2013"
     },
     "headline": "AMEE is a start-up whose mission is to measure the carbon footprint of everything on the planet.\n",
-    "profile": "Working closely with AMEE's relatively small team of Java and Ruby devs, I was responsible for:\n\n* Putting in a huge amount of Chef plumbing (running off of [AMEE's own Chef\n  server](http://www.amee.com/blog/2012/02/22/building-a-chef-server-from-scratch/)) -\n  AMEE's config management previously consisted of a handful of bash scripts\n* Deploying and configuring Splunk\n* Migrating several of AMEE's legacy apps from leased iron in a DC to AWS\n\nalongside the usual SysAdmin work of backup-and-restore, capacity planning, etc.\n"
+    "profile": "Working closely with AMEE's relatively small team of Java and Ruby devs, I was responsible for:\n\n* Putting in a huge amount of Chef plumbing (running off of [AMEE's own Chef\n  server](//www.amee.com/blog/2012/02/22/building-a-chef-server-from-scratch/)) -\n  AMEE's config management previously consisted of a handful of bash scripts\n* Deploying and configuring Splunk\n* Migrating several of AMEE's legacy apps from leased iron in a DC to AWS\n\nalongside the usual SysAdmin work of backup-and-restore, capacity planning, etc.\n"
   },
   {
     "name": "VisualDNA",
-    "url": "http://visualdna.com",
+    "url": "//visualdna.com",
     "location": "London",
     "role": "Systems Administrator",
     "dates": {
@@ -69,11 +80,11 @@
       "end": "June 2011"
     },
     "headline": "VisualDNA is a dynamic startup based in Soho. The company generates profiles for users\nthrough the use of visual quizzes, working with clients including the LA Times,\nmatch.com and the Daily Mirror.\n",
-    "profile": "My role at VisualDNA was pretty much DevOps before I knew that DevOps was even a thing\n– as a busy startup with diverse client projects there were often multiple\ndeploys per day, meaning I had to work very closely with the developers to\nmake sure we were all on the same page.\n\nThis close working relationship was particularly fruitful during the gradual\ntransfer of many of VisualDNA’s core services from the legacy platform (a\ncouple of racks of Linux boxes in a London datacentre) to Amazon Web Services.\nThe back-and-forth between myself and the development team was invaluable as\nwe iterated through various combinations of EC2 Instance Types to find the\nsetup that best fitted our requirements.\n\nThe transfer to AWS accelerated rapidly during 2011; the setup I left them with included:\n\n* A 16-node Cassandra cluster\n* A 6-node Hadoop cluster\n* Several groups of Elastic-Load-Balanced web servers\n\nThis platform is still in production use, including an all-new Quiz Engine\nwhich as far as I know is still performing extremely well.\n\nDuring my time at VisualDNA I also:\n\n* Completely rewrote the legacy deployment system (in Python), and subsequently\n  repurposed a lot of this code to handle AWS deploy\n* Introduced the MMM multi-master replication manager for MySQL on the\n  front-end database servers\n* Cleaned-up and reorganised the Subversion repositories (the better to\n  integrate with my new deploy system)\n* Managed a migration from Akamai EdgeControl to Amazon Cloudfront\n* Substantially rewrote the ‘event-tracking and processing’ system\n* Managed a migration from hosted Exchange email to Google Mail\n"
+    "profile": "My role at VisualDNA was pretty much DevOps before I knew that DevOps was even a thing\n– as a busy startup with diverse client projects there were often multiple\ndeploys per day, meaning I had to work very closely with the developers to\nmake sure we were all on the same page.\n\nThis close working relationship was particularly fruitful during the gradual\ntransfer of many of VisualDNA’s core services from the legacy platform (a\ncouple of racks of Linux boxes in a London datacentre) to Amazon Web Services.\nThe back-and-forth between myself and the development team was invaluable as\nwe iterated through various combinations of EC2 Instance Types to find the\nsetup that best fitted our requirements.\n\nThe transfer to AWS accelerated rapidly during 2011; the setup I left them with included:\n\n* A 16-node Cassandra cluster\n* A 6-node Hadoop cluster\n* Several groups of Elastic-Load-Balanced web servers\n\nThis platform is still in production use, including an all-new Quiz Engine\nwhich as far as I know is still performing extremely well.\n"
   },
   {
     "name": "Rex Features",
-    "url": "http://rexfeatures.com",
+    "url": "//rexfeatures.com",
     "location": "London",
     "role": "Systems Administrator",
     "dates": {

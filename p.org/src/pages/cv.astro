@@ -3,53 +3,34 @@ import Base from "../layouts/Base.astro";
 
 import Skills from "../data/cv/skills.json";
 import Employment from "../data/cv/employers.json";
-import Interests from "../data/cv/interests.json";
-import Contact from "../data/cv/contact.json";
 
-import Employer from "../layouts/Employer.astro"
+import Employer from "../layouts/Employer.astro";
 ---
 
 <Base title="My CV">
-  <h2>Skills</h2>
-  <ul>
+  <ul class="skills-list">
     {
       Skills.map((skill) => (
         <li>
           <a href={skill.url}>{skill.skill}</a>
-        </li>
-      ))
-    }
+          </li>
+          ))
+        }
   </ul>
 
-  <h2>Employment</h2>
-  <ul>
-    {
-      Employment.map((employer) => (
-        <Employer employer={employer} />
-
-      ))
-    }
-  </ul>
-
-  <h2>Interests</h2>
-  <ul>
-    {
-      Interests.map((interest) => (
-        <li>
-          <a href={interest.url}>{interest.thing}</a>
-        </li>
-      ))
-    }
-  </ul>
-
-  <h2>Contact</h2>
-  <ul>
-    {
-      Contact.map((method) => (
-        <li>
-          <a href={method.link}>{method.method}</a>
-        </li>
-      ))
-    }
+  <ul class="employer-list">
+    {Employment.map((employer) => <Employer employer={employer} />)}
   </ul>
 </Base>
+
+<script>
+  function shuffleSkills() {
+    var parent = document.querySelector(".skills-list");
+    var divs = [...parent.children];
+    var shuffled = divs.sort(() => { return 0.5 - Math.random() })
+
+    shuffled.forEach(node => parent.append(node))
+  }
+
+  shuffleSkills();
+</script>

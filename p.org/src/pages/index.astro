@@ -8,23 +8,26 @@ import me from "../data/me.json";
     I <a href="/projects">build software</a> and <a href="//rawfunkmaharishi.uk"
       >play music</a
     >, and I have a <a
-      href="//www.diabetes.org.uk/Guide-to-diabetes/What-is-diabetes/What-is-Type-1-diabetes/"
+      href="//www.diabetes.org.uk/diabetes-the-basics/types-of-diabetes/type-1"
       >non-working pancreas</a
     >.
   </p>
 
   <p>Some other places you can find me:</p>
 
-  <ul>
+  <ul class="me-links">
     {
       me.map((item) => (
         <li>
-          <a href={item.url}>{item.name}</a>
+          <a href={item.url}>
+            <span class:list={["mdi", `mdi-${item.name}`, "me-icon"]} />
+            <br />
+            {item.name}
+          </a>
         </li>
       ))
     }
   </ul>
-
   <p>
     In fact, if you come across a user called <em>pikesley</em> on any service, it’s
     probably me

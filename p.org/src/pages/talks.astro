@@ -1,0 +1,44 @@
+---
+import Base from "../layouts/Base.astro";
+import Talks from "../data/talks.json";
+
+function YTUrl(data) {
+  var s = "https://www.youtube.com/embed/";
+  s += data.id;
+
+  if (data.start) {
+    s += "?start=";
+    s += data.start;
+  }
+
+  return s;
+}
+
+function makeID(data) {
+  return `${data.title} ${data.event}`.toLowerCase().replaceAll(" ", "-")
+}
+---
+
+<Base title="Speaking in public">
+  <ul class="video-list">
+    {
+      Talks.map((talk) => (
+        <li id={makeID(talk)}>
+          <a class="internal" href=`#${makeID(talk)}`>
+            <h2>
+              {talk.title} <span class="subhead">(at {talk.event})</span>
+            </h2>
+          </a>
+          <div class="video-wrapper">
+            <iframe
+              src={YTUrl(talk)}
+              allowfullscreen
+              frameborder="0"
+              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            ></iframe>
+          </div>
+        </li>
+      ))
+    }
+  </ul>
+</Base>

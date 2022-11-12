@@ -1,0 +1,21 @@
+---
+import Base from "./Base.astro";
+
+export interface Props {
+  content: string;
+  title: string;
+  description: string;
+  GHslug: string;
+}
+
+const { content, title, description, GHslug } = Astro.props;
+---
+
+<Base title={title} titlePrefix="Projects" description={description}>
+  <div class="project">
+    <div class="project-readme" set:html={content} />
+    <span>
+      <a href={GHslug} class="github-link">{title} on Github</a>
+      </span>
+  </div>
+</Base>

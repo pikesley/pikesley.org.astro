@@ -1,13 +1,5 @@
 [
   {
-    "method": "Web",
-    "link": "http://sam.pikesley.org"
-  },
-  {
-    "method": "Github",
-    "link": "https://github.com/pikesley/"
-  },
-  {
     "method": "Email",
     "link": "mailto:sam.pikesley@gmail.com?subject=I%20have%20read%20your%20CV"
   }

@@ -1,0 +1,39 @@
+:root {
+  --colour-bg: rgb(18, 10, 3);
+  --colour-primary: rgb(236, 143, 13);
+  --colour-link: rgb(6, 173, 9);
+  --colour-link-hover: rgb(2, 72, 3);
+}
+
+body {
+  background-color: var(--colour-bg);
+  color: var(--colour-primary);
+  background-image: url("/grid.png");
+  opacity: 0.9;
+}
+
+a {
+  color: var(--colour-link);
+}
+
+a:hover {
+  color: var(--colour-link-hover);
+}
+
+a.github-link {
+  background-color: var(--colour-link);
+  color: var(--colour-bg);
+}
+
+a.github-link:hover {
+  background-color: var(--colour-link-hover);
+}
+
+/* footer {
+    background-color: var(--colour-primary);
+     opacity: 0.5;
+} */
+
+.employer{
+  border-top-color: var(--colour-primary);
+}

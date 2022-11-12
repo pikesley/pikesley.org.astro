@@ -1,0 +1,152 @@
+@import url("lists.css");
+
+:root {
+  --max-width: 60rem;
+  --grid-gap: 1em;
+  --buffer: 0.5rem;
+}
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+body {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas: "nav" "main" "footer";
+  grid-template-rows: auto auto 1fr;
+  min-height: 100vh;
+  overflow: auto;
+}
+
+nav,
+main {
+  margin-inline: auto;
+}
+
+nav,
+footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+footer {
+  grid-area: footer;
+  max-width: 100%;
+  align-self: end;
+  height: 3rem;
+
+  align-items: center;
+  justify-content: center;
+}
+
+nav {
+  grid-area: nav;
+  max-width: var(--max-width);
+  height: 4rem;
+}
+
+nav > a {
+  flex-grow: 1;
+  text-align: center;
+}
+
+main {
+  grid-area: main;
+  width: clamp(60%, var(--max-width), 90%);
+}
+
+footer > * {
+  text-align: center;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+/* headings */
+h1,
+h2 {
+  text-align: center;
+  margin: 0;
+}
+
+h2 {
+  margin-top: 1rem;
+}
+
+/* links */
+a.github-link {
+  float: right;
+  padding: 0.5em;
+  margin: 1rem;
+}
+
+/* responsive video */
+/* https://techstacker.com/how-to-responsive-youtube-videos/ */
+.video-wrapper {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  margin-bottom: 2rem;
+  margin-top: 1rem;
+}
+
+.video-wrapper::after {
+  display: block;
+  content: "";
+  padding-top: 56.25%;
+}
+
+.video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.video-list {
+  padding: 0;
+  margin: 0;
+}
+
+.project-readme p > img {
+  max-width: 100%;
+}
+
+.project-name {
+  height: calc(var(--panel-height) / 2);
+}
+
+.employer {
+  margin: 3px 0px;
+}
+
+.employer,
+footer {
+  border-top-width: 1px;
+  border-top-style: solid;
+}
+
+.project {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas: "readme" "link";
+  grid-template-rows: 1fr auto;
+}
+
+.project-readme {
+  grid-area: readme;
+}
+
+.github-link {
+  grid-area: link;
+  display: inline;
+}
+
+p {
+  text-align: justify;
+}

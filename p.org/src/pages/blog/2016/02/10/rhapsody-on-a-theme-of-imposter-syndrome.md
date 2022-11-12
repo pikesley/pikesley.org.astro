@@ -2,6 +2,7 @@
 publish: true
 layout: ../../../../../layouts/BlogPost.astro
 title: Rhapsody On A Theme Of Imposter Syndrome
+description: Trying to understand why I constantly convince myself that anything I can do must be easy
 ---
 
 I have written a [blogpost for work](http://labs.theodi.org/blog/2016/01/07/kicking-aruba-into-a-bin/) after I uncovered some new (to me) features in [Rspec](http://rspec.info/); these discoveries made a previously-intimidating realm seem suddenly utterly benign, and I hoped a write-up of my bumblings might be useful to others.
@@ -31,4 +32,4 @@ It occurs to me, as I draw to a close, that this may be little more than Variati
 ---
 
 1. <a id="1"></a> _The same thing sometimes happens when I'm using vi, come to think of it_
-2. <a id="2"></a> _It's amazing what your brain comes up with when you're woken up at 05:15 by hypoglycaemia and can't get back to sleep_
+1. <a id="2"></a> _It's amazing what your brain comes up with when you're woken up at 05:15 by hypoglycaemia and can't get back to sleep_

@@ -12,8 +12,8 @@ const publishedPosts = posts
   .reverse();
 ---
 
-<Base title="Blog">
-  <ul>
+<Base title="Blog" description="Words I have written">
+  <ul class="blog-list">
     {
       publishedPosts.map((post) => (
         <li>
