@@ -45,3 +45,16 @@ export function refineReadme(b64, proj) {
 
   return rendered;
 }
+
+// TODO replace local URLs with full GH URLs
+
+export function fullURLs(line, slug=null) {
+  const regex = /(\[.*\])\(((?!http).*)\)/
+
+  const matched = line.match(regex)
+  if (matched) {
+    line = line.replace(matched[2], `//github.com/some/repo/blob/main/${ matched[2]}`)
+  }
+
+  return line
+}

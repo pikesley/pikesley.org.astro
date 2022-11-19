@@ -2,7 +2,7 @@
 import ProjectPage from "../../layouts/ProjectPage.astro";
 import Projects from "../../data/projects.json";
 
-import { GHLink, refineReadme } from "../../tools";
+import {  refineReadme } from "../../tools";
 
 export function getStaticPaths() {
   return Projects.filter((proj) => proj.publish).map((proj) => {
