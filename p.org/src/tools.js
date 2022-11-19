@@ -31,22 +31,7 @@ export function fixImages(line, proj) {
   return line;
 }
 
-export function refineReadme(b64, proj) {
-  // https://docs.astro.build/en/guides/markdown-content/#fetching-remote-markdown
-  const markdown = atob(b64); // base64-decode it
-  const lines = markdown.split("\n"); // turn it into a array of lines
-  const startAt = lines.findIndex((line) => /^#[^#]/.test(line)); // find the first (and only) `h1`
-  const trimmed = lines.slice(startAt + 1); // cut off the `h1` and everything above it
-  const videoFixed = trimmed.map((line) => replaceVid(line)); // locate any `mp4` videos and wrap them in an `iframe`
-  const imageFixed = videoFixed.map((line) => fixImages(line, proj)); // provide full GH URL for an `img`
-
-  const reconstituted = imageFixed.join("\n"); // join it all back into a single string
-  const rendered = marked.parse(reconstituted); // parse the markdown into HTML
-
-  return rendered;
-}
-
-export function fullURLs(line, slug = null) {
+export function fullURLs(line, slug) {
   const words = line.split(" ");
   var fixedWords = [];
   const regex = /([a-zA-Z0-9]*\]\()((?!(http|\/\/)).*)\)/;
@@ -56,7 +41,7 @@ export function fullURLs(line, slug = null) {
     if (matched) {
       word = word.replace(
         matched[2],
-        `//github.com/some/repo/blob/main/${matched[2]}`
+        `//github.com/${slug}/blob/main/${matched[2]}`
       );
     }
 
@@ -64,4 +49,20 @@ export function fullURLs(line, slug = null) {
   });
 
   return fixedWords.join(" ");
+}
+
+export function refineReadme(b64, proj) {
+  // https://docs.astro.build/en/guides/markdown-content/#fetching-remote-markdown
+  const markdown = atob(b64); // base64-decode it
+  const lines = markdown.split("\n"); // turn it into a array of lines
+  const startAt = lines.findIndex((line) => /^#[^#]/.test(line)); // find the first (and only) `h1`
+  const trimmed = lines.slice(startAt + 1); // cut off the `h1` and everything above it
+  const videoFixed = trimmed.map((line) => replaceVid(line)); // locate any `mp4` videos and wrap them in an `iframe`
+  const imageFixed = videoFixed.map((line) => fixImages(line, proj)); // provide full GH URL for an `img`
+  const URLFixed = imageFixed.map((line) => fullURLs(line, proj.github));
+
+  const reconstituted = URLFixed.join("\n"); // join it all back into a single string
+  const rendered = marked.parse(reconstituted); // parse the markdown into HTML
+
+  return rendered;
 }

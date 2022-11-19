@@ -1,11 +1,11 @@
 import { fullURLs } from "../src/tools.js";
 
 test("it does nothing with a plain line", () => {
-  expect(fullURLs("just some text")).toEqual("just some text");
+  expect(fullURLs("just some text", "foo/bar")).toEqual("just some text");
 });
 
 test("it does nothing with already-full URLs", () => {
-  expect(fullURLs("foo [link](https://bar.com/baz) foo")).toEqual(
+  expect(fullURLs("foo [link](https://bar.com/baz) foo", "what/ever")).toEqual(
     "foo [link](https://bar.com/baz) foo"
   );
 });
@@ -30,8 +30,9 @@ test("it replaces multiple local URLs", () => {
 test("it handles a mixed-bag of content", () =>
   expect(
     fullURLs(
-      "foo [link](bar.com/baz) bar [link](https://bar.com/baz) baz [link](//baz.com/bar) abc"
+      "foo [link](bar.com/baz) bar [link](https://bar.com/baz) baz [link](//baz.com/bar) abc",
+      "some/thing"
     )
   ).toEqual(
-    "foo [link](//github.com/some/repo/blob/main/bar.com/baz) bar [link](https://bar.com/baz) baz [link](//baz.com/bar) abc"
+    "foo [link](//github.com/some/thing/blob/main/bar.com/baz) bar [link](https://bar.com/baz) baz [link](//baz.com/bar) abc"
   ));
