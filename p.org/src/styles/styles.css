@@ -31,3 +31,15 @@ li.panel {
   background-color: rgba(0, 0, 0, 0.2);
   padding: 2rem;
 }
+
+table, th, td {
+  table-layout: fixed;
+  border: 1px solid;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+th, td {
+padding:0.5em;;
+}
