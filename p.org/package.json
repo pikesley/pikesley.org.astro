@@ -16,7 +16,7 @@
     "@astrojs/rss": "^1.0.3",
     "@astrojs/sitemap": "^1.0.0",
     "@mdi/font": "^7.0.96",
-    "astro": "^1.6.0"
+    "astro": "^1.6.10"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.43.0",
