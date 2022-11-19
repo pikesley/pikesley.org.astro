@@ -46,15 +46,22 @@ export function refineReadme(b64, proj) {
   return rendered;
 }
 
-// TODO replace local URLs with full GH URLs
+export function fullURLs(line, slug = null) {
+  const words = line.split(" ");
+  var fixedWords = [];
+  const regex = /([a-zA-Z0-9]*\]\()((?!(http|\/\/)).*)\)/;
 
-export function fullURLs(line, slug=null) {
-  const regex = /(\[.*\])\(((?!http).*)\)/
+  words.forEach(function (word) {
+    var matched = word.match(regex);
+    if (matched) {
+      word = word.replace(
+        matched[2],
+        `//github.com/some/repo/blob/main/${matched[2]}`
+      );
+    }
 
-  const matched = line.match(regex)
-  if (matched) {
-    line = line.replace(matched[2], `//github.com/some/repo/blob/main/${ matched[2]}`)
-  }
+    fixedWords.push(word);
+  });
 
-  return line
+  return fixedWords.join(" ");
 }

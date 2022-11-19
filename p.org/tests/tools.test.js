@@ -15,3 +15,23 @@ test("it replaces a single local URL", () => {
     "[pin 21](//github.com/some/repo/blob/main/lib/hat.py#L23)"
   );
 });
+
+test("it replaces multiple local URLs", () => {
+  expect(
+    fullURLs(
+      "[pin 21](lib/hat.py#L23) foo [take lots of photos](camera/README.md)",
+      "some/repo"
+    )
+  ).toEqual(
+    "[pin 21](//github.com/some/repo/blob/main/lib/hat.py#L23) foo [take lots of photos](//github.com/some/repo/blob/main/camera/README.md)"
+  );
+});
+
+test("it handles a mixed-bag of content", () =>
+  expect(
+    fullURLs(
+      "foo [link](bar.com/baz) bar [link](https://bar.com/baz) baz [link](//baz.com/bar) abc"
+    )
+  ).toEqual(
+    "foo [link](//github.com/some/repo/blob/main/bar.com/baz) bar [link](https://bar.com/baz) baz [link](//baz.com/bar) abc"
+  ));
