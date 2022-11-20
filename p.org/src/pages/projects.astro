@@ -2,21 +2,14 @@
 import Base from "../layouts/Base.astro";
 import Projects from "../data/projects.json";
 
+import Project from "../components/Project.astro";
 ---
 
 <Base title="Projects" description="Things I have built">
   <ul class="projects-list">
     {
       Projects.filter((proj) => proj.publish).map((project) => (
-        <li class="panel">
-          <div class="project-name">
-            <a href={project.url}>{project.title}</a>
-          </div>
-
-          <div class="project-description">
-            <span set:html={project.description}></span>
-          </div>
-        </li>
+        <Project project={project} />
       ))
     }
   </ul>
