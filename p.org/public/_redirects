@@ -1,0 +1,3 @@
+# https://docs.netlify.com/routing/redirects/redirect-options/#domain-level-redirects
+# http and https need separate rules if you don’t force_ssl!
+https://pikesley.org/* https://sam.pikesley.org/:splat 301!
