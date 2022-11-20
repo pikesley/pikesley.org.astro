@@ -1,4 +1,5 @@
 import { marked } from "marked";
+import { Buffer } from "buffer";
 
 export function GHLink(proj) {
   return `//github.com/${proj.github}`;
@@ -51,7 +52,7 @@ export function fullURLs(line, slug) {
 
 export function refineReadme(b64, proj) {
   // https://docs.astro.build/en/guides/markdown-content/#fetching-remote-markdown
-  const markdown = atob(b64); // base64-decode it
+  const markdown = Buffer.from(b64, "base64").toString();
   const lines = markdown.split("\n"); // turn it into a array of lines
   const startAt = lines.findIndex((line) => /^#[^#]/.test(line)); // find the first (and only) `h1`
   const trimmed = lines.slice(startAt + 1); // cut off the `h1` and everything above it
