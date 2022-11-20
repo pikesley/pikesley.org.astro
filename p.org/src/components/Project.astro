@@ -1,0 +1,17 @@
+---
+export interface Props {
+  project: Object;
+}
+
+const { project } = Astro.props;
+---
+
+<li class="panel">
+  <div class="project-name">
+    <a href={project.url}>{project.title}</a>
+  </div>
+
+  <div class="project-description">
+    <span set:html={project.description} />
+  </div>
+</li>
