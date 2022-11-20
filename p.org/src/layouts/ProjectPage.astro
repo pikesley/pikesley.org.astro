@@ -9,13 +9,14 @@ export interface Props {
 }
 
 const { content, title, description, GHslug } = Astro.props;
+console.log(GHslug)
 ---
 
 <Base title={title} titlePrefix="Projects" description={description}>
   <div class="project">
     <div class="project-readme" set:html={content} />
     <span>
-      <a href={GHslug} class="github-link">{title} on Github</a>
+      <a href=`//github.com/${ GHslug }` class="github-link">{title} on Github</a>
       </span>
   </div>
 </Base>

@@ -2,7 +2,7 @@
 import ProjectPage from "../../layouts/ProjectPage.astro";
 import Projects from "../../data/projects.json";
 
-import {  refineReadme } from "../../tools";
+import { refineReadme } from "../../tools";
 
 export function getStaticPaths() {
   return Projects.filter((proj) => proj.publish).map((proj) => {
@@ -33,11 +33,12 @@ const readme = await fetch(
   });
 
 const rendered = refineReadme(readme.content, proj);
+
 ---
 
 <ProjectPage
   content={rendered}
   title={proj.title}
   description={proj.description}
-  GHslug={proj.ghlink}
+  GHslug={proj.github}
 />
