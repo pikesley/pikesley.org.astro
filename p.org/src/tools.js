@@ -34,15 +34,13 @@ export function fixImages(line, proj) {
 export function fullURLs(line, slug) {
   const words = line.split(" ");
   var fixedWords = [];
-  const regex = /([a-zA-Z0-9]*\]\()((?!(http|\/\/)).*)\)/;
+  const regex = /([a-zA-Z0-9`]*\]\()((?!(http|\/\/)).*)\)/;
 
   words.forEach(function (word) {
     var matched = word.match(regex);
     if (matched) {
-      word = word.replace(
-        matched[2],
-        `//github.com/${slug}/blob/main/${matched[2]}`
-      );
+      const replacement = `//github.com/${slug}/blob/main/${matched[2]}`;
+      word = word.replace(`(${matched[2]})`, `(${replacement})`);
     }
 
     fixedWords.push(word);

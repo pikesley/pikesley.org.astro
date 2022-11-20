@@ -36,3 +36,13 @@ test("it handles a mixed-bag of content", () =>
   ).toEqual(
     "foo [link](//github.com/some/thing/blob/main/bar.com/baz) bar [link](https://bar.com/baz) baz [link](//baz.com/bar) abc"
   ));
+
+test("it handles the same string in text and URL", () =>
+  expect(fullURLs("[foo/bar.js](foo/bar.js)", "this/that")).toEqual(
+    "[foo/bar.js](//github.com/this/that/blob/main/foo/bar.js)"
+  ));
+
+test("it handles a `", () =>
+  expect(fullURLs("[`some code`](foo.js)", "a/b")).toEqual(
+    "[`some code`](//github.com/a/b/blob/main/foo.js)"
+  ));

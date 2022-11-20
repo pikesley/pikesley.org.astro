@@ -9,7 +9,9 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "lint": "eslint \"src/**/*.{js,astro}\""
+    "lint": "eslint \"src/**/*.{js,astro}\"",
+    "test": "jest",
+    "publish": "npm run test && npm run build"
   },
   "dependencies": {
     "@astrojs/mdx": "^0.11.6",
@@ -22,6 +24,7 @@
     "@babel/plugin-transform-modules-commonjs": "^7.19.6",
     "@typescript-eslint/eslint-plugin": "^5.43.0",
     "@typescript-eslint/parser": "^5.43.0",
+    "babel-eslint": "^10.1.0",
     "eslint": "^8.27.0",
     "eslint-config-standard-with-typescript": "^23.0.0",
     "eslint-plugin-astro": "^0.21.0",
