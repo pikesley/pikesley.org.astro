@@ -21,7 +21,7 @@ const readme = await fetch(
   {
     headers: {
       Accept: "application/vnd.github+json",
-      Authorization: `Bearer ${process.env.GH_TOKEN}`,
+      Authorization: `Bearer ${import.meta.env.GH_TOKEN}`,
     },
   }
 )
