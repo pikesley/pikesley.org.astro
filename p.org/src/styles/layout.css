@@ -1,11 +1,5 @@
+@import url("vars.css");
 @import url("lists.css");
-
-:root {
-  --max-width: 60rem;
-  --grid-gap: 1em;
-  --buffer: 0.5rem;
-  --corner-radius: 1rem;
-}
 
 html,
 body {

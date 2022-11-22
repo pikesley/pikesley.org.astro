@@ -1,12 +1,7 @@
+@import url("vars.css");
 @import url("fonts.css");
 @import url("colours.css");
 @import url("layout.css");
-
-:root {
-  --me-links: 3;
-  --panel-height: 10rem;
-  --panel-width: 15rem;
-}
 
 /* * {
   box-sizing: border-box;
