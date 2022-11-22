@@ -4,6 +4,7 @@
   --max-width: 60rem;
   --grid-gap: 1em;
   --buffer: 0.5rem;
+  --corner-radius: 1rem;
 }
 
 html,
@@ -92,6 +93,7 @@ a.github-link {
   width: 100%;
   margin-bottom: 2rem;
   margin-top: 1rem;
+  border-radius: var(--corner-radius);
 }
 
 .video-wrapper::after {
@@ -106,6 +108,7 @@ a.github-link {
   left: 0;
   width: 100%;
   height: 100%;
+
 }
 
 .video-list {
@@ -149,4 +152,12 @@ footer {
 
 p {
   text-align: justify;
+}
+
+img {
+  border-radius: var(--corner-radius);
+}
+
+code {
+  white-space: pre-wrap;
 }
