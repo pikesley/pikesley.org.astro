@@ -1,9 +1,8 @@
 @import url("vars.css");
 
 body {
-  background-color: var(--colour-bg);
   color: var(--colour-primary);
-  background-image: url("/grid.png");
+  background: url("/grid.png"),radial-gradient(var(--colour-bg-light), var(--colour-bg));
   opacity: 0.9;
 }
 

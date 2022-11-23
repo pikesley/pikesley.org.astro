@@ -1,5 +1,12 @@
-@import url("https://fonts.googleapis.com/css?family=VT323&display=swap");
-@import url("https://fonts.googleapis.com/css?family=Ubuntu+Mono&display=swap");
+@import url("vars.css");
+@import url("https://fonts.googleapis.com/css?family=VT323");
+/* @import url("https://fonts.googleapis.com/css?family=Orbitron"); */
+/* @import url("https://fonts.googleapis.com/css?family=Press Start 2P"); */
+/* @import url("https://fonts.googleapis.com/css?family=Nixie One"); */
+/* @import url("https://fonts.googleapis.com/css?family=Silkscreen"); */
+/* @import url("https://fonts.googleapis.com/css?family=DotGothic16"); */
+
+@import url("https://fonts.googleapis.com/css?family=Ubuntu Mono");
 
 :root {
   --font-primary: "VT323";
@@ -9,6 +16,12 @@
 body {
   font-family: var(--font-primary);
   font-size: 1.5rem;
+  text-shadow: calc(-1 * var(--shadow-offset)) var(--shadow-offset) 0
+      var(--colour-shadow),
+    var(--shadow-offset) var(--shadow-offset) 0 var(--colour-shadow),
+    var(--shadow-offset) calc(-1 * var(--shadow-offset)) 0 var(--colour-shadow),
+    calc(-1 * var(--shadow-offset)) calc(-1 * var(--shadow-offset)) 0
+      var(--colour-shadow);
 }
 
 h1 {
@@ -37,9 +50,13 @@ code {
 }
 
 .me-icon {
-    font-size: 3em;
-  }
+  font-size: 3em;
+}
 
-  footer {
-    font-size: 2rem;
-  }
+footer {
+  font-size: 2rem;
+}
+
+.github-link {
+  text-shadow: none;
+}
