@@ -1,5 +1,6 @@
-import { fullURLs } from "../src/tools.js";
+import { fullURLs, fixImages } from "../src/tools.js";
 
+// fullUrls
 test("it does nothing with a plain line", () => {
   expect(fullURLs("just some text", "foo/bar")).toEqual("just some text");
 });
@@ -46,3 +47,16 @@ test("it handles a `", () =>
   expect(fullURLs("[`some code`](foo.js)", "a/b")).toEqual(
     "[`some code`](//github.com/a/b/blob/main/foo.js)"
   ));
+
+// fixImages
+test("it replaces a local image", () =>
+  expect(
+    fixImages("![running jlock](assets/images/jlock.png)", "pikesley/jlock")
+  ).toEqual(
+    "![running jlock](//github.com/pikesley/jlock/blob/main/assets/images/jlock.png?raw=true)"
+  ));
+
+test("it leaves alone a fully-URLed image", () =>
+  expect(
+    fixImages("![schematic](https://svgur.com/i/DQ.svg)", "pikesley/jlock")
+  ).toEqual("![schematic](https://svgur.com/i/DQ.svg)"));

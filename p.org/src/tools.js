@@ -22,11 +22,11 @@ export function replaceVid(line) {
   }
 }
 
-export function fixImages(line, proj) {
+export function fixImages(line, slug) {
   // match markdown images with local URLs
-  if (line.match(/^!\[[a-z]/)) {
+  if (line.match(/^!\[.*\]\(((?!(http|\/\/)).*)\)/)) {
     line = line
-      .replace("](", `](//github.com/${proj.github}/blob/main/`)
+      .replace("](", `](//github.com/${slug}/blob/main/`)
       .replace(/\)$/, "?raw=true)");
   }
   return line;
@@ -57,7 +57,7 @@ export function refineReadme(b64, proj) {
   const startAt = lines.findIndex((line) => /^#[^#]/.test(line)); // find the first (and only) `h1`
   const trimmed = lines.slice(startAt + 1); // cut off the `h1` and everything above it
   const videoFixed = trimmed.map((line) => replaceVid(line)); // locate any `mp4` videos and wrap them in an `iframe`
-  const imageFixed = videoFixed.map((line) => fixImages(line, proj)); // provide full GH URL for an `img`
+  const imageFixed = videoFixed.map((line) => fixImages(line, proj.github)); // provide full GH URL for an `img`
   const URLFixed = imageFixed.map((line) => fullURLs(line, proj.github));
 
   const reconstituted = URLFixed.join("\n"); // join it all back into a single string
