@@ -5,7 +5,8 @@ ul.li,
 ul.me-links > li,
 ul.employer-list > li,
 ul.video-list > li,
-ul.skills-list > li
+ul.skills-list > li,
+ul.blog-list > li
  {
   list-style-type: none;
 }
@@ -54,8 +55,16 @@ ul.me-links > li {
 
 /* lists within rendered content */
 .employer > div > ul > li,
-.project-readme > ul > li,
-.blog-list > li {
+.project-readme > ul > li{
   list-style-type: disc;
   margin-left: 2rem;
+}
+
+.blog-list {
+max-width: 80%;
+margin-inline: auto;
+}
+
+.blog-list > li > span {
+  font-size: 1.5rem;
 }
