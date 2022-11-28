@@ -14,7 +14,7 @@
     "publish": "npm run lint && npm run test && npm run build"
   },
   "dependencies": {
-    "@astrojs/mdx": "^0.11.6",
+    "@astrojs/mdx": "^0.12.0",
     "@astrojs/rss": "^1.0.3",
     "@astrojs/sitemap": "^1.0.0",
     "@mdi/font": "^7.0.96",
