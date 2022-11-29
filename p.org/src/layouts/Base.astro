@@ -17,6 +17,11 @@ var headTitle = title
 if (titlePrefix) {
   headTitle = titlePrefix + " :: " + headTitle
 }
+
+var pageTitle = SITE_TITLE
+if (description) {
+  pageTitle = description
+}
 ---
 
 <html lang="en">
@@ -29,7 +34,7 @@ if (titlePrefix) {
       <a href="/" class="title">
         <h1>{SITE_TITLE}</h1>
       </a>
-      {title && <h2 class="title">{title}</h2>}
+      {title && <h2 class="title">{pageTitle}</h2>}
       <slot />
     </main>
     <Footer />
