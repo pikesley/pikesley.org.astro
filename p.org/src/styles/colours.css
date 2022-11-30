@@ -2,7 +2,7 @@
 
 body {
   color: var(--colour-primary);
-  background: url("/grid.png"),radial-gradient(var(--colour-bg-light), var(--colour-bg));
+  background: url("/assets/backgrounds/grid.png"),radial-gradient(var(--colour-bg-light), var(--colour-bg));
   opacity: 0.9;
 }
 

@@ -9,7 +9,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
 const {
   title = SITE_TITLE,
   description = SITE_DESCRIPTION,
-  image = "/social.png",
+  image = "/assets/images/social.png",
 } = Astro.props;
 ---
 
@@ -17,6 +17,7 @@ const {
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <meta name="generator" content={Astro.generator} />
+
 <Favicon />
 
 <!-- Primary Meta Tags -->
@@ -38,4 +39,4 @@ const {
 <meta property="twitter:description" content={description} />
 <meta property="twitter:image" content={new URL(image, Astro.url)} />
 
-<link rel="me" href="https://mastodon.me.uk/@pikesley" />
+<link rel="me" href="https://mastodon.me.uk/@pikesley">
