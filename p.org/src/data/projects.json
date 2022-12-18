@@ -1,5 +1,13 @@
 [
   {
+    "name": "markodon",
+    "title": "Markodon",
+    "url": "/projects/markodon",
+    "github": "pikesley/markodon",
+    "description": "Force your old tweets through a Markov Chain like coffee through a civet",
+    "publish": true
+  },
+  {
     "name": "hatlights",
     "title": "Hatlights",
     "url": "/projects/hatlights",
