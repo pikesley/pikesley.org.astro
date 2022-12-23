@@ -219,9 +219,10 @@
     "name": "pokrovsky",
     "github": "pikesley/pokrovsky",
     "title": "Pokrovsky",
-    "url": "http://pokrovsky.herokuapp.com/",
+    "url": "projects/pokrovsky",
     "description": "Github History Vandalism as a Service",
-    "tags": ["ruby", "sinatra"]
+    "tags": ["ruby", "sinatra"],
+    "publish": true
   },
   {
     "name": "mutilator",
