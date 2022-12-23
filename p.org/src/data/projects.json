@@ -219,7 +219,7 @@
     "name": "pokrovsky",
     "github": "pikesley/pokrovsky",
     "title": "Pokrovsky",
-    "url": "projects/pokrovsky",
+    "url": "/projects/pokrovsky",
     "description": "Github History Vandalism as a Service",
     "tags": ["ruby", "sinatra"],
     "publish": true
