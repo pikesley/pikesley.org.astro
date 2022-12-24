@@ -5,7 +5,7 @@
     --max-width: 60rem;
     --grid-gap: 1rem;
     --buffer: 0.5rem;
-    --corner-radius: 1rem;
+    --corner-radius: 0.5rem;
     --shadow-offset: 1px;
     --colour-bg: rgb(18, 10, 3);
     --colour-bg-light: rgb(119, 79, 43);
