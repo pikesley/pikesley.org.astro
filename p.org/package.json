@@ -27,7 +27,7 @@
     "@typescript-eslint/parser": "^5.47.0",
     "astro-html-beautifier": "^1.0.4",
     "eslint": "^8.28.0",
-    "eslint-config-standard-with-typescript": "^23.0.0",
+    "eslint-config-standard-with-typescript": "^27.0.1",
     "eslint-plugin-astro": "^0.21.0",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-jsx-a11y": "^6.6.1",
