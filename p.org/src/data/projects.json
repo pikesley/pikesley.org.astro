@@ -25,6 +25,14 @@
     "publish": true
   },
   {
+    "name": "equestreum",
+    "title": "Equestruem",
+    "url": "/projects/equestreum",
+    "github": "hat-festival/equestreum",
+    "description": "I built a blockchain, just to find out how it works",
+    "publish": true
+  },
+  {
     "name": "light-emitting-desk",
     "title": "Light Emitting Desk",
     "url": "/projects/light-emitting-desk",
