@@ -56,8 +56,7 @@
     "url": "/projects/christmas-pixels",
     "github": "pikesley/christmas-pixels",
     "description": "Raspberry Pi-powered Christmas NeoPixels",
-    "tags": ["python", "neopixels", "raspberry-pi"],
-    "publish": true
+    "tags": ["python", "neopixels", "raspberry-pi"]
   },
   {
     "name": "wen",
@@ -65,8 +64,7 @@
     "url": "/projects/wen",
     "github": "pikesley/wen",
     "description": "Raspberry Pi-powered Neopixel clock, with just a pinch of Chef",
-    "tags": ["ruby", "d3", "neopixels", "raspberry-pi"],
-    "publish": true
+    "tags": ["ruby", "d3", "neopixels", "raspberry-pi"]
   },
   {
     "name": "hanoi-jane",
@@ -87,6 +85,15 @@
     "publish": true
   },
   {
+    "name": "hanoi-painter",
+    "title": "Hanoi Painter",
+    "url": "/projects/hanoi-painter",
+    "github": "pikesley/hanoi-painter",
+    "description": "Playing the Towers of Hanoi on the Github commit-history graph",
+    "tags": ["ruby"],
+    "publish": true
+  },
+  {
     "name": "skellington",
     "title": "Skellington",
     "url": "/projects/skellington",
@@ -100,8 +107,7 @@
     "url": "/projects/shedcam",
     "github": "pikesley/shedcam",
     "description": "Timelapse photography on a Raspberry Pi",
-    "tags": ["ruby", "raspberry-pi"],
-    "publish": true
+    "tags": ["ruby", "raspberry-pi"]
   },
   {
     "title": "D3 Experiments",
@@ -118,7 +124,7 @@
     "github": "rawfunkmaharishi/purdie",
     "description": "Dealing with horrid APIs so you don't have to",
     "tags": ["ruby"],
-    "publish": true
+    "publish": false
   },
   {
     "name": "funk-data",
@@ -147,22 +153,13 @@
     "publish": true
   },
   {
-    "name": "shedbot",
-    "title": "Shedbot",
-    "url": "/projects/shedbot",
-    "github": "pikesley/shedbot",
-    "description": "RESTful API for the Internet of Sheds",
-    "tags": ["ruby", "javascript", "raspberry-pi", "sinatra"],
-    "publish": true
-  },
-  {
     "name": "correctiondose",
     "title": "Correction Dose",
     "url": "/projects/correctiondose",
     "github": "pikesley/correctiondose",
     "description": "Rails app to track my health metrics",
     "tags": ["ruby", "rails"],
-    "publish": true
+    "publish": false
   },
   {
     "name": "badger",
@@ -179,7 +176,7 @@
     "github": "pikesley/wtfismygenericthing",
     "description": "Generate your own strategy generator",
     "tags": ["ruby", "sinatra"],
-    "publish": true
+    "publish": false
   },
   {
     "name": "raw-funk-maharishi",
@@ -188,15 +185,7 @@
     "description": "Blog about building a Jekyll site for my band",
     "tags": ["jekyll"]
   },
-  {
-    "name": "hanoi-painter",
-    "title": "Hanoi Painter",
-    "url": "/projects/hanoi-painter",
-    "github": "pikesley/hanoi-painter",
-    "description": "Playing the Towers of Hanoi on the Github commit-history graph",
-    "tags": ["ruby"],
-    "publish": true
-  },
+
   {
     "name": "ultron",
     "title": "Ultron",
@@ -204,7 +193,7 @@
     "github": "pikesley/ultron",
     "description": "Ruby bindings for the <a href='http://developer.marvel.com/docs'>Marvel Comics API</a>",
     "tags": ["ruby"],
-    "publish": true
+    "publish": false
   },
   {
     "name": "red5",
@@ -213,7 +202,7 @@
     "github": "pikesley/red5",
     "description": "Ruby bindings for the <a href='http://swapi.co'>Star Wars API</a>",
     "tags": ["ruby"],
-    "publish": true
+    "publish": false
   },
   {
     "name": "uncle-clive",
@@ -254,5 +243,14 @@
     "name": "istobyyoungwrong",
     "title": "Is Toby Young wrong?",
     "url": "http://istobyyoungwrong.info/"
+  },
+  {
+    "name": "shedbot",
+    "title": "Shedbot",
+    "url": "/projects/shedbot",
+    "github": "pikesley/shedbot",
+    "description": "RESTful API for the Internet of Sheds",
+    "tags": ["ruby", "javascript", "raspberry-pi", "sinatra"],
+    "publish": true
   }
 ]
