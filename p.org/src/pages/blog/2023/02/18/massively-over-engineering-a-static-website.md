@@ -24,7 +24,7 @@ Jekyll is powerful and can do some amazing things (I once tortured it into [gene
 
 Previously, things like gig pages were being [generated from YAML (embedded in frontmatter)](https://github.com/rawfunkmaharishi/website-2018/blob/master/gigs/_posts/2019-05-18-paper-vintage.md), and then the JSON-LD was being generated per-page and embedded, but this was always a little clunky and I knew I could build something better. It seemed to me that the JSON-LD ought to be a first-class concept, with everything else being an artefact derived from it. So I attempted to make this happen.
 
-I ran those old markdown-with-frontmatter-YAML documents through a hastily-written Python script to turn them into legit YAML, installed a YAML plugin in Astro, and got to work. And it was horrible. It turns out that attempting to deal with JSON-as-data in a JavaScript framework, and then trying to use that generated JSON to derive some static HTML (using JavaScript) quickly turns into an ouroboros of hate.
+I ran those old markdown-with-frontmatter-YAML documents through a hastily-written Python script to turn them into legit YAML, installed a YAML plugin in Astro, and got to work. And it was horrible. It turns out that attempting to create structured-JSON-from-YAML in a JavaScript framework, and then trying to use that generated JSON to derive some static HTML (using JavaScript) quickly turns into an ouroboros of hate.
 
 I took a step back around about here and had a look at the data I was working with, and the first thing I noticed was that there was a lot of redundancy. For example, the data for an individual gig might look like this:
 
@@ -38,7 +38,7 @@ venue_website:
   text: Luna
 ```
 
-but then all other gigs at the same venue would also have those same `location`, `latitude`, `longitude` and `venue_website` fields, which I'd been blindly cut-and-pasting for years. All this file really needs is the `time` (the date is encoded in the filename) and a pointer to the `location`, which we can define elsewhere.
+but then all other gigs at the same venue would also have those same `location`, `latitude`, `longitude` and `venue_website` fields, which I'd been blindly copy-pasting for years. All this file really needs is the `time` (the date is encoded in the filename) and a pointer to the `location`, which we can define elsewhere.
 
 So I got to work normalising, _by hand_ (and using a handful of shonky, definitely-not-idempotent scripts), dozens of YAML files, into this sort of form:
 
