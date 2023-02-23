@@ -155,3 +155,7 @@ img {
 code {
   white-space: pre-wrap;
 }
+
+pre {
+  padding: 1rem;
+}
