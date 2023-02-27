@@ -18,7 +18,7 @@
     "@astrojs/rss": "^1.0.3",
     "@astrojs/sitemap": "^1.0.0",
     "@mdi/font": "^7.1.96",
-    "astro": "^1.7.1"
+    "astro": "^2.0.16"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.19.1",
