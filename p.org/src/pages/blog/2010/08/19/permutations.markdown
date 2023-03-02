@@ -7,10 +7,10 @@
 #   display_name: sam
 #   login: sam
 #   email: sam@orgraphone.org
-#   url: http://orgraphone.org
+#   url: https://orgraphone.org
 # author_login: sam
 # author_email: sam@orgraphone.org
-# author_url: http://orgraphone.org
+# author_url: https://orgraphone.org
 # excerpt: "We want to work out all the possible arrangements of a list of <code>n</code>
 #   items. Why? We don't know. But we do know how to do it: seed with a list containing
 #   a single list containing a single item: <code>[['a']]</code>. Then step through

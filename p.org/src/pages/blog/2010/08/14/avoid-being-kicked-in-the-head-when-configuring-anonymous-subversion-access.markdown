@@ -7,10 +7,10 @@
 #   display_name: sam
 #   login: sam
 #   email: sam@orgraphone.org
-#   url: http://orgraphone.org
+#   url: https://orgraphone.org
 # author_login: sam
 # author_email: sam@orgraphone.org
-# author_url: http://orgraphone.org
+# author_url: https://orgraphone.org
 # excerpt: "Granting anonymous read-only access to a single repository in a site with
 #   multiple repos led to much swearing. But I've now cracked it. Here's how...\r\n\r\n<h2>What
 #   was I trying to do?</h2>\r\n\r\nI'm running SVN via Apache, authenticating with
@@ -59,7 +59,7 @@ sam = rw
 [some_other_repo:/]
 sam = rw
 </pre>
-<p>And indeed this behaved mostly as expected: I was able to anonymously check out a project from my <code>code</code> repo, but when I attempted to check in modifications I was asked to authenticate. WIN, right? Wrong. Because now <em>any</em> access to <code>some_other_repo</code> gave me a 403. WTF? I tried all kinds of variations on the vhost and svn_auth file, and cursed a lot, until I found the correct answer in the <a href="http://svnbook.red-bean.com/en/1.0/ch06s04.html">SVN book</a>. So let's now look at</p>
+<p>And indeed this behaved mostly as expected: I was able to anonymously check out a project from my <code>code</code> repo, but when I attempted to check in modifications I was asked to authenticate. WIN, right? Wrong. Because now <em>any</em> access to <code>some_other_repo</code> gave me a 403. WTF? I tried all kinds of variations on the vhost and svn_auth file, and cursed a lot, until I found the correct answer in the <a href="https://svnbook.red-bean.com/en/1.0/ch06s04.html">SVN book</a>. So let's now look at</p>
 <h3>The correct solution</h3>
 <p>It turns out that we don't actually need the <code>&lt;LimitExcept FOO BAR&gt;</code> block at all. The vhost now looks like this</p>
 <pre>
