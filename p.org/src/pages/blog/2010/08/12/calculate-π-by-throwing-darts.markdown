@@ -125,7 +125,7 @@ class MonteCarlo:
 		# then get a new value of pi
 		self.calculate_pi()
 
-	# explanation can be found here: http://icanhaz.com/montecarlo
+	# explanation can be found here: https://icanhaz.com/montecarlo
 	def calculate_pi(self):
 		self.pi = 4 * (float(self.hits) / float(self.throws))
 

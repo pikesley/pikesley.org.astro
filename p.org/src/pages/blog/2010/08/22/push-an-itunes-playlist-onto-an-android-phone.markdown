@@ -7,10 +7,10 @@
 #   display_name: sam
 #   login: sam
 #   email: sam@orgraphone.org
-#   url: http://orgraphone.org
+#   url: https://orgraphone.org
 # author_login: sam
 # author_email: sam@orgraphone.org
-# author_url: http://orgraphone.org
+# author_url: https://orgraphone.org
 # excerpt: "So here's the thing: iTunes will let you export a playlist as plain(ish)
 #   text. This script will:\r\n\r\n<ul>\r\n<li>Parse that playlist file</li>\r\n<li>Remove
 #   from it any tracks that are already on your Android <sup>*</sup></li>\r\n<li>Work

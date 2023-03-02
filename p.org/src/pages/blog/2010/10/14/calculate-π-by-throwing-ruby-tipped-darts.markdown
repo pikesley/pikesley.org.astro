@@ -45,7 +45,7 @@ class MonteCarlo
 # Calcluate pi
    def calcpi
 
-# explanation can be found here: http://icanhaz.com/montecarlo
+# explanation can be found here: https://icanhaz.com/montecarlo
       @pi = 4.0 * ((@hits.to_f) / (@count.to_f))
    end
 

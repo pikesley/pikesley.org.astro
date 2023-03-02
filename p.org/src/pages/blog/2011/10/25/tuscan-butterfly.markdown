@@ -7,12 +7,12 @@
 #   display_name: sam
 #   login: sam
 #   email: sam@orgraphone.org
-#   url: http://orgraphone.org
+#   url: https://orgraphone.org
 # author_login: sam
 # author_email: sam@orgraphone.org
-# author_url: http://orgraphone.org
+# author_url: https://orgraphone.org
 # wordpress_id: 270
-# wordpress_url: http://org.orgraphone.org/?p=270
+# wordpress_url: https://org.orgraphone.org/?p=270
 # date: '2011-10-25 21:20:42 +0100'
 # date_gmt: '2011-10-25 21:20:42 +0100'
 # tags:
