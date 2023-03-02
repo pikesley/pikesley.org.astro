@@ -7,12 +7,12 @@
 #   display_name: sam
 #   login: sam
 #   email: sam@orgraphone.org
-#   url: http://orgraphone.org
+#   url: https://orgraphone.org
 # author_login: sam
 # author_email: sam@orgraphone.org
-# author_url: http://orgraphone.org
+# author_url: https://orgraphone.org
 # excerpt: "This one goes out on a whole new axis of pointlessness, but here it is:\r\n\r\nI
-#   wrote a <a href=\"http://toys.param3.com/sinclair/\">PHP version of this</a> a long
+#   wrote a <a href=\"https://toys.param3.com/sinclair/\">PHP version of this</a> a long
 #   time ago, but it was kind of limited (and PHP sucks). So I've now rewritten it in
 #   python to be much more flexible. So what can it do?\r\n\r\n<h2>Console version</h2>\r\n\r\n<code>./console_spectrum.py
 #   1982</code> will generate this:\r\n\r\n<pre>\r\n                                                                        \r\n
@@ -850,6 +850,6 @@
 <h2>So how does it work?</h2>
 <p>I managed to grub up the Spectrum character set as a list of bytes a long time ago from some kind soul on <code>comp.sys.sinclair</code>. The lines look like this:</p>
 <pre>a: [0, 0, 56, 4, 60, 68, 60, 0]</pre>
-<p>So we take the input string, then convert each of those numbers for each character into a byte that looks like this <code>00111000</code>, and join them altogether so we end up with 8 long strings of 0s and 1s. Then we compress each of these strings using <a href="http://en.wikipedia.org/wiki/Run_length_encoding">run length encoding</a>, and the compressed strings lend themselves very well to rendering as HTML table cells via the <code>colspan</code> property. We need to add a row of single-span cells along the top or the spacing gets knackered. And that's about it. It generates a phenomenal amount of HTML, but never mind...</p>
+<p>So we take the input string, then convert each of those numbers for each character into a byte that looks like this <code>00111000</code>, and join them altogether so we end up with 8 long strings of 0s and 1s. Then we compress each of these strings using <a href="https://en.wikipedia.org/wiki/Run_length_encoding">run length encoding</a>, and the compressed strings lend themselves very well to rendering as HTML table cells via the <code>colspan</code> property. We need to add a row of single-span cells along the top or the spacing gets knackered. And that's about it. It generates a phenomenal amount of HTML, but never mind...</p>
 <p>I will put together a demo page similar to the PHP one when I can work out the vagaries of mod_python importing.</p>
-<p>The code is available on <a title="Github" href="https://github.com/pikesley/sinclair-font">Github</a>, although I've now reimplemented this <a href='http://uncleclive.herokuapp.com/'>as a Service</a>.</p>
+<p>The code is available on <a title="Github" href="https://github.com/pikesley/sinclair-font">Github</a>, although I've now reimplemented this <a href='https://uncleclive.herokuapp.com/'>as a Service</a>.</p>
