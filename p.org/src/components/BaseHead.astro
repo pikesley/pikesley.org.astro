@@ -1,5 +1,6 @@
 ---
 import Favicon from "./Favicon.astro";
+import Libs from "./Libs.astro";
 
 import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
 
@@ -36,5 +37,7 @@ const {
 <meta property="twitter:description" content={description} />
 <meta property="twitter:image" content={new URL(image, Astro.url)} />
 
-<link rel="me" href="https://mastodon.me.uk/@pikesley">
-<link rel="me" href="https://mastodon.me.uk/@pikesley_ebooks">
+<link rel="me" href="https://mastodon.me.uk/@pikesley" />
+<link rel="me" href="https://mastodon.me.uk/@pikesley_ebooks" />
+
+<Libs/>
