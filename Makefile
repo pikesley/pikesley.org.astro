@@ -3,6 +3,7 @@ ID = pikesley/${PROJECT}
 
 build:
 	docker build \
+		--build-arg PROJECT=${PROJECT} \
 		--tag ${ID} .
 
 run:
