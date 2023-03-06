@@ -14,7 +14,7 @@ Building on the work of [Jan Wildeboer](https://jan.wildeboer.net/2023/02/Jekyll
 
 I've built it as an [Astro component](https://github.com/pikesley/pikesley.org.astro/blob/main/p.org/src/components/MastodonComments.astro), which expects to be passed an object called `mastodon` which should look like this:
 
-```javascript
+```json
 {
   "host": "mastodon.me.uk",
   "user": "pikesley",
