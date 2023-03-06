@@ -1,14 +1,16 @@
 ---
 import Base from "./Base.astro";
+import MastodonComments from "../components/MastodonComments.astro";
 
 export interface Props {
   content: string;
   title: string;
   description: string;
   GHslug: string;
+  mastodon?: string;
 }
 
-const { content, title, description, GHslug } = Astro.props;
+const { content, title, description, GHslug, mastodon } = Astro.props;
 ---
 
 <Base title={title} titlePrefix="Projects" description={title}>
@@ -18,4 +20,5 @@ const { content, title, description, GHslug } = Astro.props;
       <a href=`//github.com/${ GHslug }` class="github-link">{title} on Github</a>
       </span>
   </div>
+  {mastodon && <MastodonComments mastodon={mastodon}>}
 </Base>

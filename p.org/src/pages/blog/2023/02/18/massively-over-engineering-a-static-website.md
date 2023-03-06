@@ -4,6 +4,10 @@ layout: ../../../../../layouts/BlogPost.astro
 title: Massively Over-Engineering A Static Website
 description: We may discover, as we so often do, that my primary purpose is to serve as a warning to others
 image: /assets/images/linked-data.jpg
+
+mastodon:
+  toot: "109916350521031860"
+
 ---
 
 This story begins in 2014, when I first became aware of the joy of static-site generators. I'd been bumbling around with WordPress, trying to build a website for my band, and then, through working with [James](https://floppy.org.uk/) on the first version of the website for Open Addresses (a doomed, cursed project, unfortunately), I was exposed to the wonders of [Jekyll](https://jekyllrb.com/).

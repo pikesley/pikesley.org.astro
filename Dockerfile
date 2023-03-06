@@ -1,6 +1,6 @@
 FROM node
 
-ENV PROJECT ssg
+ARG PROJECT
 WORKDIR /opt/${PROJECT}/p.org
 
 COPY ./ /opt/${PROJECT}

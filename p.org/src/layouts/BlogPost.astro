@@ -1,9 +1,15 @@
 ---
 import Base from "./Base.astro";
+import MastodonComments from "../components/MastodonComments.astro";
 
 const { frontmatter } = Astro.props;
 ---
 
-<Base title={frontmatter.title} description={frontmatter.title} image={frontmatter.image}>
+<Base
+  title={frontmatter.title}
+  description={frontmatter.title}
+  image={frontmatter.image}
+>
   <slot />
+  {frontmatter.mastodon && <MastodonComments mastodon={frontmatter.mastodon} />}
 </Base>
