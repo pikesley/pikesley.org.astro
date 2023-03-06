@@ -12,7 +12,7 @@ Building on the work of [Jan Wildeboer](https://jan.wildeboer.net/2023/02/Jekyll
 
 ### How does this work then?
 
-I've built it as an [Astro component](https://github.com/pikesley/pikesley.org.astro/blob/main/p.org/src/components/MastodonComments.astro), which expects to be passed an Object called `mastodon` which should look like this:
+I've built it as an [Astro component](https://github.com/pikesley/pikesley.org.astro/blob/main/p.org/src/components/MastodonComments.astro), which expects to be passed an object called `mastodon` which should look like this:
 
 ```javascript
 {
@@ -45,7 +45,7 @@ The way this site is structured, a blogpost uses the `BlogPost.astro` layout. Wi
   {frontmatter.mastodon && <MastodonComments mastodon={frontmatter.mastodon} />}
 ```
 
-This site also has [`project`](/projects) pages - a project is basically a blogpost generated from a Github README. These are driven from [some JSON](https://github.com/pikesley/pikesley.org.astro/blob/main/p.org/src/data/projects.json) which feeds a [dynamic Astro page](https://github.com/pikesley/pikesley.org.astro/blob/main/p.org/src/pages/projects/%5Bproject%5D.astro), which is rendered through the [ProjectPage](https://github.com/pikesley/pikesley.org.astro/blob/main/p.org/src/layouts/ProjectPage.astro) layout and similarly, if there's a `mastodon` object in the object, we call the component:
+This site also has [`project`](/projects) pages - a project is basically a blogpost generated from a Github README. These are driven from [some JSON](https://github.com/pikesley/pikesley.org.astro/blob/main/p.org/src/data/projects.json) which feeds a [dynamic Astro page](https://github.com/pikesley/pikesley.org.astro/blob/main/p.org/src/pages/projects/%5Bproject%5D.astro), which is rendered through the [ProjectPage](https://github.com/pikesley/pikesley.org.astro/blob/main/p.org/src/layouts/ProjectPage.astro) layout and similarly, if there's a `mastodon` object in the enclosing object, we call the component:
 
 ```
   {mastodon && <MastodonComments mastodon={mastodon}>}
