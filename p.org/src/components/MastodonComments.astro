@@ -98,7 +98,6 @@ const indent = "1rem";
   }
 
   function fixTimestamp(timestamp) {
-    // TODO: remove year if current year etc
     dayjs.extend(dayjs_plugin_advancedFormat); // to get ordinal days
 
     var format = "MMMM Do [at] HH:MM";
@@ -188,11 +187,21 @@ const indent = "1rem";
     renderToots(toots, toot.id, depth + 1);
   }
 
+  function clearDiv(div) {
+    while (div.firstChild) {
+      div.removeChild(div.firstChild);
+    }
+  }
+
   function loadComments() {
     if (commentsLoaded) return;
 
-    document.getElementById("mastodon-comments").innerHTML =
-      "Loading comments from the Fediverse...";
+    const commentsDiv = document.getElementById("mastodon-comments");
+
+    var loadingString = document.createElement("p")
+    loadingString.append("Loading comments from Mastodon...")
+    clearDiv(commentsDiv)
+    commentsDiv.append(loadingString)
 
     fetch("https://" + host + "/api/v1/statuses/" + id + "/context")
       .then(function (response) {
@@ -204,11 +213,13 @@ const indent = "1rem";
           Array.isArray(data["descendants"]) &&
           data["descendants"].length > 0
         ) {
-          document.getElementById("mastodon-comments").innerHTML = "";
+          clearDiv(commentsDiv)
           renderToots(data["descendants"], id, 0);
         } else {
-          document.getElementById("mastodon-comments").innerHTML =
-            "<p>No comments found</p>";
+          var noComments = document.createElement("p");
+          noComments.append("No comments yet");
+          clearDiv(commentsDiv)
+          document.getElementById("mastodon-comments").append(noComments);
         }
 
         commentsLoaded = true;
