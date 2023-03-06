@@ -2,17 +2,17 @@
 const { mastodon } = Astro.props;
 
 if (!("host" in mastodon)) {
-  mastodon.host = "mastodon.me.uk"
+  mastodon.host = "mastodon.me.uk";
 }
 
 if (!("user" in mastodon)) {
-  mastodon.user = "pikesley"
+  mastodon.user = "pikesley";
 }
 
 const tootUrl =
   "https://" + mastodon.host + "/@" + mastodon.user + "/" + mastodon.toot;
 
-  const indent = "1rem"
+const indent = "1rem";
 ---
 
 <hr />
@@ -61,11 +61,11 @@ const tootUrl =
     tootsToRender.forEach((toot) => renderToot(toots, toot, depth));
   }
 
-  function makeLink(url, content, klass=null) {
+  function makeLink(url, content, klass = null) {
     var link = document.createElement("a");
     link.setAttribute("rel", "nofollow");
     if (klass) {
-      link.setAttribute("class", klass)
+      link.setAttribute("class", klass);
     }
     link.setAttribute("href", url);
     link.append(content);
@@ -99,14 +99,14 @@ const tootUrl =
 
   function fixTimestamp(timestamp) {
     // TODO: remove year if current year etc
-    dayjs.extend(dayjs_plugin_advancedFormat) // to get ordinal days
+    dayjs.extend(dayjs_plugin_advancedFormat); // to get ordinal days
 
-    var format = 'MMMM Do [at] HH:MM'
+    var format = "MMMM Do [at] HH:MM";
 
-    if(new Date().getFullYear() != new Date(timestamp).getFullYear()) {
-      format = 'MMMM Do, YYYY [at] HH:MM'
+    if (new Date().getFullYear() != new Date(timestamp).getFullYear()) {
+      format = "MMMM Do, YYYY [at] HH:MM";
     }
-    return dayjs(timestamp).format(format)
+    return dayjs(timestamp).format(format);
   }
 
   function renderToot(toots, toot, depth) {
@@ -116,27 +116,35 @@ const tootUrl =
     var avatar = document.createElement("img");
     avatar.setAttribute("src", escapeHtml(toot.account.avatar_static));
     var avatarLink = makeLink(toot.account.url, avatar);
-    var avatarDiv = document.createElement("div")
-    avatarDiv.setAttribute("class", "avatar")
-    avatarDiv.append(avatarLink)
+    var avatarDiv = document.createElement("div");
+    avatarDiv.setAttribute("class", "avatar");
+    avatarDiv.append(avatarLink);
 
     // names
-    var displaynameLink = makeLink(toot.account.url, toot.account.display_name, "display-name");
-    var usernameLink = makeLink(toot.account.url, userAccount(toot.account), "username");
-    var namesDiv = document.createElement("div")
-    namesDiv.setAttribute("class", "mastodon-names")
-    namesDiv.append(displaynameLink)
-    namesDiv.append(usernameLink)
+    var displaynameLink = makeLink(
+      toot.account.url,
+      toot.account.display_name,
+      "display-name"
+    );
+    var usernameLink = makeLink(
+      toot.account.url,
+      userAccount(toot.account),
+      "username"
+    );
+    var namesDiv = document.createElement("div");
+    namesDiv.setAttribute("class", "mastodon-names");
+    namesDiv.append(displaynameLink);
+    namesDiv.append(usernameLink);
 
     // timestamp
     var timestamp = makeLink(toot.url, fixTimestamp(toot.created_at));
-    var timestampDiv = document.createElement("time")
-    timestampDiv.setAttribute("class", "toot-timestamp")
-    timestampDiv.append(timestamp)
+    var timestampDiv = document.createElement("time");
+    timestampDiv.setAttribute("class", "toot-timestamp");
+    timestampDiv.append(timestamp);
 
     // content
     var contentDiv = document.createElement("div");
-    contentDiv.setAttribute("class", "comment-content")
+    contentDiv.setAttribute("class", "comment-content");
     contentDiv.innerHTML = fixEmojis(toot.content, toot.emojis);
 
     // stats
@@ -152,21 +160,24 @@ const tootUrl =
     boostCount.append(boost);
     boostCount.append(toot.reblogs_count);
 
-    var statsDiv = document.createElement("div")
-    statsDiv.setAttribute("class", "toot-stats")
-    statsDiv.append(favCount)
-    statsDiv.append(boostCount)
+    var statsDiv = document.createElement("div");
+    statsDiv.setAttribute("class", "toot-stats");
+    statsDiv.append(favCount);
+    statsDiv.append(boostCount);
 
     // assemble it all
     var mastodonComment = document.createElement("div");
     mastodonComment.setAttribute("class", "mastodon-comment");
-    mastodonComment.setAttribute("style", "margin-left: calc(" + indent + " * " + depth + ")");
+    mastodonComment.setAttribute(
+      "style",
+      "margin-left: calc(" + indent + " * " + depth + ")"
+    );
 
-    mastodonComment.append(avatarDiv)
-    mastodonComment.append(namesDiv)
-    mastodonComment.append(timestampDiv)
-    mastodonComment.append(contentDiv)
-    mastodonComment.append(statsDiv)
+    mastodonComment.append(avatarDiv);
+    mastodonComment.append(namesDiv);
+    mastodonComment.append(timestampDiv);
+    mastodonComment.append(contentDiv);
+    mastodonComment.append(statsDiv);
 
     document
       .getElementById("mastodon-comments")
@@ -241,7 +252,7 @@ const tootUrl =
     margin-bottom: 0.5rem;
   }
 
-  div.mastodon-comment img{
+  div.mastodon-comment img {
     width: 20dvw;
   }
 
@@ -265,7 +276,9 @@ const tootUrl =
     grid-area: timestamp;
   }
 
-  div.mastodon-comment div.mastodon-names, time.toot-timestamp, div.toot-stats {
+  div.mastodon-comment div.mastodon-names,
+  time.toot-timestamp,
+  div.toot-stats {
     font-size: 1.2rem;
   }
 
@@ -288,8 +301,13 @@ const tootUrl =
   hr {
     border: 0;
     height: 1px;
-    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), var(--colour-primary), rgba(0, 0, 0, 0));
-}
+    background-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0),
+      var(--colour-primary),
+      rgba(0, 0, 0, 0)
+    );
+  }
 
   @media only screen and (min-width: 600px) {
     div.mastodon-comment {
@@ -297,7 +315,7 @@ const tootUrl =
     }
 
     div.mastodon-comment img {
-      width: 10dvw
+      width: 10dvw;
     }
   }
 </style>
