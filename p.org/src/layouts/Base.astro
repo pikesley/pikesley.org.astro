@@ -46,6 +46,7 @@ if (description) {
 
 @import url("https://fonts.googleapis.com/css?family=VT323");
 @import url("https://fonts.googleapis.com/css?family=Ubuntu Mono");
+
 :root {
     --me-links: 3;
     --panel-height: 10rem;
@@ -61,7 +62,11 @@ if (description) {
     --colour-link: rgb(6, 173, 9);
     --colour-link-hover: rgb(2, 72, 3);
     --colour-shadow: rgb(0, 0, 0);
-  }
+
+  --font-primary: "VT323";
+  --font-mono: "Ubuntu Mono";
+}
+
 
   footer > ul,
 ul.li,
@@ -357,12 +362,6 @@ a.github-link:hover {
   border-top-color: var(--colour-primary);
 }
 
-
-
-:root {
-  --font-primary: "VT323";
-  --font-mono: "Ubuntu Mono";
-}
 
 body {
   font-family: var(--font-primary);
