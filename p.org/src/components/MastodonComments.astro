@@ -31,8 +31,9 @@ const indent = "1rem";
 <div id="mastodon-comments"></div>
 
 <script define:vars={{ mastodon: mastodon, indent: indent }}>
-  var host = mastodon.host;
-  var id = mastodon.toot;
+  const host = mastodon.host;
+  const id = mastodon.toot;
+  var commentsLoaded = false;
 
   function escapeHtml(unsafe) {
     return unsafe
@@ -43,32 +44,22 @@ const indent = "1rem";
       .replace(/'/g, "&#039;");
   }
 
-  var commentsLoaded = false;
-
   function userAccount(account) {
     var result = `@${account.acct}`;
     if (account.acct.indexOf("@") === -1) {
-      var domain = new URL(account.url);
+      const domain = new URL(account.url);
       result += `@${domain.hostname}`;
     }
     return result;
   }
 
-  function renderToots(toots, in_reply_to, depth) {
-    var tootsToRender = toots.filter(
-      (toot) => toot.in_reply_to_id === in_reply_to
-    );
-    tootsToRender.forEach((toot) => renderToot(toots, toot, depth));
-  }
-
-  function makeLink(url, content, klass = null) {
-    var link = document.createElement("a");
+  function makeLink(url, klass = null) {
+    const link = document.createElement("a");
     link.setAttribute("rel", "nofollow");
     if (klass) {
       link.setAttribute("class", klass);
     }
     link.setAttribute("href", url);
-    link.append(content);
     return link;
   }
 
@@ -77,18 +68,18 @@ const indent = "1rem";
     const fixed = [];
 
     text.split(" ").forEach(function (word) {
-      var match = word.match(emojiMatcher);
+      const match = word.match(emojiMatcher);
       if (match) {
-        var ourEmoji = emojis.filter(
+        const ourEmoji = emojis.filter(
           (emoji) => emoji["shortcode"] == match[1]
         )[0];
-        var image = '<img src="';
-        image += ourEmoji.static_url;
-        image += '" class="emoji" alt="';
-        image += ourEmoji.shortcode;
-        image += '">';
 
-        fixed.push(image);
+        const image = document.createElement("img");
+        image.setAttribute("class", "emoji");
+        image.setAttribute("alt", ourEmoji.shortcode);
+        image.setAttribute("src", ourEmoji.static_url);
+
+        fixed.push(image.outerHTML);
       } else {
         fixed.push(word);
       }
@@ -98,7 +89,6 @@ const indent = "1rem";
   }
 
   function fixTimestamp(timestamp) {
-    // TODO: remove year if current year etc
     dayjs.extend(dayjs_plugin_advancedFormat); // to get ordinal days
 
     var format = "MMMM Do [at] HH:MM";
@@ -109,35 +99,46 @@ const indent = "1rem";
     return dayjs(timestamp).format(format);
   }
 
-  function renderToot(toots, toot, depth) {
-    toot.account.display_name = escapeHtml(toot.account.display_name);
+  function clearDiv(someDiv) {
+    while (someDiv.firstChild) {
+      someDiv.removeChild(someDiv.firstChild);
+    }
+  }
 
+  function renderToots(toots, in_reply_to, depth) {
+    const tootsToRender = toots.filter(
+      (toot) => toot.in_reply_to_id === in_reply_to
+    );
+    tootsToRender.forEach((toot) => renderToot(toots, toot, depth));
+  }
+
+  function renderToot(toots, toot, depth) {
     // avatar
     var avatar = document.createElement("img");
     avatar.setAttribute("src", escapeHtml(toot.account.avatar_static));
-    var avatarLink = makeLink(toot.account.url, avatar);
+    var avatarLink = makeLink(toot.account.url);
+    avatarLink.append(avatar);
     var avatarDiv = document.createElement("div");
     avatarDiv.setAttribute("class", "avatar");
     avatarDiv.append(avatarLink);
 
     // names
-    var displaynameLink = makeLink(
-      toot.account.url,
-      toot.account.display_name,
-      "display-name"
+    var displaynameLink = makeLink(toot.account.url, "display-name");
+    displaynameLink.innerHTML = fixEmojis(
+      escapeHtml(toot.account.display_name),
+      toot.account.emojis
     );
-    var usernameLink = makeLink(
-      toot.account.url,
-      userAccount(toot.account),
-      "username"
-    );
+
+    var usernameLink = makeLink(toot.account.url, "username");
+    usernameLink.append(userAccount(toot.account));
     var namesDiv = document.createElement("div");
     namesDiv.setAttribute("class", "mastodon-names");
     namesDiv.append(displaynameLink);
     namesDiv.append(usernameLink);
 
     // timestamp
-    var timestamp = makeLink(toot.url, fixTimestamp(toot.created_at));
+    var timestamp = makeLink(toot.url);
+    timestamp.append(fixTimestamp(toot.created_at));
     var timestampDiv = document.createElement("time");
     timestampDiv.setAttribute("class", "toot-timestamp");
     timestampDiv.append(timestamp);
@@ -145,7 +146,7 @@ const indent = "1rem";
     // content
     var contentDiv = document.createElement("div");
     contentDiv.setAttribute("class", "comment-content");
-    contentDiv.innerHTML = fixEmojis(toot.content, toot.emojis);
+    contentDiv.innerHTML = toot.content;
 
     // stats
     var star = document.createElement("span");
@@ -191,8 +192,12 @@ const indent = "1rem";
   function loadComments() {
     if (commentsLoaded) return;
 
-    document.getElementById("mastodon-comments").innerHTML =
-      "Loading comments from the Fediverse...";
+    const commentsDiv = document.getElementById("mastodon-comments");
+
+    clearDiv(commentsDiv);
+    const loadingComments = document.createElement("p");
+    loadingComments.append("Loading comments from Mastodon");
+    commentsDiv.append(loadingComments);
 
     fetch("https://" + host + "/api/v1/statuses/" + id + "/context")
       .then(function (response) {
@@ -204,11 +209,13 @@ const indent = "1rem";
           Array.isArray(data["descendants"]) &&
           data["descendants"].length > 0
         ) {
-          document.getElementById("mastodon-comments").innerHTML = "";
+          clearDiv(commentsDiv);
           renderToots(data["descendants"], id, 0);
         } else {
-          document.getElementById("mastodon-comments").innerHTML =
-            "<p>No comments found</p>";
+          clearDiv(commentsDiv);
+          const noCommentsYet = document.createElement("p");
+          noCommentsYet.append("No comments yet");
+          commentsDiv.append(noCommentsYet);
         }
 
         commentsLoaded = true;
@@ -216,11 +223,11 @@ const indent = "1rem";
   }
 
   function respondToVisibility(element, callback) {
-    var options = {
+    const options = {
       root: null,
     };
 
-    var observer = new IntersectionObserver((entries, observer) => {
+    const observer = new IntersectionObserver((entries, observer) => {
       entries.forEach((entry) => {
         if (entry.intersectionRatio > 0) {
           callback();
@@ -231,7 +238,7 @@ const indent = "1rem";
     observer.observe(element);
   }
 
-  var comments = document.getElementById("mastodon-comments");
+  const comments = document.getElementById("mastodon-comments");
   respondToVisibility(comments, loadComments);
 </script>
 
@@ -245,7 +252,7 @@ const indent = "1rem";
       "toot-stats toot-stats";
     grid-template-columns: 1fr 3fr;
 
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(0, 0, 0, 0.5);
     padding: 1rem;
     gap: 0.5rem;
     margin-top: 0.5rem;
@@ -254,6 +261,11 @@ const indent = "1rem";
 
   div.mastodon-comment img {
     width: 20dvw;
+  }
+
+  div.mastodon-comment img.emoji {
+    height: 1.2rem;
+    width: 1.2rem;
   }
 
   div.mastodon-comment div.avatar {
