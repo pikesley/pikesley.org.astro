@@ -8,7 +8,7 @@ mastodon:
   toot: "109978502627713538"
 ---
 
-Building on the work of [Jan Wildeboer](https://jan.wildeboer.net/2023/02/Jekyll-Mastodon-Comments/) ([@jwildeboer](https://social.wildeboer.net/@jwildeboer)) and [Daniel Pecos Martínez](https://danielpecos.com/2022/12/25/mastodon-as-comment-system-for-your-static-blog/)([@dpecos](https://fosstodon.org/@dpecos)) (and others before them, I'm sure), I have implemented Mastodon-powered comments for [Astro](https://astro.build/).
+Building on the work of [Jan Wildeboer](https://jan.wildeboer.net/2023/02/Jekyll-Mastodon-Comments/) ([@jwildeboer](https://social.wildeboer.net/@jwildeboer)) and [Daniel Pecos Martínez](https://danielpecos.com/2022/12/25/mastodon-as-comment-system-for-your-static-blog/) ([@dpecos](https://fosstodon.org/@dpecos)) (and others before them, I'm sure), I have implemented Mastodon-powered comments for [Astro](https://astro.build/).
 
 ### How does this work then?
 
