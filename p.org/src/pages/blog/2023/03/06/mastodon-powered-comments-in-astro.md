@@ -57,9 +57,7 @@ I think this will *mostly* work as a drop-in component, modulo changing the defa
 
 ### Isolating the CSS
 
-The Astro way to build components is to put the CSS in a `<style>` tag right in the component, and then Astro namespaces everything at build-time so nothing leaks. I haven't actually done it very much this way on this site because it was the first site I built with Astro and I was coming from [Jekyll](https://jekyllrb.com/) (which expects one Sass stylesheet for the whole site) and I found the concept a little confusing - I have subsequently built [my band's new website](https://sam.pikesley.org/blog/2023/02/18/massively-over-engineering-a-static-website/) using much more idiomatic Astro and it's actually really nice once you get your head into that way of thinking.
-
-Anyway, that doesn't really help us here because those compenent styles only apply to the static content, where Astro is able to apply a `class="41fb17f6"` or whatever to keep everything scoped. There's no way for it to style client-side dynamic content using this approach (is there? maybe I've missed something), so the JavaScript sticks each Mastodon comment into a `<div class="mastodon-comment">` and then the styles are all like
+The Astro way to build components is to put the CSS in a `<style>` tag right in the component, and then Astro namespaces everything at build-time so nothing leaks. That doesn't really work for us here, though, because those compenent styles only apply to the static content, where Astro is able to apply a `class="41fb17f6"` or whatever to keep everything scoped. There's no way for it to style client-side dynamic content using this approach (is there? maybe I've missed something), so each Mastodon comment goes into a `<div class="mastodon-comment">` and then the styles are all like
 
 ```css
   div.mastodon-comment img {
@@ -67,6 +65,6 @@ Anyway, that doesn't really help us here because those compenent styles only app
   }
 ```
 
-inside a `<style is:global>` tag, which basically makes them into site-wide CSS.
+inside a `<style is:global>` tag, which makes them into site-wide CSS.
 
-So if you're using Astro (and you should, it's really good) and you're interested in Mastodon-powered comments, please try this out and let me know where it breaks.
+So if you're using Astro (and you should, it's really nice once you lean into its way of thinking) and you're interested in Mastodon-powered comments, please try this out and let me know where it breaks.
