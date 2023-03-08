@@ -2,13 +2,24 @@
 import { marked } from "marked";
 
 export interface Props {
-  employer: Object;
+  // employer: Object;
+  employer: {
+    dates: {
+      start: string
+      end: string
+    },
+    role: string,
+    url?: string,
+    name: string,
+    headline: string,
+    profile?: string
+  }
 }
 
 const { employer } = Astro.props;
 ---
 
-<li class="employer">
+<li>
   <h4>{employer.dates.start} - {employer.dates.end}</h4>
   <h3>
     {employer.role} at
@@ -16,10 +27,27 @@ const { employer } = Astro.props;
     {!employer.url && employer.name}
   </h3>
 
-  <h4 class="headline">
+  <h4>
     {employer.headline}
   </h4>
 
-  {employer.profile &&
-  <div set:html={marked.parse(employer.profile)}></div>}
+  {
+    employer.profile && (
+      <div set:html={marked.parse(employer.profile)} class="from-markdown" />
+    )
+  }
 </li>
+
+<style>
+  li {
+    border-top-width: 1px;
+    border-top-style: solid;
+    border-top-color: var(--colour-primary);
+
+    margin: 1rem 0;
+  }
+
+  h4 {
+    font-style: italic;
+  }
+</style>

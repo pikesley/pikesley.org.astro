@@ -1,36 +1,16 @@
 ---
 import Base from "../layouts/Base.astro";
 
-import Skills from "../data/cv/skills.json";
 import Employment from "../data/cv/employers.json";
-
+import SkillsList from "../components/SkillsList.astro";
 import Employer from "../components/Employer.astro";
+
 ---
 
 <Base title="CV" description="My CV">
-  <ul class="skills-list">
-    {
-      Skills.map((skill) => (
-        <li>
-          <a href={skill.url}>{skill.skill}</a>
-          </li>
-          ))
-        }
-  </ul>
+<SkillsList />
 
   <ul class="employer-list">
     {Employment.map((employer) => <Employer employer={employer} />)}
   </ul>
 </Base>
-
-<script>
-  function shuffleSkills() {
-    var parent = document.querySelector(".skills-list");
-    var divs = [...parent.children];
-    var shuffled = divs.sort(() => { return 0.5 - Math.random() })
-
-    shuffled.forEach(node => parent.append(node))
-  }
-
-  shuffleSkills();
-</script>

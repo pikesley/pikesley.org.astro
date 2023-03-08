@@ -14,19 +14,20 @@ function YTUrl(data) {
   return s;
 }
 
-function makeID(data) {
-  return `${data.title} ${data.event}`.toLowerCase().replaceAll(" ", "-")
+function makeID(data: {title: string, event: string}, withHash: boolean=false) {
+  var i = [data.title, data.event].join(" ").toLowerCase().replaceAll(" ", "-")
+  return (withHash ? "#" : "") + i
 }
 ---
 
 <Base title="Talks" description="Speaking in public">
-  <ul class="video-list">
+  <ul>
     {
       Talks.map((talk) => (
         <li id={makeID(talk)}>
-          <a class="internal" href=`#${makeID(talk)}`>
+          <a href={makeID(talk, true)}>
             <h2>
-              {talk.title} <span class="subhead">(at {talk.event})</span>
+              {talk.title} <span>(at {talk.event})</span>
             </h2>
           </a>
           <div class="video-wrapper">

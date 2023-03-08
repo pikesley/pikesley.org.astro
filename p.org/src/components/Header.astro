@@ -10,3 +10,19 @@ import HeaderLink from "./HeaderLink.astro";
     <HeaderLink href="/cv">CV</HeaderLink>
   </nav>
 </header>
+
+<style>
+  nav {
+    margin-inline: auto;
+
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    max-width: var(--max-width);
+    height: 4rem;
+  }
+
+  header {
+    grid-area: nav;
+  }
+</style>

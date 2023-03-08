@@ -1,0 +1,34 @@
+---
+const fonts = {
+  primary: "Alumni Sans",
+  // primary: "DotGothic16",
+  mono: "Sono",
+};
+
+const importStrings = []
+const varStrings = []
+
+for (const [key, value] of Object.entries(fonts)) {
+  importStrings.push(
+  '@import url("https://fonts.googleapis.com/css?family=' + value.replaceAll(" ", "+") + '");'
+  )
+  varStrings.push(
+  '  --font-' + key + ': "' + value + '";'
+  )
+}
+
+var fontStyles = importStrings.join("\n")
+
+fontStyles += "\n"
+fontStyles += "\n"
+fontStyles += ':root {'
+fontStyles += "\n"
+
+fontStyles += varStrings.join("\n")
+
+fontStyles += "\n"
+fontStyles += "}"
+fontStyles += "\n"
+---
+
+<style set:html={fontStyles}></style>

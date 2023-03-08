@@ -1,17 +1,44 @@
 ---
 export interface Props {
-  project: Object;
+  project: {
+    url: string,
+    title: string,
+    description: string
+  }
 }
 
 const { project } = Astro.props;
 ---
 
-<li class="panel">
+<li>
   <div class="project-name">
     <a href={project.url}>{project.title}</a>
   </div>
 
-  <div class="project-description">
+  <div>
     <span set:html={project.description} />
   </div>
 </li>
+
+<style>
+  :root {
+    --panel-height: 10rem;
+    --panel-width: 15rem;
+  }
+
+  li {
+    margin: auto;
+    flex-grow: 1;
+    text-align: center;
+    height: var(--panel-height);
+    max-width: var(--panel-width);
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 2rem;
+    border-radius: var(--corner-radius);
+  }
+
+  div.project-name {
+    height: calc(var(--panel-height) / 2);
+    font-size: 2.5rem;
+  }
+</style>

@@ -11,22 +11,32 @@ const publishedPosts = posts
   )
   .reverse();
 
-  function getDate(slug) {
-    return slug.split("/").slice(2, 5).join("-")
-  }
-
+function getDate(slug: string) {
+  return slug.split("/").slice(2, 5).join("-");
+}
 ---
 
 <Base title="Blog" description="Words I have written">
-  <ul class="blog-list">
+  <ul>
     {
       publishedPosts.map((post) => (
         <li>
           <span>{getDate(post.url)}</span>
-          <br>
+          <br />
           <a href={post.url}>{post.frontmatter.title}</a>
         </li>
       ))
     }
   </ul>
 </Base>
+
+<style>
+  ul {
+    max-width: 80%;
+    margin-inline: auto;
+    font-size: 2rem;
+  }
+  span {
+    font-size: 1.5rem;
+  }
+</style>
