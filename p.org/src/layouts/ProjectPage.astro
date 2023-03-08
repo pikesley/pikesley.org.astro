@@ -20,7 +20,7 @@ function ghUrl(slug: string){
   <section class="project-readme">
     <article set:html={content} class="from-markdown"/>
     <span>
-      <a href={ghUrl(GHslug)}>{title} on Github</a
+      <a href={ghUrl(GHslug)} class="github-button">{title} on Github</a
       >
     </span>
   </section>
@@ -38,7 +38,7 @@ function ghUrl(slug: string){
       grid-area: readme;
     }
 
-    a {
+    a.github-button {
       grid-area: link;
       display: inline;
       float: right;
@@ -49,7 +49,7 @@ function ghUrl(slug: string){
       text-shadow: none;
     }
 
-    a:hover {
+    a.github-button:hover {
       background-color: var(--colour-link-hover);
       color: var(--colour-bg);
     }
