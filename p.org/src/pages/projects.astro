@@ -6,7 +6,7 @@ import Project from "../components/Project.astro";
 ---
 
 <Base title="Projects" description="Things I have built">
-  <ul class="projects-list">
+  <ul>
     {
       Projects.filter((proj) => proj.publish).map((project) => (
         <Project project={project} />
@@ -14,3 +14,12 @@ import Project from "../components/Project.astro";
     }
   </ul>
 </Base>
+
+<style>
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--grid-gap);
+    align-items: center;
+  }
+</style>

@@ -2,6 +2,7 @@
 import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import GlobalStyles from "../components/GlobalStyles.astro";
 import { SITE_TITLE } from "../config";
 import "@mdi/font/css/materialdesignicons.css";
 
@@ -9,25 +10,25 @@ export interface Props {
   title?: string;
   titlePrefix?: string;
   description?: string;
-  image?: string
+  image?: string;
 }
 
 const { title, titlePrefix, description, image } = Astro.props;
 
-var headTitle = title
+var headTitle = title;
 if (titlePrefix) {
-  headTitle = titlePrefix + " :: " + headTitle
+  headTitle = titlePrefix + " :: " + headTitle;
 }
 
-var pageTitle = SITE_TITLE
+var pageTitle = SITE_TITLE;
 if (description) {
-  pageTitle = description
+  pageTitle = description;
 }
 ---
 
 <html lang="en">
   <head>
-    <BaseHead title={headTitle} description={description} image={image}/>
+    <BaseHead title={headTitle} description={description} image={image} />
   </head>
   <body>
     <Header />
@@ -39,383 +40,40 @@ if (description) {
       <slot />
     </main>
     <Footer />
+
+    <GlobalStyles />
+    <style>
+      html {
+        height: 100%;
+      }
+      body {
+        margin: 0;
+        box-sizing: border-box;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-areas: "nav" "main" "footer";
+        grid-template-rows: auto auto 1fr;
+        min-height: 100vh;
+        overflow: auto;
+        color: var(--colour-primary);
+        background: url("/assets/backgrounds/grid.png"),
+          radial-gradient(var(--colour-bg-light), var(--colour-bg));
+        opacity: 0.9;
+        font-family: var(--font-primary);
+        font-size: 1.5rem;
+        text-shadow: calc(-1 * var(--shadow-offset)) var(--shadow-offset) 0
+            var(--colour-shadow),
+          var(--shadow-offset) var(--shadow-offset) 0 var(--colour-shadow),
+          var(--shadow-offset) calc(-1 * var(--shadow-offset)) 0
+            var(--colour-shadow),
+          calc(-1 * var(--shadow-offset)) calc(-1 * var(--shadow-offset)) 0
+            var(--colour-shadow);
+      }
+      main {
+        grid-area: main;
+        width: clamp(60%, var(--max-width), 90%);
+        margin-inline: auto;
+      }
+    </style>
   </body>
 </html>
-
-<style is:global>
-
-@import url("https://fonts.googleapis.com/css?family=VT323");
-@import url("https://fonts.googleapis.com/css?family=Ubuntu Mono");
-
-:root {
-    --me-links: 3;
-    --panel-height: 10rem;
-    --panel-width: 15rem;
-    --max-width: 60rem;
-    --grid-gap: 1rem;
-    --buffer: 0.5rem;
-    --corner-radius: 0.5rem;
-    --shadow-offset: 1px;
-    --colour-bg: rgb(18, 10, 3);
-    --colour-bg-light: rgb(119, 79, 43);
-    --colour-primary: rgb(236, 143, 13);
-    --colour-link: rgb(6, 173, 9);
-    --colour-link-hover: rgb(2, 72, 3);
-    --colour-shadow: rgb(0, 0, 0);
-
-  --font-primary: "VT323";
-  --font-mono: "Ubuntu Mono";
-}
-
-
-  footer > ul,
-ul.li,
-ul.me-links > li,
-ul.employer-list > li,
-ul.video-list > li,
-ul.skills-list > li,
-ul.blog-list > li
- {
-  list-style-type: none;
-}
-
-ul {
-  margin-left: 0;
-  padding-left: 0;
-}
-
-ul.me-links {
-  display: grid;
-  gap: var(--grid-gap);
-  grid-template-columns: repeat(var(--me-links), 1fr);
-}
-
-ul.me-links > li {
-  text-align: center;
-}
-.projects-list,
-.skills-list,
-.interests-list,
-.contact-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--grid-gap);
-  align-items: center;
-}
-
-.projects-list > li {
-  margin: auto;
-}
-
-.skills-list,
-.interests-list,
-.contact-list {
-  margin-inline: auto;
-  width: 80%;
-}
-
-.skills-list > li,
-.interests-list > li,
-.contact-list > li {
-  text-align: center;
-  flex-grow: 1;
-}
-
-/* lists within rendered content */
-.employer > div > ul > li,
-.project-readme > ul > li{
-  list-style-type: disc;
-  margin-left: 2rem;
-}
-
-html,
-body {
-  margin: 0;
-  height: 100%;
-  box-sizing: border-box;
-}
-
-body {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-areas: "nav" "main" "footer";
-  grid-template-rows: auto auto 1fr;
-  min-height: 100vh;
-  overflow: auto;
-}
-
-nav,
-main {
-  margin-inline: auto;
-}
-
-nav,
-footer {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-}
-
-footer {
-  grid-area: footer;
-  max-width: 100%;
-  align-self: end;
-  height: 3rem;
-
-  align-items: center;
-  justify-content: center;
-}
-
-nav {
-  grid-area: nav;
-  max-width: var(--max-width);
-  height: 4rem;
-}
-
-nav > a {
-  flex-grow: 1;
-  text-align: center;
-}
-
-main {
-  grid-area: main;
-  width: clamp(60%, var(--max-width), 90%);
-}
-
-footer > * {
-  text-align: center;
-  margin-left: 1rem;
-  margin-right: 1rem;
-}
-
-/* headings */
-h1,
-h2 {
-  text-align: center;
-  margin: 0;
-}
-
-h2 {
-  margin-top: 1rem;
-}
-
-/* links */
-a.github-link {
-  float: right;
-  padding: 1rem;
-  margin: 1rem;
-}
-
-/* responsive video */
-/* https://techstacker.com/how-to-responsive-youtube-videos/ */
-.video-wrapper {
-  position: relative;
-  overflow: hidden;
-  width: 100%;
-  margin-bottom: 2rem;
-  margin-top: 1rem;
-  border-radius: var(--corner-radius);
-}
-
-.video-wrapper::after {
-  display: block;
-  content: "";
-  padding-top: 56.25%;
-}
-
-.video-wrapper iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.video-list {
-  padding: 0;
-  margin: 0;
-}
-
-.project-readme p > img,
-.project-readme p > a > img {
-  max-width: 100%;
-}
-
-.project-name {
-  height: calc(var(--panel-height) / 2);
-}
-
-.employer {
-  margin: 1rem 0;
-}
-
-.employer,
-footer {
-  border-top-width: 1px;
-  border-top-style: solid;
-}
-
-.project {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-areas: "readme" "link";
-  grid-template-rows: 1fr auto;
-}
-
-.project-readme {
-  grid-area: readme;
-}
-
-.github-link {
-  grid-area: link;
-  display: inline;
-}
-
-p {
-  text-align: justify;
-}
-
-img {
-  border-radius: var(--corner-radius);
-}
-
-code {
-  white-space: pre-wrap;
-}
-
-pre {
-  padding: 1rem;
-}
-
-.blog-list {
-max-width: 80%;
-margin-inline: auto;
-}
-
-.blog-list > li > span {
-  font-size: 1.5rem;
-}
-
-a {
-  text-decoration: none;
-}
-
-nav > a.active {
-  text-decoration: underline;
-}
-
-li.panel {
-  flex-grow: 1;
-  text-align: center;
-  height: var(--panel-height);
-  max-width: var(--panel-width);
-  list-style-type: none;
-  background-color: rgba(0, 0, 0, 0.2);
-  padding: 2rem;
-  border-radius: var(--corner-radius);
-}
-
-table,
-th,
-td {
-  table-layout: fixed;
-  border: 1px solid;
-  border-collapse: collapse;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-th,
-td {
-  padding: 0.5rem;
-}
-
-body {
-  color: var(--colour-primary);
-  background: url("/assets/backgrounds/grid.png"),radial-gradient(var(--colour-bg-light), var(--colour-bg));
-  opacity: 0.9;
-}
-
-a {
-  color: var(--colour-link);
-}
-
-a:hover {
-  color: var(--colour-link-hover);
-}
-
-a.github-link {
-  background-color: var(--colour-link);
-  color: var(--colour-bg);
-}
-
-a.github-link:hover {
-  background-color: var(--colour-link-hover);
-}
-
-/* footer {
-    background-color: var(--colour-primary);
-     opacity: 0.5;
-} */
-
-.employer{
-  border-top-color: var(--colour-primary);
-}
-
-
-body {
-  font-family: var(--font-primary);
-  font-size: 1.5rem;
-  text-shadow: calc(-1 * var(--shadow-offset)) var(--shadow-offset) 0
-      var(--colour-shadow),
-    var(--shadow-offset) var(--shadow-offset) 0 var(--colour-shadow),
-    var(--shadow-offset) calc(-1 * var(--shadow-offset)) 0 var(--colour-shadow),
-    calc(-1 * var(--shadow-offset)) calc(-1 * var(--shadow-offset)) 0
-      var(--colour-shadow);
-}
-
-h1 {
-  font-size: 3rem;
-}
-
-h2 {
-  font-size: 2.5rem;
-}
-
-code {
-  font-family: var(--font-mono);
-  font-size: 1rem;
-}
-
-.project-name {
-  font-size: 2.5rem;
-}
-
-.blog-list > li {
-  font-size: 2rem;
-}
-
-.employer > .headline {
-  font-style: italic;
-}
-
-.me-icon {
-  font-size: 5rem;
-}
-
-footer {
-  font-size: 2rem;
-}
-
-.github-link {
-  text-shadow: none;
-}
-
-blockquote {
-  border-left-width: 2px;
-  border-left-style: solid;
-  border-left-color: var(--colour-primary);
-  padding-left: 1rem
-}
-
-</style>

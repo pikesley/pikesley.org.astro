@@ -5,20 +5,53 @@ import MastodonComments from "../components/MastodonComments.astro";
 export interface Props {
   content: string;
   title: string;
-  description: string;
   GHslug: string;
   mastodon?: string;
 }
 
-const { content, title, description, GHslug, mastodon } = Astro.props;
+const { content, title, GHslug, mastodon } = Astro.props;
+
+function ghUrl(slug: string){
+  return "https://github.com/" + slug
+}
 ---
 
 <Base title={title} titlePrefix="Projects" description={title}>
-  <div class="project">
-    <div class="project-readme" set:html={content} />
+  <section class="project-readme">
+    <article set:html={content} class="from-markdown"/>
     <span>
-      <a href=`//github.com/${ GHslug }` class="github-link">{title} on Github</a>
-      </span>
-  </div>
-  {mastodon && <MastodonComments mastodon={mastodon}>}
+      <a href={ghUrl(GHslug)}>{title} on Github</a
+      >
+    </span>
+  </section>
+  {mastodon && <MastodonComments mastodon={mastodon} />}
+
+  <style>
+    section {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-areas: "readme" "link";
+      grid-template-rows: 1fr auto;
+    }
+
+    article {
+      grid-area: readme;
+    }
+
+    a {
+      grid-area: link;
+      display: inline;
+      float: right;
+      padding: 1rem;
+      margin: 1rem;
+      background-color: var(--colour-link);
+      color: var(--colour-bg);
+      text-shadow: none;
+    }
+
+    a:hover {
+      background-color: var(--colour-link-hover);
+      color: var(--colour-bg);
+    }
+  </style>
 </Base>

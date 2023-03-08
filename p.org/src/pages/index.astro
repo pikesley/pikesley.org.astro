@@ -15,12 +15,12 @@ import me from "../data/me.json";
 
   <p>Some other places you can find me:</p>
 
-  <ul class="me-links">
+  <ul>
     {
       me.map((item) => (
         <li>
           <a href={item.url}>
-            <span class:list={["mdi", `mdi-${item.name}`, "me-icon"]} />
+            <span class:list={["mdi", `mdi-${item.name}`]} />
             <br />
             {item.name}
           </a>
@@ -33,3 +33,19 @@ import me from "../data/me.json";
     probably me
   </p>
 </Base>
+
+<style>
+  ul {
+    display: grid;
+    gap: var(--grid-gap);
+    grid-template-columns: repeat(var(--me-links), 1fr);
+  }
+
+  li {
+    text-align: center;
+  }
+
+  span {
+    font-size: 5rem;
+  }
+</style>

@@ -1,0 +1,43 @@
+---
+import Skills from "../data/cv/skills.json";
+---
+
+<ul id="skills-list">
+  {
+    Skills.map((skill) => (
+      <li>
+        <a href={skill.url}>{skill.skill}</a>
+      </li>
+    ))
+  }
+</ul>
+
+<script>
+  function shuffleSkills() {
+    var parent = document.getElementById("skills-list");
+    var divs = [...parent!.children];
+    var shuffled = divs.sort(() => {
+      return 0.5 - Math.random();
+    });
+
+    shuffled.forEach((node) => parent!.append(node));
+  }
+
+  shuffleSkills();
+</script>
+
+<style>
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--grid-gap);
+    align-items: center;
+    margin-inline: auto;
+    width: 80%;
+  }
+
+  li {
+    text-align: center;
+    flex-grow: 1;
+  }
+</style>
