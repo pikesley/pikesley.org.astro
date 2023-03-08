@@ -11,17 +11,19 @@ export interface Props {
 
 const { content, title, GHslug, mastodon } = Astro.props;
 
-function ghUrl(slug: string){
-  return "https://github.com/" + slug
+function ghUrl(slug: string) {
+  return "https://github.com/" + slug;
 }
 ---
 
 <Base title={title} titlePrefix="Projects" description={title}>
   <section class="project-readme">
-    <article set:html={content} class="from-markdown"/>
+    <article set:html={content} class="from-markdown" />
     <span>
-      <a href={ghUrl(GHslug)} class="github-button">{title} on Github</a
-      >
+      <a href={ghUrl(GHslug)} class="github-button">
+        <span class:list={["mdi", "mdi-github"]}></span>
+        {title} on Github
+      </a>
     </span>
   </section>
   {mastodon && <MastodonComments mastodon={mastodon} />}
