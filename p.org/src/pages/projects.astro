@@ -29,8 +29,9 @@ import Project from "../components/Project.astro";
     transition: background-color var(--transition-time);
   }
   .flickity-button:hover {
-    background-color: var(--colour-link-hover);
+    background-color: var(--colour-link);
   }
+
   .flickity-button:focus {
     outline: none;
     box-shadow: none;
@@ -74,6 +75,10 @@ import Project from "../components/Project.astro";
 
     .flickity-page-dots .dot {
       width: 20px;
+    }
+
+    .flickity-button:hover {
+      background-color: var(--colour-link-hover);
     }
   }
 </style>
