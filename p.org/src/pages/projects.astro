@@ -6,7 +6,7 @@ import Project from "../components/Project.astro";
 ---
 
 <Base title="Projects" description="Things I have built">
-  <ul>
+  <ul id="carousel">
     {
       Projects.filter((proj) => proj.publish).map((project) => (
         <Project project={project} />
@@ -15,11 +15,70 @@ import Project from "../components/Project.astro";
   </ul>
 </Base>
 
-<style>
-  ul {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--grid-gap);
-    align-items: center;
+<script>
+  var elem = document.querySelector("#carousel");
+  var flkty = new Flickity(elem, {
+    wrapAround: true,
+    autoPlay: 5000,
+  });
+</script>
+
+<style is:global>
+  .flickity-button {
+    background-color: var(--colour-link);
+    transition: background-color var(--transition-time);
+  }
+  .flickity-button:hover {
+    background-color: var(--colour-link);
+  }
+
+  .flickity-button:focus {
+    outline: none;
+    box-shadow: none;
+  }
+
+  .flickity-prev-next-button {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .flickity-button-icon {
+    fill: var(--colour-shadow);
+  }
+
+  .flickity-page-dots .dot {
+    height: 4px;
+    width: 10px;
+    margin: 0;
+    border-radius: 0;
+  }
+  .flickity-page-dots .dot.is-selected {
+    background: var(--colour-link);
+  }
+  @media only screen and (min-width: 600px) {
+    /* position outside */
+    .flickity-prev-next-button.previous {
+      left: -50px;
+    }
+    .flickity-prev-next-button.next {
+      right: -50px;
+    }
+
+    li {
+      opacity: 0.2;
+      transition: opacity 500ms ease;
+    }
+
+    li.is-selected {
+      opacity: 1;
+    }
+
+    .flickity-page-dots .dot {
+      width: 20px;
+    }
+
+    .flickity-button:hover {
+      background-color: var(--colour-link-hover);
+    }
   }
 </style>
