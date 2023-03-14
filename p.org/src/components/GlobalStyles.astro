@@ -37,6 +37,10 @@ import Fonts from "./Fonts.astro";
     }
 
     /* things within rendered content */
+    /* .project-readme {
+      max-width: 100dvw;
+    } */
+
     .from-markdown ul {
       list-style-type: disc;
       margin-left: 2rem;
@@ -44,6 +48,23 @@ import Fonts from "./Fonts.astro";
 
     .from-markdown img {
       max-width: 100%;
+    }
+
+    pre, code {
+      font-family: var(--font-mono);
+    }
+    pre {
+      background-color: black;
+      overflow-x: scroll;
+      max-width: 80dvw;
+      margin-inline: auto;
+      padding: 1rem;
+      overflow: auto;
+    }
+
+    code {
+      white-space: pre;
+      font-size: 0.9rem;
     }
 
     a {
@@ -61,17 +82,6 @@ import Fonts from "./Fonts.astro";
 
     img {
       border-radius: var(--corner-radius);
-    }
-
-    code {
-      white-space: pre-wrap;
-      font-family: var(--font-mono);
-      font-size: 0.9rem;
-    }
-
-    pre {
-      padding: 1rem;
-      overflow: auto;
     }
 
     blockquote {
