@@ -16,7 +16,7 @@
   "dependencies": {
     "@astrojs/mdx": "^0.17.0",
     "@astrojs/rss": "^1.0.3",
-    "@astrojs/sitemap": "^1.2.0",
+    "@astrojs/sitemap": "^1.0.0",
     "@mdi/font": "^7.1.96",
     "astro": "^1.7.1"
   },
