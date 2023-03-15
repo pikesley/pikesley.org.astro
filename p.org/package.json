@@ -22,7 +22,7 @@
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.19.1",
-    "@babel/plugin-transform-modules-commonjs": "^7.20.11",
+    "@babel/plugin-transform-modules-commonjs": "^7.21.2",
     "@typescript-eslint/eslint-plugin": "^5.49.0",
     "@typescript-eslint/parser": "^5.54.1",
     "astro-html-beautifier": "^1.0.4",
