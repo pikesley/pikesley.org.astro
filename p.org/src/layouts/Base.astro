@@ -31,6 +31,7 @@ if (description) {
     <BaseHead title={headTitle} description={description} image={image} />
   </head>
   <body>
+    <div id="particles-js"></div>
     <Header />
     <main>
       <a href="/" class="title">
@@ -45,6 +46,12 @@ if (description) {
     <style>
       html {
         height: 100%;
+      }
+      #particles-js {
+        height: 100%;
+        position: absolute;
+        top: 0;
+        z-index: -100;
       }
       body {
         margin: 0;
@@ -75,5 +82,10 @@ if (description) {
         margin-inline: auto;
       }
     </style>
+    <script>
+      particlesJS.load("particles-js", "/assets/particles.json", function () {
+        console.log("callback - particles.js config loaded");
+      });
+    </script>
   </body>
 </html>
