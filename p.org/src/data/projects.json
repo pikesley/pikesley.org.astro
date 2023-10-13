@@ -5,7 +5,10 @@
     "url": "/projects/searchodon",
     "github": "pikesley/searchodon",
     "description": "Search your own Toots, locally",
-    "publish": true
+    "publish": true,
+    "mastodon": {
+      "toot": "111229750250490278"
+    }
   },
   {
     "name": "markodon",
