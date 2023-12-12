@@ -1,0 +1,37 @@
+---
+---
+
+<!-- https://www.cssscript.com/make-it-snow-fall/ -->
+<script is:inline src="/vendor/snowfall-js-main/snowfall.js"></script>
+
+<script>
+  const today = new Date();
+  if (
+    today.getMonth() == 11 || // December
+    (today.getMonth() == 0 && today.getDate() <= 12) // or before 12th night
+  ) {
+    const totalFlakes = 512;
+    const colourNames = ["primary", "link", "bg-light", "link-hover"];
+
+    colourNames.forEach(function (colourName) {
+      new Snowfall({
+        // number of snowflakes
+        count: totalFlakes / colourNames.length,
+        // min/max size
+        minRadius: 4,
+        maxRadius: 32,
+        // min/max speed
+        minSpeed: 1,
+        maxSpeed: 4,
+
+        text: "\u2746",
+        zIndex: -1,
+
+        color: getComputedStyle(
+          document.documentElement,
+          null
+        ).getPropertyValue("--colour-" + colourName),
+      });
+    });
+  }
+</script>

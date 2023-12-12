@@ -2,6 +2,9 @@
 import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+
+import Snow from "../components/Snow.astro";
+
 import GlobalStyles from "../components/GlobalStyles.astro";
 import { SITE_TITLE } from "../config";
 import "@mdi/font/css/materialdesignicons.css";
@@ -29,6 +32,8 @@ if (description) {
 <html lang="en">
   <head>
     <BaseHead title={headTitle} description={description} image={image} />
+
+    <Snow />
   </head>
   <body>
     <Header />
