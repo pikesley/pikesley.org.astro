@@ -11,10 +11,9 @@
     (today.getMonth() == 0 && today.getDate() <= 12) // or before 12th night
   ) {
     const totalFlakes = 512;
-    const colourNames = ["primary", "link", "bg-light"];
+    const colourNames = ["primary", "link", "bg-light", "link-hover"];
 
     colourNames.forEach(function (colourName) {
-      console.log(colourName);
       new Snowfall({
         // number of snowflakes
         count: totalFlakes / colourNames.length,
