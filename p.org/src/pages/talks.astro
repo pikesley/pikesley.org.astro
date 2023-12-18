@@ -14,9 +14,12 @@ function YTUrl(data) {
   return s;
 }
 
-function makeID(data: {title: string, event: string}, withHash: boolean=false) {
-  var i = [data.title, data.event].join(" ").toLowerCase().replaceAll(" ", "-")
-  return (withHash ? "#" : "") + i
+function makeID(
+  data: { title: string; event: string },
+  withHash: boolean = false
+) {
+  var i = [data.title, data.event].join(" ").toLowerCase().replaceAll(" ", "-");
+  return (withHash ? "#" : "") + i;
 }
 ---
 
@@ -27,7 +30,8 @@ function makeID(data: {title: string, event: string}, withHash: boolean=false) {
         <li id={makeID(talk)}>
           <a href={makeID(talk, true)}>
             <h2>
-              {talk.title} <span>(at {talk.event})</span>
+              {talk.title} <br />
+              <span>{talk.event}</span>
             </h2>
           </a>
           <div class="video-wrapper">
@@ -36,10 +40,20 @@ function makeID(data: {title: string, event: string}, withHash: boolean=false) {
               allowfullscreen
               frameborder="0"
               allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-            ></iframe>
+            />
           </div>
         </li>
       ))
     }
   </ul>
 </Base>
+
+<style>
+  h2 {
+    font-size: clamp(1rem, -0.8rem + 8vw, 2rem);
+  }
+
+  span {
+    font-size: clamp(1rem, -1rem + 8vw, 1.6rem);
+  }
+</style>

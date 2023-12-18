@@ -10,8 +10,8 @@
     today.getMonth() == 11 || // December
     (today.getMonth() == 0 && today.getDate() <= 12) // or before 12th night
   ) {
-    const totalFlakes = 100;
-    const colourNames = ["primary", "link", "bg-light", "link-hover"];
+    const totalFlakes = 10;
+    const colourNames = ["red", "blue", "gold"];
 
     colourNames.forEach(function (colourName) {
       new Snowfall({
@@ -30,7 +30,7 @@
         color: getComputedStyle(
           document.documentElement,
           null
-        ).getPropertyValue("--colour-" + colourName),
+        ).getPropertyValue("--palette-" + colourName),
       });
     });
   }

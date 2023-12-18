@@ -35,8 +35,21 @@ function getDate(slug: string) {
     max-width: 80%;
     margin-inline: auto;
     font-size: 2rem;
+
+    font-family: var(--font-strong)
   }
+
   span {
-    font-size: 1.5rem;
+    font-size: clamp(1rem, -1.5rem + 8vw, 1.5rem);
+  }
+
+  li {
+    border-bottom: 1px solid var(--palette-gold);
+    font-size: clamp(1rem, -0.9rem + 8vw, 2rem);
+    padding: 1rem;
+  }
+
+  li:last-child {
+    border-bottom: none;
   }
 </style>

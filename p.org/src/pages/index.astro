@@ -37,15 +37,25 @@ import me from "../data/me.yaml";
 <style>
   ul {
     display: grid;
-    gap: var(--grid-gap);
     grid-template-columns: repeat(var(--me-links), 1fr);
+    margin-inline: auto;
   }
 
   li {
     text-align: center;
+    font-family: var(--font-strong);
+    text-transform: capitalize;
   }
 
   span {
     font-size: 5rem;
+  }
+
+  p {
+    font-size: 1.2rem;
+  }
+
+  p, ul {
+    max-width: calc(var(--me-links) * 10rem);
   }
 </style>

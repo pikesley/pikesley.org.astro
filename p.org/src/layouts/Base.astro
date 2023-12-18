@@ -2,12 +2,12 @@
 import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
-
+import MastHead from "../components/MastHead.astro";
 import Snow from "../components/Snow.astro";
 
 import GlobalStyles from "../components/GlobalStyles.astro";
-import { SITE_TITLE } from "../config";
 import "@mdi/font/css/materialdesignicons.css";
+import { SITE_TITLE } from "../config";
 
 export interface Props {
   title?: string;
@@ -36,48 +36,79 @@ if (description) {
     <Snow />
   </head>
   <body>
-    <Header />
+    <div id="overlay"></div>
+    <header>
+      <Header />
+    </header>
+
     <main>
-      <a href="/" class="title">
-        <h1>{SITE_TITLE}</h1>
-      </a>
-      {title && <h2 class="title">{pageTitle}</h2>}
+      <MastHead />
+      {title && <h2>{pageTitle}</h2>}
       <slot />
     </main>
-    <Footer />
+
+    <footer>
+      <Footer />
+    </footer>
 
     <GlobalStyles />
+
     <style>
       html {
         height: 100%;
       }
+
       body {
-        margin: 0;
-        box-sizing: border-box;
-        display: grid;
-        grid-template-columns: 1fr;
-        grid-template-areas: "nav" "main" "footer";
-        grid-template-rows: auto auto 1fr;
+        position: relative;
         min-height: 100svh;
-        overflow: auto;
-        color: var(--colour-primary);
-        background: url("/assets/backgrounds/grid.png"),
-          radial-gradient(var(--colour-bg-light), var(--colour-bg));
-        opacity: 0.9;
-        font-family: var(--font-primary);
-        font-size: 1.5rem;
-        text-shadow: calc(-1 * var(--shadow-offset)) var(--shadow-offset) 0
-            var(--colour-shadow),
-          var(--shadow-offset) var(--shadow-offset) 0 var(--colour-shadow),
-          var(--shadow-offset) calc(-1 * var(--shadow-offset)) 0
-            var(--colour-shadow),
-          calc(-1 * var(--shadow-offset)) calc(-1 * var(--shadow-offset)) 0
-            var(--colour-shadow);
+        margin: 0;
+        display: grid;
+        grid-template-areas: "header" "main" "footer";
+        grid-template-rows: auto auto 1fr;
+
+        background-color: var(--palette-ecru);
+        font-family: var(--font-plain);
       }
+
+      #overlay {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-repeat: repeat;
+        /* https://www.transparenttextures.com/ */
+        background-image: url("/assets/backgrounds/paper-texture.png");
+        pointer-events: none;
+        mix-blend-mode: overlay;
+        opacity: 0.7;
+        z-index: 1000;
+      }
+
+      header {
+        grid-area: header;
+        background-color: var(--palette-blue);
+      }
+
       main {
         grid-area: main;
-        width: clamp(60%, var(--max-width), 90%);
+        width: clamp(200px, 80%, 1000px);
         margin-inline: auto;
+
+        color: var(--palette-black);
+      }
+
+      footer {
+        grid-area: footer;
+        align-self: end;
+        background-color: var(--palette-blue);
+      }
+
+      h2 {
+        text-align: center;
+        font-family: var(--font-fancy);
+        color: var(--palette-black);
+        font-size: clamp(1rem, -0.1rem + 8vw, 3rem);
       }
     </style>
   </body>
