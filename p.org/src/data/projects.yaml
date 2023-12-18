@@ -1,0 +1,253 @@
+- name: searchodon
+  title: Searchodon
+  url: /projects/searchodon
+  github: pikesley/searchodon
+  description: Search your own Toots, locally
+  publish: true
+  mastodon:
+    toot: '111229750250490278'
+- name: markodon
+  title: Markodon
+  url: /projects/markodon
+  github: pikesley/markodon
+  description: Force your old tweets through a Markov Chain like coffee through a
+    civet
+  publish: true
+  mastodon:
+    toot: '109989967910686741'
+- name: hatlights
+  title: Hatlights
+  url: /projects/hatlights
+  github: hat-festival/hatlights
+  description: A hat covered in 3d-mapped NeoPixels
+  publish: true
+- name: jlock
+  title: Jlock
+  url: /projects/jlock
+  github: pikesley/jlock
+  description: Text clock on a Raspberry Pi
+  tags:
+  - javascript
+  - css
+  - raspberry-pi
+  publish: true
+- name: equestreum
+  title: Equestruem
+  url: /projects/equestreum
+  github: hat-festival/equestreum
+  description: I built a blockchain, just to find out how it works
+  publish: true
+- name: light-emitting-desk
+  title: Light Emitting Desk
+  url: /projects/light-emitting-desk
+  github: pikesley/light-emitting-desk
+  description: Light up your desk with NeoPixels
+  tags:
+  - python
+  - raspberry-pi
+  - neopixels
+  publish: true
+- name: potado
+  title: Potado
+  url: /projects/potado
+  github: pikesley/potado
+  description: Schedule-setting robot for your Tado heating system
+  tags:
+  - python
+  - tado
+  - docker
+  - home-automation
+  publish: true
+- name: christmas-pixels
+  title: Christmas Pixels
+  url: /projects/christmas-pixels
+  github: pikesley/christmas-pixels
+  description: Raspberry Pi-powered Christmas NeoPixels
+  tags:
+  - python
+  - neopixels
+  - raspberry-pi
+- name: wen
+  title: Wen
+  url: /projects/wen
+  github: pikesley/wen
+  description: Raspberry Pi-powered Neopixel clock, with just a pinch of Chef
+  tags:
+  - ruby
+  - d3
+  - neopixels
+  - raspberry-pi
+- name: hanoi-jane
+  title: Hanoi Jane
+  url: /projects/hanoi-jane
+  github: pikesley/hanoi-jane
+  description: Using the rhythms of counting in binary to solve the Towers Of Hanoi
+  tags:
+  - ruby
+  publish: true
+- name: gitpaint
+  title: Gitpaint
+  url: /projects/gitpaint
+  github: pikesley/gitpaint
+  description: Paint arbitrary data onto the Github commit-history graph
+  tags:
+  - ruby
+  publish: true
+- name: hanoi-painter
+  title: Hanoi Painter
+  url: /projects/hanoi-painter
+  github: pikesley/hanoi-painter
+  description: Playing the Towers of Hanoi on the Github commit-history graph
+  tags:
+  - ruby
+  publish: true
+- name: skellington
+  title: Skellington
+  url: /projects/skellington
+  github: pikesley/skellington
+  description: Generate a skeleton for your Sinatra app or Jekyll site
+  tags:
+  - ruby
+  - sinatra
+  - jekyll
+- name: shedcam
+  title: Shedcam
+  url: /projects/shedcam
+  github: pikesley/shedcam
+  description: Timelapse photography on a Raspberry Pi
+  tags:
+  - ruby
+  - raspberry-pi
+- title: D3 Experiments
+  url: //sam.pikesley.org/d3-experiments
+  github: pikesley/d3-experiments
+  description: Bumbling around with D3
+  tags:
+  - d3
+  publish: false
+- name: purdie
+  title: Purdie
+  url: /projects/purdie
+  github: rawfunkmaharishi/purdie
+  description: Dealing with horrid APIs so you don't have to
+  tags:
+  - ruby
+  publish: false
+- name: funk-data
+  title: Funk Data
+  url: http://data.rawfunkmaharishi.uk/
+  description: RESTful Open Data API for my band
+  tags:
+  - ruby
+  - sinatra
+  - open-data
+  publish: false
+- name: replacer-bot
+  title: Replacer Bot
+  url: /projects/replacer_bot
+  github: pikesley/replacer_bot
+  description: Make your own annoying Twitter bot
+  tags:
+  - ruby
+  publish: false
+- name: '1982'
+  title: '1982'
+  url: /projects/1982
+  github: pikesley/nineteen-eighty-two
+  description: Sinclair Spectrum font as a Rubygem
+  tags:
+  - ruby
+  publish: true
+- name: correctiondose
+  title: Correction Dose
+  url: /projects/correctiondose
+  github: pikesley/correctiondose
+  description: Rails app to track my health metrics
+  tags:
+  - ruby
+  - rails
+  publish: false
+- name: badger
+  title: Badger
+  url: /projects/badger
+  github: badges/badgerbadgerbadger
+  description: Generate Github project badges like a boss
+  tags:
+  - ruby
+- name: wtfismygenericthing
+  title: WTF Is My Generic Thing?
+  url: /projects/wtfismygenericthing
+  github: pikesley/wtfismygenericthing
+  description: Generate your own strategy generator
+  tags:
+  - ruby
+  - sinatra
+  publish: false
+- name: raw-funk-maharishi
+  title: Raw Funk Maharishi
+  url: http://rawfunkmaharishi.uk/blog/
+  description: Blog about building a Jekyll site for my band
+  tags:
+  - jekyll
+- name: ultron
+  title: Ultron
+  url: /projects/ultron
+  github: pikesley/ultron
+  description: Ruby bindings for the <a href='http://developer.marvel.com/docs'>Marvel
+    Comics API</a>
+  tags:
+  - ruby
+  publish: false
+- name: red5
+  title: Red 5
+  url: /projects/red5
+  github: pikesley/red5
+  description: Ruby bindings for the <a href='http://swapi.co'>Star Wars API</a>
+  tags:
+  - ruby
+  publish: false
+- name: uncle-clive
+  title: Uncle Clive
+  github: pikesley/uncle-clive
+  url: http://uncleclive.herokuapp.com/
+  description: Sinclair Spectrum font as a Service
+  tags:
+  - ruby
+  - sinatra
+- name: pokrovsky
+  github: pikesley/pokrovsky
+  title: Pokrovsky
+  url: /projects/pokrovsky
+  description: Github History Vandalism as a Service
+  tags:
+  - ruby
+  - sinatra
+  publish: true
+- name: mutilator
+  title: Mutilator
+  github: pikesley/mutilator
+  url: https://mutilator.herokuapp.com/
+  description: Astonishingly Pointless Bullshit as a Service
+  tags:
+  - ruby
+  - sinatra
+- name: whatisdevops
+  title: What is Devops?
+  url: http://whatisdevops.com/
+- name: isjamesdelingpolewrong
+  title: Is James Delingpole wrong?
+  url: http://isjamesdelingpolewrong.info/
+- name: istobyyoungwrong
+  title: Is Toby Young wrong?
+  url: http://istobyyoungwrong.info/
+- name: shedbot
+  title: Shedbot
+  url: /projects/shedbot
+  github: pikesley/shedbot
+  description: RESTful API for the Internet of Sheds
+  tags:
+  - ruby
+  - javascript
+  - raspberry-pi
+  - sinatra
+  publish: true
