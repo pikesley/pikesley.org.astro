@@ -1,110 +1,145 @@
 ---
 import Fonts from "./Fonts.astro";
+import Colours from "./Colours.astro";
 ---
+
 <Fonts />
+<Colours />
 
 <style is:global>
-    :root {
-      --me-links: 3;
-      --max-width: 60rem;
-      --grid-gap: 1rem;
-      --buffer: 0.5rem;
-      --corner-radius: 0.5rem;
-      --shadow-offset: 1px;
-      --colour-bg: rgb(18, 10, 3);
-      --colour-bg-light: rgb(119, 79, 43);
-      --colour-primary: rgb(236, 143, 13);
-      --colour-link: rgb(6, 173, 9);
-      --colour-link-hover: rgb(2, 72, 3);
-      --colour-shadow: rgb(0, 0, 0);
-    }
+  :root {
+    --me-links: 3;
+  }
 
-    h1,
-    h2 {
-      text-align: center;
-      margin: 0;
-    }
+  body {
+    color: var(--palette-black);
+  }
 
-    h2 {
-      font-size: 2.5rem;
-      margin-top: 1rem;
-    }
+  nav {
+    margin-inline: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
 
-    ul {
-      margin-left: 0;
-      padding-left: 0;
-      list-style-type: none;
-    }
+    background-image: url("/assets/backgrounds/twill.png");
+    background-color: var(--palette-red);
+    border-top: 1px solid var(--palette-black);
+    border-bottom: 1px solid var(--palette-black);
+  }
 
-    /* things within rendered content */
-    /* .project-readme {
-      max-width: 100dvw;
-    } */
+  nav a {
+    color: var(--palette-ecru);
+    font-family: var(--font-strong);
+    text-transform: uppercase;
+    font-size: 1rem;
+    text-shadow: 0.1rem 0.1rem 0.1rem var(--palette-black);
+  }
 
-    .from-markdown ul {
-      list-style-type: disc;
-      margin-left: 2rem;
-    }
+  nav a:hover {
+    color: var(--palette-blue);
+  }
 
-    .from-markdown img {
-      max-width: 100%;
-    }
+  a {
+    text-decoration: none;
+    color: var(--palette-blue);
+  }
 
-    pre, code {
-      font-family: var(--font-mono);
-    }
+  a:hover {
+    color: var(--palette-gold);
+  }
 
-    pre {
-      background-color: black;
-      overflow-x: scroll;
-      max-width: 80dvw;
-      margin-inline: auto;
-      padding: 1rem;
-      overflow: auto;
-    }
+  h1 {
+    font-family: var(--font-fancy);
+    margin: 0;
+  }
 
-    code {
-      font-size: 0.9rem;
-    }
+  h1,
+  h2 {
+    text-align: center;
+  }
 
-    a {
-      text-decoration: none;
-      color: var(--colour-link);
-    }
+  h2,
+  h3,
+  h4 {
+    margin: 0;
+    font-family: var(--font-strong);
+  }
 
-    a:hover {
-      color: var(--colour-link-hover);
-    }
+  h2 {
+    font-size: clamp(1rem, -0.5rem + 8vw, 2.5rem);
+    margin-top: 1rem;
+  }
 
-    p {
-      text-align: justify;
-    }
+  ul {
+    margin-left: 0;
+    padding-left: 0;
+    list-style-type: none;
+  }
 
-    img {
-      border-radius: var(--corner-radius);
-    }
+  .from-markdown ul {
+    list-style-type: disc;
+    margin-left: 2rem;
+  }
 
-    blockquote {
-      border-left-width: 2px;
-      border-left-style: solid;
-      border-left-color: var(--colour-primary);
-      padding-left: 1rem;
-    }
+  .from-markdown img {
+  }
 
-    table,
-    th,
-    td {
-      table-layout: fixed;
-      border: 1px solid;
-      border-collapse: collapse;
-      margin-left: auto;
-      margin-right: auto;
-    }
+  pre,
+  code {
+    font-family: var(--font-mono);
+  }
 
-    th,
-    td {
-      padding: 0.5rem;
-    }
+  pre {
+    color: var(--palette-ecru);
+    background-color: var(--palette-black);
+    overflow-x: scroll;
+    max-width: 80dvw;
+    margin-inline: auto;
+    padding: 1rem;
+    overflow: auto;
+  }
+
+  code {
+    font-size: 0.9rem;
+  }
+
+  p {
+    text-align: justify;
+    margin-inline: auto;
+    line-height: 1.5rem;
+    font-size: 1.2rem;
+  }
+
+  img {
+    border-radius: 0.5rem;
+    width: clamp(200px, 90%, 500px);
+    margin-inline: auto;
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  blockquote {
+    border-left-width: 2px;
+    border-left-style: solid;
+    border-left-color: var(--palette-gold);
+    padding-left: 1rem;
+  }
+
+  table,
+  th,
+  td {
+    table-layout: fixed;
+    border: 1px solid;
+    border-collapse: collapse;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  th,
+  td {
+    padding: 0.5rem;
+  }
 
   /* responsive video */
   /* https://techstacker.com/how-to-responsive-youtube-videos/ */
@@ -114,7 +149,9 @@ import Fonts from "./Fonts.astro";
     width: 100%;
     margin-bottom: 2rem;
     margin-top: 1rem;
-    border-radius: var(--corner-radius);
+    border-radius: 0.5rem;
+    width: clamp(200px, 100%, 700px);
+    margin-inline: auto;
   }
 
   div.video-wrapper::after {
@@ -135,4 +172,4 @@ import Fonts from "./Fonts.astro";
       max-width: 65dvw;
     }
   }
-  </style>
+</style>

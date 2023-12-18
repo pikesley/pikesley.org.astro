@@ -251,8 +251,8 @@ const indent = "1rem";
       "toot toot"
       "toot-stats toot-stats";
     grid-template-columns: 1fr 3fr;
+    border: 1px solid var(--palette-gold);
 
-    background-color: rgba(0, 0, 0, 0.5);
     padding: 1rem;
     gap: 0.5rem;
     margin-top: 0.5rem;
@@ -291,7 +291,7 @@ const indent = "1rem";
   div.mastodon-comment div.mastodon-names,
   time.toot-timestamp,
   div.toot-stats {
-    font-size: 1.2rem;
+    font-size: 1rem;
   }
 
   div.mastodon-comment div.comment-content {
@@ -313,12 +313,7 @@ const indent = "1rem";
   hr {
     border: 0;
     height: 1px;
-    background-image: linear-gradient(
-      to right,
-      rgba(0, 0, 0, 0),
-      var(--colour-primary),
-      rgba(0, 0, 0, 0)
-    );
+    border-top: 1px solid var(--palette-gold);
   }
 
   @media only screen and (min-width: 600px) {

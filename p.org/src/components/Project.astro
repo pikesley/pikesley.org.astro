@@ -32,9 +32,27 @@ const { project } = Astro.props;
     text-align: center;
     height: var(--panel-height);
     max-width: var(--panel-width);
-    background-color: rgba(0, 0, 0, 0.2);
-    padding: 2rem;
-    border-radius: var(--corner-radius);
+    background-color: var(--palette-blue);
+    padding: 1.2rem;
+    border-radius: 0.2rem;
+    border: 0.5rem solid var(--palette-gold);
+    color: var(--palette-ecru);
+  }
+
+  .project-name a {
+    color: var(--palette-red);
+    font-family: var(--font-fancy);
+    text-shadow:
+      -1px -1px 0 var(--palette-ecru),
+      1px -1px 0 var(--palette-ecru),
+      -1px 1px 0 var(--palette-ecru),
+      1px 1px 0 var(--palette-ecru);
+    font-variant: small-caps;
+    font-size: 1.7rem;
+  }
+
+  .project-name a:hover {
+    color: var(--palette-blue);
   }
 
   div.project-name {

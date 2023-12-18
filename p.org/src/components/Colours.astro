@@ -1,0 +1,23 @@
+---
+const palette = {
+  red: [220, 46, 51],
+  blue: [39, 146, 160],
+  ecru: [225, 209, 173],
+  gold: [210, 146, 106],
+  black: [55, 44, 37],
+};
+
+var colourStyles = ":root {";
+colourStyles += "\n";
+
+for (const [key, value] of Object.entries(palette)) {
+  colourStyles += "  --palette-" + key + ": rgb(";
+  colourStyles += value.join(", ")
+    colourStyles += ");"
+  colourStyles += "\n";
+}
+
+colourStyles += "}";
+---
+
+<style set:html={colourStyles}></style>

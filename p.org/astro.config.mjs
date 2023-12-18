@@ -1,6 +1,7 @@
 import { defineConfig } from "astro/config";
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
+import yaml from "@rollup/plugin-yaml";
 
 // https://astro.build/config
 import htmlBeautifier from "astro-html-beautifier";
@@ -18,4 +19,7 @@ export default defineConfig({
       preserve_newlines: false,
     }),
   ],
+  vite: {
+    plugins: [yaml()],
+  },
 });

@@ -1,14 +1,14 @@
 ---
 import Base from "../layouts/Base.astro";
 
-import Employment from "../data/cv/employers.json";
+import Employment from "../data/cv/employers.yaml";
 import SkillsList from "../components/SkillsList.astro";
 import Employer from "../components/Employer.astro";
 
 ---
 
 <Base title="CV" description="My CV">
-<SkillsList />
+<!-- <SkillsList /> -->
 
   <ul class="employer-list">
     {Employment.map((employer) => <Employer employer={employer} />)}

@@ -1,0 +1,51 @@
+---
+import { SITE_TITLE } from "../config";
+---
+
+<a href="/" class="title">
+  <h1 id="title">{SITE_TITLE}</h1>
+</a>
+
+<style>
+  h1 {
+    color: var(--palette-red);
+    font-family: var(--font-fancy);
+    font-size: clamp(1rem, 0.6rem + 8vw, 4rem);
+    text-transform: uppercase;
+
+    -webkit-text-stroke: 0.02rem var(--palette-black);
+    text-shadow: 0.1rem 0.1rem 0.1rem var(--palette-blue);
+
+    text-align: center;
+
+    padding-bottom: 1rem;
+
+    margin-bottom: 0;
+    background-image: url("/assets/images/flourish.svg");
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: bottom;
+    background-size: 25vw;
+  }
+
+  @media only screen and (max-width: 600px) {
+    h1 {
+      background-size: 50vw;
+    }
+  }
+
+  @media only screen and (min-width: 1600px) {
+    h1 {
+      background-size: 15vw;
+    }
+  }
+
+  h1:hover {
+    color: var(--pelette-gold);
+  }
+
+</style>
+
+<script>
+  new CircleType(document.getElementById("title")).radius(350);
+</script>

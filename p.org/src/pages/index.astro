@@ -1,6 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
-import me from "../data/me.json";
+import me from "../data/me.yaml";
 ---
 
 <Base>
@@ -37,15 +37,25 @@ import me from "../data/me.json";
 <style>
   ul {
     display: grid;
-    gap: var(--grid-gap);
     grid-template-columns: repeat(var(--me-links), 1fr);
+    margin-inline: auto;
   }
 
   li {
     text-align: center;
+    font-family: var(--font-strong);
+    text-transform: capitalize;
   }
 
   span {
     font-size: 5rem;
+  }
+
+  p {
+    font-size: 1.2rem;
+  }
+
+  p, ul {
+    max-width: calc(var(--me-links) * 10rem);
   }
 </style>

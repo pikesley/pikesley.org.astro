@@ -19,6 +19,8 @@ function ghUrl(slug: string) {
 <Base title={title} titlePrefix="Projects" description={title}>
   <section class="project-readme">
     <article set:html={content} class="from-markdown" />
+  </section>
+  <section id="button">
     <span>
       <a href={ghUrl(GHslug)} class="github-button">
         <span class:list={["mdi", "mdi-github"]}></span>
@@ -29,32 +31,29 @@ function ghUrl(slug: string) {
   {mastodon && <MastodonComments mastodon={mastodon} />}
 
   <style>
-    section {
-      display: grid;
-      grid-template-columns: 1fr;
-      grid-template-areas: "readme" "link";
-      grid-template-rows: 1fr auto;
+    section.project-readme {
+      border-top: 1px solid var(--palette-gold);
+      margin-top: 1rem;
     }
 
-    article {
-      grid-area: readme;
+    section#button {
+      height: 5rem;
     }
-
     /* this class-specifier shouldn't be required, but it broke on Netlify without it */
     a.github-button {
-      grid-area: link;
-      display: inline;
-      float: right;
+      display: block;
       padding: 1rem;
-      margin: 1rem;
-      background-color: var(--colour-link);
-      color: var(--colour-bg);
+      width: fit-content;
+      background-color: var(--palette-blue);
+      color: var(--palette-ecru);
       text-shadow: none;
+      margin-left: auto;
+      border-radius: 1rem;
     }
 
     a.github-button:hover {
-      background-color: var(--colour-link-hover);
-      color: var(--colour-bg);
+      color: var(--palette-gold);
     }
+
   </style>
 </Base>

@@ -2,27 +2,22 @@
 import HeaderLink from "./HeaderLink.astro";
 ---
 
-<header>
-  <nav>
-    <HeaderLink href="/projects">Projects</HeaderLink>
-    <HeaderLink href="/blog">Blog</HeaderLink>
-    <HeaderLink href="/talks">Talks</HeaderLink>
-    <HeaderLink href="/cv">CV</HeaderLink>
-  </nav>
-</header>
+<nav>
+  <HeaderLink href="/projects">Projects</HeaderLink>
+  <HeaderLink href="/blog">Blog</HeaderLink>
+  <HeaderLink href="/talks">Talks</HeaderLink>
+  <HeaderLink href="/cv">CV</HeaderLink>
+</nav>
 
 <style>
   nav {
-    margin-inline: auto;
-
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    max-width: var(--max-width);
-    height: 4rem;
+    gap: 3rem;
+    height: 3rem;
+    margin-top: 1rem;
   }
 
-  header {
-    grid-area: nav;
+  nav a.active {
+    pointer-events: none;
+    color: var(--palette-gold);
   }
 </style>
