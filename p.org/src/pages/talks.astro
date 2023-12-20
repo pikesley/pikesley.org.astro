@@ -16,7 +16,7 @@ function YTUrl(data) {
 
 function makeID(
   data: { title: string; event: string },
-  withHash: boolean = false
+  withHash: boolean = false,
 ) {
   var i = [data.title, data.event].join(" ").toLowerCase().replaceAll(" ", "-");
   return (withHash ? "#" : "") + i;
@@ -27,13 +27,11 @@ function makeID(
   <ul>
     {
       Talks.map((talk) => (
-        <li id={makeID(talk)}>
-          <a href={makeID(talk, true)}>
-            <h2>
-              {talk.title} <br />
-              <span>{talk.event}</span>
-            </h2>
-          </a>
+        <li id={makeID(talk)} class="panel">
+          <h2>
+            <a href={makeID(talk, true)}>{talk.title}</a>
+          </h2>
+          <span>{talk.event}</span>
           <section class="video-wrapper">
             <iframe
               src={YTUrl(talk)}
@@ -51,5 +49,18 @@ function makeID(
 <style>
   span {
     font-size: clamp(1rem, -1rem + 8vw, 1.6rem);
+    display: block;
+    margin-inline: auto;
+    width: fit-content;
+  }
+
+  ul {
+   display: grid;
+   gap: 1rem; 
+  }
+
+  .panel {
+    padding-top: 0;
+    padding-bottom: 0;
   }
 </style>
