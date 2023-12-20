@@ -20,8 +20,8 @@ const { employer } = Astro.props;
 ---
 
 <li>
-  <section class="dates">{employer.dates.start} - {employer.dates.end}</section>
-  <section class="role">
+  <time>{employer.dates.start} - {employer.dates.end}</time>
+  <section class="panel">
     {employer.role} at
     {employer.url && <a href={employer.url}>{employer.name}</a>}
     {!employer.url && employer.name}
@@ -42,43 +42,26 @@ const { employer } = Astro.props;
   li {
     display: grid;
     grid-template-areas:
-      "dates"
-      "role"
-      "headline"
-      "description";
+    "dates"
+    "role"
+    "headline"
+    "description";
     border-top-width: 1px;
     border-top-style: solid;
-    border-top-color: var(--palette-gold);
+    border-top-color: var(--colour-gold);
 
     padding: 1rem 0;
+    gap: 1rem;
   }
 
-  .dates {
+  .panel {
+    font-size: clamp(1rem, -0.7rem + 8vw, 2rem);
+    font-family: var(--font-strong);
+  }
+
+  time {
     grid-area: dates;
     font-family: var(--font-strong);
-    margin-bottom: 1rem;
-  }
-
-  .role {
-    grid-area: role;
-    font-family: var(--font-strong);
-    font-size: clamp(1rem, -0.7rem + 8vw, 2rem);
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-    max-width: fit-content;
-
-    background-color: var(--palette-blue);
-    padding: 1rem;
-    border: 0.2rem solid var(--palette-gold);
-    margin-bottom: 1rem;
-  }
-
-  .role a {
-    color: var(--palette-ecru);
-  }
-
-  .role a:hover {
-    color: var(--palette-gold);
   }
 
   .headline {

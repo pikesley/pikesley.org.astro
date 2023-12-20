@@ -15,6 +15,7 @@ run:
 		--tty \
 		--rm \
 		--publish 3001:3001 \
+		--publish 8080:8080 \
 		${ID} \
 		bash
 

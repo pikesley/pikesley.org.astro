@@ -3,18 +3,19 @@ import { SITE_TITLE } from "../config";
 ---
 
 <a href="/" class="title">
-  <h1 id="title">{SITE_TITLE}</h1>
+  <span id="title">{SITE_TITLE}</span>
 </a>
 
 <style>
-  h1 {
-    color: var(--palette-red);
+  span {
+    color: var(--colour-red);
     font-family: var(--font-fancy);
     font-size: clamp(1rem, 0.6rem + 8vw, 4rem);
+    font-weight: 600;
     text-transform: uppercase;
 
-    -webkit-text-stroke: 0.02rem var(--palette-black);
-    text-shadow: 0.1rem 0.1rem 0.1rem var(--palette-blue);
+    -webkit-text-stroke: 0.02rem var(--colour-black);
+    text-shadow: 0.15rem 0.15rem 0.2rem var(--colour-blue);
 
     text-align: center;
 
@@ -25,27 +26,27 @@ import { SITE_TITLE } from "../config";
     background-repeat: no-repeat;
     background-position-x: center;
     background-position-y: bottom;
-    background-size: 25vw;
+    background-size: 20vw;
+
+    display: block;
   }
 
-  @media only screen and (max-width: 600px) {
-    h1 {
-      background-size: 50vw;
-    }
-  }
-
-  @media only screen and (min-width: 1600px) {
-    h1 {
-      background-size: 15vw;
-    }
-  }
-
-  h1:hover {
+  span:hover {
     color: var(--pelette-gold);
   }
 
+  @media only screen and (max-width: 600px) {
+    span {
+      background-size: 50vw;
+    }
+  }
+  @media only screen and (min-width: 1600px) {
+    span {
+      background-size: 15vw;
+    }
+  }
 </style>
 
 <script>
-  new CircleType(document.getElementById("title")).radius(350);
+  new CircleType(document.getElementById("title")).radius(300);
 </script>

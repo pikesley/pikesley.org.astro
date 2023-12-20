@@ -1,12 +1,15 @@
 ---
-/* eslint-disable */
-export interface Props extends astroHTML.JSX.AnchorHTMLAttributes {}
-/* eslint-enable */
-
-const { href, class: className, ...props } = Astro.props;
-const isActive = href === Astro.url.pathname.replace(/\/$/, "");
+const { href } = Astro.props;
+const isActive = Astro.url.pathname.startsWith(href);
 ---
 
-<a href={href} class:list={[className, { active: isActive }]} {...props}>
+<a href={href} class:list={[{ active: isActive }]}>
   <slot />
 </a>
+
+<style>
+    a.active {
+    border-top: 1px solid var(--colour-ecru);
+    border-bottom: 1px solid var(--colour-ecru);
+  }
+</style>

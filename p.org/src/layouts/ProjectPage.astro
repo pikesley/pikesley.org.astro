@@ -32,27 +32,28 @@ function ghUrl(slug: string) {
 
   <style>
     section.project-readme {
-      border-top: 1px solid var(--palette-gold);
+      border-top: 1px solid var(--colour-gold);
       margin-top: 1rem;
     }
 
     section#button {
       height: 5rem;
     }
-    /* this class-specifier shouldn't be required, but it broke on Netlify without it */
-    a.github-button {
+
+    a {
       display: block;
       padding: 1rem;
       width: fit-content;
-      background-color: var(--palette-blue);
-      color: var(--palette-ecru);
+      background-color: var(--colour-blue);
+      color: var(--colour-ecru);
       text-shadow: none;
       margin-left: auto;
       border-radius: 1rem;
     }
 
-    a.github-button:hover {
-      color: var(--palette-gold);
+
+    a:hover {
+      color: var(--colour-gold);
     }
 
   </style>

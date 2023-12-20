@@ -1,0 +1,6 @@
+server {
+  listen 8080 default_server;
+  root /opt/pikesley.org.astro/p.org/dist;
+  index index.html;
+  server_name _;
+}

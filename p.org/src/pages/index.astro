@@ -29,15 +29,21 @@ import me from "../data/me.yaml";
     }
   </ul>
   <p>
-    In fact, if you come across a user called <em>pikesley</em> on any service, it’s
-    probably me
+    In fact, if you come across a user called <em>pikesley</em> on any service,
+    it’s probably me. (<a href="https://www.woburnsandstyres.co.uk/"
+      >These guys</a
+    > are nothing to do with me though)
   </p>
 </Base>
 
 <style>
+  :root {
+    --links: 3;
+  }
+
   ul {
     display: grid;
-    grid-template-columns: repeat(var(--me-links), 1fr);
+    grid-template-columns: repeat(var(--links), 1fr);
     margin-inline: auto;
   }
 
@@ -55,7 +61,8 @@ import me from "../data/me.yaml";
     font-size: 1.2rem;
   }
 
-  p, ul {
-    max-width: calc(var(--me-links) * 10rem);
+  p,
+  ul {
+    max-width: calc(var(--links) * 10rem);
   }
 </style>

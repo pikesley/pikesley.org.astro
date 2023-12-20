@@ -3,6 +3,9 @@ FROM node
 ARG PROJECT
 WORKDIR /opt/${PROJECT}/p.org
 
+RUN apt-get update && apt-get install -y nginx vim
+COPY ./nginx/default /etc/nginx/sites-enabled/default
+
 COPY ./ /opt/${PROJECT}
 
 RUN npm install

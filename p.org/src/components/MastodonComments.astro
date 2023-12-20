@@ -18,9 +18,9 @@ const indent = "1rem";
 <hr />
 
 <noscript>
-  <div id="error">
+  <section id="error">
     Please enable JavaScript to view the comments powered by the Fediverse.
-  </div>
+  </section>
 </noscript>
 
 <p>
@@ -28,7 +28,7 @@ const indent = "1rem";
     >this Mastodon post</a
   >
 </p>
-<div id="mastodon-comments"></div>
+<section id="mastodon-comments"></section>
 
 <script define:vars={{ mastodon: mastodon, indent: indent }}>
   const host = mastodon.host;
@@ -251,7 +251,7 @@ const indent = "1rem";
       "toot toot"
       "toot-stats toot-stats";
     grid-template-columns: 1fr 3fr;
-    border: 1px solid var(--palette-gold);
+    border: 1px solid var(--colour-gold);
 
     padding: 1rem;
     gap: 0.5rem;
@@ -313,7 +313,7 @@ const indent = "1rem";
   hr {
     border: 0;
     height: 1px;
-    border-top: 1px solid var(--palette-gold);
+    border-top: 1px solid var(--colour-gold);
   }
 
   @media only screen and (min-width: 600px) {
