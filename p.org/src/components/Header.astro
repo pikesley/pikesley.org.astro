@@ -1,12 +1,28 @@
 ---
 import HeaderLink from "./HeaderLink.astro";
+
+const links = [
+  {
+    text: "Projects",
+    url: "/projects",
+  },
+  {
+    text: "Blog",
+    url: "/blog",
+  },
+  {
+    text: "Talks",
+    url: "/talks",
+  },
+  {
+    text: "CV",
+    url: "/cv",
+  },
+];
 ---
 
 <nav>
-  <HeaderLink href="/projects">Projects</HeaderLink>
-  <HeaderLink href="/blog">Blog</HeaderLink>
-  <HeaderLink href="/talks">Talks</HeaderLink>
-  <HeaderLink href="/cv">CV</HeaderLink>
+  {links.map((link) => <HeaderLink href={link.url}>{link.text}</HeaderLink>)}
 </nav>
 
 <style>
@@ -14,10 +30,5 @@ import HeaderLink from "./HeaderLink.astro";
     gap: 3rem;
     height: 3rem;
     margin-top: 1rem;
-  }
-
-  nav a.active {
-    pointer-events: none;
-    color: var(--palette-gold);
   }
 </style>

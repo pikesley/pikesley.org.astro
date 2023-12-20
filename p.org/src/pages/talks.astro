@@ -34,14 +34,14 @@ function makeID(
               <span>{talk.event}</span>
             </h2>
           </a>
-          <div class="video-wrapper">
+          <section class="video-wrapper">
             <iframe
               src={YTUrl(talk)}
               allowfullscreen
               frameborder="0"
               allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
             />
-          </div>
+          </section>
         </li>
       ))
     }
@@ -49,10 +49,6 @@ function makeID(
 </Base>
 
 <style>
-  h2 {
-    font-size: clamp(1rem, -0.8rem + 8vw, 2rem);
-  }
-
   span {
     font-size: clamp(1rem, -1rem + 8vw, 1.6rem);
   }

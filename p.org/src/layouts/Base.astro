@@ -5,7 +5,7 @@ import Footer from "../components/Footer.astro";
 import MastHead from "../components/MastHead.astro";
 import Snow from "../components/Snow.astro";
 
-import GlobalStyles from "../components/GlobalStyles.astro";
+import GlobalStyles from "../components/css/GlobalStyles.astro";
 import "@mdi/font/css/materialdesignicons.css";
 import { SITE_TITLE } from "../config";
 
@@ -33,17 +33,22 @@ if (description) {
   <head>
     <BaseHead title={headTitle} description={description} image={image} />
 
-    <Snow />
+    <!-- <Snow /> -->
   </head>
   <body>
-    <div id="overlay"></div>
     <header>
       <Header />
     </header>
 
     <main>
       <MastHead />
-      {title && <h2>{pageTitle}</h2>}
+      {
+        title && (
+          <section>
+            <h1>{pageTitle}</h1>
+          </section>
+        )
+      }
       <slot />
     </main>
 
@@ -54,61 +59,36 @@ if (description) {
     <GlobalStyles />
 
     <style>
-      html {
-        height: 100%;
+      :root {
+        --flouron: "𑁍";
+        /* ߷ ๛ ༄ ෴ ๏ ៚ ᪣ ᯼ ᯽ ※ ⸛ ⸭ ꧁ ꧂ 𑁍 𑅀 𑑛 */
       }
 
-      body {
-        position: relative;
-        min-height: 100svh;
-        margin: 0;
-        display: grid;
-        grid-template-areas: "header" "main" "footer";
-        grid-template-rows: auto auto 1fr;
-
-        background-color: var(--palette-ecru);
-        font-family: var(--font-plain);
-      }
-
-      #overlay {
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        background-repeat: repeat;
-        /* https://www.transparenttextures.com/ */
-        background-image: url("/assets/backgrounds/paper-texture.png");
-        pointer-events: none;
-        mix-blend-mode: overlay;
-        opacity: 0.7;
-        z-index: 1000;
-      }
-
-      header {
-        grid-area: header;
-        background-color: var(--palette-blue);
-      }
-
-      main {
-        grid-area: main;
-        width: clamp(200px, 80%, 1000px);
-        margin-inline: auto;
-
-        color: var(--palette-black);
-      }
-
-      footer {
-        grid-area: footer;
-        align-self: end;
-        background-color: var(--palette-blue);
-      }
-
-      h2 {
-        text-align: center;
+      h1 {
         font-family: var(--font-fancy);
-        color: var(--palette-black);
-        font-size: clamp(1rem, -0.1rem + 8vw, 3rem);
+        color: var(--colour-black);
+        font-size: clamp(1rem, -0.5rem + 8vw, 3rem);
+        margin: 0;
+        margin-inline: auto;
+        padding: 0;
+      }
+
+      section {
+        margin-top: 2rem;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        max-width: fit-content;
+        margin-inline: auto;
+      }
+
+      section::before,
+      section::after {
+        color: var(--colour-gold);
+        font-size: clamp(1rem, -0.5rem + 8vw, 2.5rem);
+        position: relative;
+        content: var(--flouron);
+        padding-inline: 0.5rem;
       }
     </style>
   </body>

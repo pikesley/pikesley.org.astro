@@ -1,23 +1,23 @@
 ---
 export interface Props {
   project: {
-    url: string,
-    title: string,
-    description: string
-  }
+    url: string;
+    title: string;
+    description: string;
+  };
 }
 
 const { project } = Astro.props;
 ---
 
-<li>
-  <div class="project-name">
+<li class="panel">
+  <h2 class="project-name">
     <a href={project.url}>{project.title}</a>
-  </div>
+  </h2>
 
-  <div>
+  <section>
     <span set:html={project.description} />
-  </div>
+  </section>
 </li>
 
 <style>
@@ -32,31 +32,12 @@ const { project } = Astro.props;
     text-align: center;
     height: var(--panel-height);
     max-width: var(--panel-width);
-    background-color: var(--palette-blue);
-    padding: 1.2rem;
-    border-radius: 0.2rem;
-    border: 0.5rem solid var(--palette-gold);
-    color: var(--palette-ecru);
   }
 
-  .project-name a {
-    color: var(--palette-red);
-    font-family: var(--font-fancy);
-    text-shadow:
-      -1px -1px 0 var(--palette-ecru),
-      1px -1px 0 var(--palette-ecru),
-      -1px 1px 0 var(--palette-ecru),
-      1px 1px 0 var(--palette-ecru);
-    font-variant: small-caps;
-    font-size: 1.7rem;
-  }
-
-  .project-name a:hover {
-    color: var(--palette-blue);
-  }
-
-  div.project-name {
-    height: calc(var(--panel-height) / 2);
+  .project-name {
+    height: calc(var(--panel-height) / 2.5);
     font-size: 2.5rem;
+    margin: 0;
+    padding: 0;
   }
 </style>

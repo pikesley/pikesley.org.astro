@@ -1,0 +1,220 @@
+---
+import Fonts from "./Fonts.astro";
+import Colours from "./Colours.astro";
+---
+
+<Fonts />
+<Colours />
+
+<style is:global>
+  html {
+    font-family: var(--font-plain);
+    height: 100%;
+  }
+
+  body {
+    color: var(--colour-black);
+    background-color: var(--colour-ecru);
+
+    position: relative;
+    min-height: 100svh;
+    margin: 0;
+    display: grid;
+    grid-template-areas: "header" "main" "footer";
+    grid-template-rows: auto auto 1fr;
+  }
+
+  body,
+  nav,
+  .panel {
+    /* https://www.transparenttextures.com/ */
+    background-image: url("/assets/backgrounds/groove-paper-texture.png");
+    background-repeat: repeat;
+  }
+
+  header {
+    grid-area: header;
+    background-color: var(--colour-blue);
+  }
+
+  main {
+    grid-area: main;
+    width: clamp(200px, 80%, 1000px);
+    margin-inline: auto;
+
+    color: var(--colour-black);
+  }
+
+  footer {
+    grid-area: footer;
+    align-self: end;
+    background-color: var(--colour-blue);
+  }
+
+  a {
+    text-decoration: none;
+    color: var(--colour-blue);
+  }
+
+  a:hover {
+    color: var(--colour-gold);
+  }
+
+  nav {
+    margin-inline: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+
+    background-color: var(--colour-red);
+    border-top: 1px solid var(--colour-black);
+    border-bottom: 1px solid var(--colour-black);
+  }
+
+  nav a {
+    color: var(--colour-ecru);
+    font-family: var(--font-strong);
+    text-transform: uppercase;
+    font-size: 1rem;
+    text-shadow: 0.1rem 0.1rem 0.1rem var(--colour-black);
+  }
+
+  ul {
+    margin-left: 0;
+    padding-left: 0;
+    list-style-type: none;
+  }
+
+  p {
+    text-align: justify;
+    margin-inline: auto;
+    line-height: 1.5rem;
+    font-size: 1.2rem;
+  }
+
+  .panel {
+    background-color: var(--colour-blue);
+    padding: 1.2rem;
+    border-radius: 0.2rem;
+    border: 0.5rem solid var(--colour-gold);
+    color: var(--colour-ecru);
+    font-size: 1.1rem;
+  }
+
+  .panel a {
+    color: var(--colour-red);
+    font-family: var(--font-fancy);
+    text-shadow:
+      -1px -1px 0 var(--colour-ecru),
+      1px -1px 0 var(--colour-ecru),
+      -1px 1px 0 var(--colour-ecru),
+      1px 1px 0 var(--colour-ecru);
+    font-variant: small-caps;
+    font-size: 1.7rem;
+  }
+
+  .panel a:hover {
+    color: var(--colour-blue);
+  }
+
+  img {
+    width: clamp(200px, 90%, 500px);
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  img,
+  .video-wrapper {
+    margin-inline: auto;
+    border-radius: 0.5rem;
+  }
+
+  /* responsive video */
+  /* https://techstacker.com/how-to-responsive-youtube-videos/ */
+  .video-wrapper {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    margin-bottom: 2rem;
+    margin-top: 1rem;
+    width: clamp(200px, 100%, 700px);
+  }
+
+  .video-wrapper::after {
+    display: block;
+    content: "";
+    padding-top: 56.25%;
+  }
+
+  iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  @media only screen and (min-width: 600px) {
+    pre {
+      max-width: 65dvw;
+    }
+  }
+
+  h2,
+  h3,
+  h4 {
+    margin: 0;
+    font-family: var(--font-strong);
+  }
+
+  h2 {
+    text-align: center;
+    font-size: clamp(1rem, -0.5rem + 8vw, 2rem);
+    margin-top: 1rem;
+  }
+
+  .from-markdown ul {
+    list-style-type: disc;
+    margin-left: 2rem;
+  }
+
+  pre,
+  code {
+    font-family: var(--font-mono);
+  }
+
+  pre {
+    color: var(--colour-ecru);
+    background-color: var(--colour-black);
+    overflow-x: scroll;
+    max-width: 80dvw;
+    margin-inline: auto;
+    padding: 1rem;
+    overflow: auto;
+  }
+
+  code {
+    font-size: 0.9rem;
+  }
+
+  blockquote {
+    border-left-width: 2px;
+    border-left-style: solid;
+    border-left-color: var(--colour-gold);
+    padding-left: 1rem;
+  }
+
+  table,
+  th,
+  td {
+    border: 1px solid var(--colour-red);
+    border-collapse: collapse;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  th,
+  td {
+    padding: 0.5rem;
+  }
+</style>
