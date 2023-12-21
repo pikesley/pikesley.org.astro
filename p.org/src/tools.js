@@ -7,9 +7,9 @@ export function GHLink(proj) {
 
 export function replaceVid(line) {
   if (line.match(/.*githubusercontent.*mp4/)) {
-    var result = '<video controls loop src="'
-    result += line
-    result += '"></video>'
+    var result = '<video controls loop src="';
+    result += line;
+    result += '"></video>';
 
     return result;
   } else {

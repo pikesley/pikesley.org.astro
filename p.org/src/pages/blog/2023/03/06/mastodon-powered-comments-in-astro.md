@@ -53,16 +53,16 @@ This site also has [`project`](/projects) pages - a project is basically a blogp
 
 There is, as pointed-out in [@jwildeboer](https://social.wildeboer.net/@jwildeboer)'s post, a bootstrapping problem, where we have to Toot first to get the Toot ID, then come back and insert it, but this is not really a big deal.
 
-I think this will *mostly* work as a drop-in component, modulo changing the default `host` and `user` values. I might actually look into packaging it as a proper [Astro plugin](https://astro.build/integrations/), if anybody has any hints on how to do that.
+I think this will _mostly_ work as a drop-in component, modulo changing the default `host` and `user` values. I might actually look into packaging it as a proper [Astro plugin](https://astro.build/integrations/), if anybody has any hints on how to do that.
 
 ### Isolating the CSS
 
 The Astro way to build components is to put the CSS in a `<style>` tag right in the component, and then Astro namespaces everything at build-time so nothing leaks. That doesn't really work for us here, though, because those compenent styles only apply to the static content, where Astro is able to apply a `class="41fb17f6"` or whatever to keep everything scoped. There's no way for it to style client-side dynamic content using this approach (is there? maybe I've missed something), so each Mastodon comment goes into a `<div class="mastodon-comment">` and then the styles are all like
 
 ```css
-  div.mastodon-comment img {
-    width: 20dvw;
-  }
+div.mastodon-comment img {
+  width: 20dvw;
+}
 ```
 
 inside a `<style is:global>` tag, which makes them into site-wide CSS.

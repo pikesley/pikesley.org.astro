@@ -28,6 +28,7 @@
 # - apache
 # comments: []
 ---
+
 <p>Granting anonymous read-only access to a single repository in a site with multiple repos led to much swearing. But I've now cracked it. Here's how...</p>
 <h2>What was I trying to do?</h2>
 <p>I'm running SVN via Apache, authenticating with basic HTTP auth. I have a few repositories in my SVN, and I wanted to grant anonymous read-only access to just one of them. So let us begin with </p>
@@ -58,6 +59,7 @@ sam = rw
 
 [some_other_repo:/]
 sam = rw
+
 </pre>
 <p>And indeed this behaved mostly as expected: I was able to anonymously check out a project from my <code>code</code> repo, but when I attempted to check in modifications I was asked to authenticate. WIN, right? Wrong. Because now <em>any</em> access to <code>some_other_repo</code> gave me a 403. WTF? I tried all kinds of variations on the vhost and svn_auth file, and cursed a lot, until I found the correct answer in the <a href="https://svnbook.red-bean.com/en/1.0/ch06s04.html">SVN book</a>. So let's now look at</p>
 <h3>The correct solution</h3>
@@ -75,7 +77,9 @@ sam = rw
       AuthName             "param3 Subversion Repository"
       AuthUserFile         /etc/apache2/dav_svn.passwd
       AuthGroupFile        /dev/null
-   &lt;/Location&gt;
+
+&lt;/Location&gt;
+
 </pre>
 <p>and the magic actually happens in <code>svn_auth.conf</code>:</p>
 <pre>
@@ -85,7 +89,8 @@ sam = rw
 sam = rw
 
 [code:/]
-* = r
+
+- = r
 sam = rw
 </pre>
 <p>Aha! This is made entirely of WIN! And once we have this, we can exert</p>
@@ -93,15 +98,17 @@ sam = rw
 <p>My <code>svn_auth.conf</code> now looks something like this:</p>
 <pre>
 [some_other_repo:/]
-* =
-sam = rw
+- =
+  sam = rw
 
 [code:/]
-* =
-sam = rw
+
+- =
+  sam = rw
 
 [code:/montecarlo]
-* = r
+
+- = r
 </pre>
 <p>so I'm granting anonymous access <em>only</em> to the <code>montecarlo</code> tree, and nothing else.</p>
 <p>EDIT: Actually, I'm not sure about the fine-grained control stuff: when I had this set for more than one subtree, I was getting 403s again. Bears further investigation...</p>

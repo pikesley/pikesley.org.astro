@@ -21,4 +21,5 @@
 # - london
 # comments: []
 ---
+
 <p>﻿﻿﻿﻿<a href="https://www.flickr.com/photos/pikesley/2639850887/" title="Sculpture by Sam Wise, on Flickr"><img src="https://farm4.static.flickr.com/3159/2639850887_97dc11ca70.jpg" width="500" height="334" alt="Sculpture" /></a></p>

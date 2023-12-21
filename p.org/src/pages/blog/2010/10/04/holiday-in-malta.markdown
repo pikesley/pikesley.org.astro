@@ -23,6 +23,7 @@
 # - holidays
 # comments: []
 ---
+
 <p><a href="https://www.flickr.com/photos/pikesley/5048800922/" title="St John's Co-cathedral by Sam Wise, on Flickr"><img src="https://farm5.static.flickr.com/4105/5048800922_49ab512a16.jpg" width="500" height="334" alt="St John's Co-cathedral" /></a></p>
 <p>We just had a great holiday in Malta. It's a lovely place.</p>
 <h3>Things to do</h3>

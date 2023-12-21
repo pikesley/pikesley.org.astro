@@ -21,6 +21,7 @@
 # - git
 # comments: []
 ---
+
 <p><object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" width="480" height="385" codebase="https://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0"><param name="allowFullScreen" value="true" /><param name="allowscriptaccess" value="always" /><param name="src" value="https://www.youtube.com/v/Ywl9dXL2Skk?fs=1&amp;hl=en_GB&amp;color1=0x3a3a3a&amp;color2=0x999999" /><param name="allowfullscreen" value="true" /><embed type="application/x-shockwave-flash" width="480" height="385" src="https://www.youtube.com/v/Ywl9dXL2Skk?fs=1&amp;hl=en_GB&amp;color1=0x3a3a3a&amp;color2=0x999999" allowscriptaccess="always" allowfullscreen="true"></embed></object></p>
 <p>I realise I may be a little late to the party here, but I recently came across the awesome <a href="https://code.google.com/p/gource/">gource</a> with which I made the above video. It's generated from <em>/etc/</em> on my VPS - I'm versioning that using <a href="https://kitenet.net/~joey/code/etckeeper/">etckeeper</a> which gives me a <a href="https://git-scm.com/">git</a> repository going back to August of this year.</p>
 <h2>How I did it</h2>

@@ -23,5 +23,6 @@
 # - maggie
 # comments: []
 ---
+
 <p><a title="Moo by Sam Wise, on Flickr" href="https://www.flickr.com/photos/pikesley/5087507488/"><img src="https://farm5.static.flickr.com/4128/5087507488_b64a5b08bb.jpg" alt="Moo" width="500" height="447" /></a></p>
 <p>Fun with a <a href="https://kenrockwell.com/nikon/sb600.htm">flashgun</a>.</p>

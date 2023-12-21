@@ -19,6 +19,7 @@
 # - holidays
 # comments: []
 ---
+
 <p><a title="Aberffraw by Sam Wise, on Flickr" href="https://www.flickr.com/photos/pikesley/5824042722/"><img src="https://farm3.static.flickr.com/2339/5824042722_614b4b0aa4.jpg" alt="Aberffraw" width="500" height="335" /></a></p>
 <p>Another fantastic holiday in a staggeringly beautiful place!</p>
 <h3>Things to do</h3>

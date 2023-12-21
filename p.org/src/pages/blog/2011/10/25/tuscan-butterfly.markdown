@@ -19,6 +19,7 @@
 # - tuscany
 # comments: []
 ---
+
 <table style="width:auto;">
 <tr>
 <td><a href="https://picasaweb.google.com/lh/photo/bQdwgjmhlIGdHjQc3dB1dcmf-BLulOZ5a32hjxIo1Vk?feat=embedwebsite"><img src="https://lh3.googleusercontent.com/-dEi38N7EFGM/Tqcg4BSf0WI/AAAAAAAABAo/nlHjzznHO0E/s400/DSC_2757.NEF.jpg" height="268" width="400" /></a></td>
