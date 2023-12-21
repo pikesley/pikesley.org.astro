@@ -118,46 +118,22 @@ import Colours from "./Colours.astro";
     color: var(--colour-blue);
   }
 
-  img {
+  .panel * {
+    line-height: 1.5rem;
+  }
+
+  img,
+  video {
     width: clamp(200px, 90%, 500px);
     margin-bottom: 1rem;
     display: block;
   }
 
   img,
-  .video-wrapper {
+  iframe,
+  video {
     margin-inline: auto;
     border-radius: 0.5rem;
-  }
-
-  /* responsive video */
-  /* https://techstacker.com/how-to-responsive-youtube-videos/ */
-  .video-wrapper {
-    position: relative;
-    overflow: hidden;
-    width: 100%;
-    margin-bottom: 2rem;
-    margin-top: 1rem;
-    width: clamp(200px, 100%, 700px);
-  }
-
-  .video-wrapper::after {
-    display: block;
-    content: "";
-    padding-top: 56.25%;
-  }
-
-  iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
-  @media only screen and (min-width: 600px) {
-    pre {
-      max-width: 65dvw;
-    }
   }
 
   h2,
@@ -195,6 +171,12 @@ import Colours from "./Colours.astro";
 
   code {
     font-size: 0.9rem;
+  }
+
+  @media only screen and (min-width: 600px) {
+    pre {
+      max-width: 65dvw;
+    }
   }
 
   blockquote {

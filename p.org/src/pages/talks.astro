@@ -16,7 +16,7 @@ function YTUrl(data) {
 
 function makeID(
   data: { title: string; event: string },
-  withHash: boolean = false,
+  withHash: boolean = false
 ) {
   var i = [data.title, data.event].join(" ").toLowerCase().replaceAll(" ", "-");
   return (withHash ? "#" : "") + i;
@@ -52,15 +52,25 @@ function makeID(
     display: block;
     margin-inline: auto;
     width: fit-content;
+    padding-top: 1rem;
   }
 
   ul {
-   display: grid;
-   gap: 1rem; 
+    display: grid;
+    gap: 1rem;
+  }
+
+  iframe {
+    aspect-ratio: 16 / 9;
+    width: 100%;
+    margin-top: 1rem;
   }
 
   .panel {
     padding-top: 0;
-    padding-bottom: 0;
+  }
+
+  .panel h2 {
+    line-height: 1.5rem;
   }
 </style>

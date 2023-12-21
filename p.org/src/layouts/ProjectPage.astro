@@ -21,14 +21,22 @@ function ghUrl(slug: string) {
     <article set:html={content} class="from-markdown" />
   </section>
   <section id="button">
-    <span>
-      <a href={ghUrl(GHslug)} class="github-button">
+    <article class="panel">
+      <a href={ghUrl(GHslug)}>
         <span class:list={["mdi", "mdi-github"]}></span>
         {title} on Github
       </a>
-    </span>
+    </article>
   </section>
   {mastodon && <MastodonComments mastodon={mastodon} />}
+
+  <style is:global>
+    video {
+      width: 90%;
+      margin-inline: auto;
+      display: block;
+    }
+  </style>
 
   <style>
     section.project-readme {
@@ -40,21 +48,18 @@ function ghUrl(slug: string) {
       height: 5rem;
     }
 
-    a {
-      display: block;
-      padding: 1rem;
+    .panel {
       width: fit-content;
-      background-color: var(--colour-blue);
-      color: var(--colour-ecru);
-      text-shadow: none;
       margin-left: auto;
-      border-radius: 1rem;
+      padding: 1rem;
     }
 
+    a {
+      font-size: 1.2rem;
+    }
 
     a:hover {
       color: var(--colour-gold);
     }
-
   </style>
 </Base>
