@@ -1,5 +1,5 @@
 ---
-publish: false
+publish: true
 layout: ../../../../../layouts/BlogPost.astro
 title: Calculate Π By Throwing Darts
 ---
@@ -155,4 +155,4 @@ if __name__ == '__main__':
 		if m.divides_by(step): print m
 </pre>
 
-<p>There's now a <a href="//pikesley.org/blog/2010/10/14/calculate-π-by-throwing-ruby-tipped-darts/">ruby version</a>, too.</p>
+<p>You can have a go with this yourself using <a href="https://gist.github.com/pikesley/9c0e00cc706195c0db200d5a39b1d282">this Gist</a>. And there's now a <a href="//pikesley.org/blog/2010/10/14/calculate-π-by-throwing-ruby-tipped-darts/">ruby version</a>, too.</p>
