@@ -15,14 +15,14 @@ import me from "../data/me.yaml";
 
   <p>Some other places you can find me:</p>
 
-  <ul>
+  <ul class="panel">
     {
       me.map((item) => (
         <li>
           <a href={item.url}>
             <span class:list={["mdi", `mdi-${item.name}`]} />
-            <br />
-            {item.name}
+
+            <span class="link-name">{item.name}</span>
           </a>
         </li>
       ))
@@ -45,16 +45,32 @@ import me from "../data/me.yaml";
     display: grid;
     grid-template-columns: repeat(var(--links), 1fr);
     margin-inline: auto;
+    padding-top: 0;
   }
 
   li {
     text-align: center;
-    font-family: var(--font-strong);
     text-transform: capitalize;
+
+    display: grid;
   }
 
-  span {
-    font-size: 5rem;
+  .panel a {
+    display: grid;
+    grid-template-areas:
+      "icon"
+      "name";
+  }
+
+  span.mdi {
+    grid-area: icon;
+    font-size: 4rem;
+    font-size: clamp(4rem, -0.7rem + 8vw, 5rem);
+  }
+
+  span.link-name {
+    grid-area: name;
+    font-size: 1.2rem;
   }
 
   p {
@@ -64,5 +80,17 @@ import me from "../data/me.yaml";
   p,
   ul {
     max-width: calc(var(--links) * 10rem);
+  }
+
+  p:last-child::after {
+    content: "";
+    background-image: url("/assets/images/twist.svg");
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-size: 40%;
+    height: 4rem;
+    display: grid;
+    font-family: var(--font-fancy);
+    align-items: center;
   }
 </style>

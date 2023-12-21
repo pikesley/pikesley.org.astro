@@ -30,6 +30,14 @@ function ghUrl(slug: string) {
   </section>
   {mastodon && <MastodonComments mastodon={mastodon} />}
 
+  <style is:global>
+    video {
+      width: 90%;
+      margin-inline: auto;
+      display: block;
+      border-radius: 0.5rem;
+    }
+  </style>
   <style>
     section.project-readme {
       border-top: 1px solid var(--colour-gold);
@@ -51,10 +59,8 @@ function ghUrl(slug: string) {
       border-radius: 1rem;
     }
 
-
     a:hover {
       color: var(--colour-gold);
     }
-
   </style>
 </Base>

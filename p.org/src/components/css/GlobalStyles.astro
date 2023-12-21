@@ -103,6 +103,7 @@ import Colours from "./Colours.astro";
   }
 
   .panel a {
+    white-space: nowrap;
     color: var(--colour-red);
     font-family: var(--font-fancy);
     text-shadow:
@@ -132,7 +133,7 @@ import Colours from "./Colours.astro";
 
   /* responsive video */
   /* https://techstacker.com/how-to-responsive-youtube-videos/ */
-  .video-wrapper {
+  /* .video-wrapper {
     position: relative;
     overflow: hidden;
     width: 100%;
@@ -145,15 +146,20 @@ import Colours from "./Colours.astro";
     display: block;
     content: "";
     padding-top: 56.25%;
-  }
+  } */
 
   iframe {
-    position: absolute;
+    /* position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 100%; */
+    aspect-ratio: 16 / 9;
+  width: 100%;
+  border-radius: 0.5rem;
+  margin-top: 1rem;
   }
+
   @media only screen and (min-width: 600px) {
     pre {
       max-width: 65dvw;

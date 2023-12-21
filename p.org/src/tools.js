@@ -7,14 +7,9 @@ export function GHLink(proj) {
 
 export function replaceVid(line) {
   if (line.match(/.*githubusercontent.*mp4/)) {
-    var result = '<div class="video-wrapper">';
-    result += "<iframe src=";
-    result += `"${line}" `;
-    result += "allowfullscreen ";
-    result += 'frameborder="0" ';
-    result +=
-      'allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"';
-    result += "></iframe></div>";
+    var result = '<video controls loop src="'
+    result += line
+    result += '"></video>'
 
     return result;
   } else {
