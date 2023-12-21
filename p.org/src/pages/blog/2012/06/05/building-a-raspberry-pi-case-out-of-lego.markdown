@@ -50,7 +50,6 @@
 #   date_gmt: '2013-03-10 19:46:09 +0000'
 #   content: Very nice. just got my Pi a few days ago and have been looking for some
 #     DIY case ideas. Wish I still had some of my old bricks.
-
 ---
 
 {% include picture.html src = 'https://farm9.staticflickr.com/8155/7157136321_de71e2fe0b.jpg' link = 'https://www.flickr.com/photos/pikesley/7157136321/' caption = 'Lego Pi case' float = 'left' %}

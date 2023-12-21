@@ -30,20 +30,19 @@
 # - code
 # comments: []
 ---
+
 <p>We want to work out all the possible arrangements of a list of <code>n</code> items. Why? We don't know. But we do know how to do it: seed with a list containing a single list containing a single item: <code>[['a']]</code>. Then step through each of the lists in our list, and make copies, inserting the next item (<code>'b'</code>) at each index, so we get <code>[['b', 'a'], ['a', 'b']]</code>. Then we take this list as our seed and go round again, inserting the next item (<code>'c'</code>), so we get <code>[['c', 'b', 'a'], ['b', 'c', 'a'], ['b', 'a', 'c'], ['c', 'a', 'b'], ['a', 'c', 'b'], ['a', 'b', 'c']]</code>. And so on and so on, until we've permuted all of our items. These lists get pretty big pretty quickly (the length of the list is <code>n!</code> so 10 items generates 3628800 combinations, and doing this may bring your computer to its knees).<br />
 <!--break--></p>
 <pre>#!/usr/bin/env python
 
 # class representing a list of permutations
-class Unit(list):
-        # count the total number of Units spawned
-        count = 0
-        def __init__(self, seed = None):
-                # if this is the first Unit created, we need to prepare the seed
-                if Unit.count == 0: seed = [[seed]]
-                Unit.count += 1
-                # call our superclass. We are just a fancy list
-                super(Unit, self).__init__(seed)
+
+class Unit(list): # count the total number of Units spawned
+count = 0
+def **init**(self, seed = None): # if this is the first Unit created, we need to prepare the seed
+if Unit.count == 0: seed = [[seed]]
+Unit.count += 1 # call our superclass. We are just a fancy list
+super(Unit, self).**init**(seed)
 
         # produce a new generation, splicing in the passed in value
         def spawn(self, interloper):
@@ -69,10 +68,10 @@ class Unit(list):
                 return "%d items, %d permutations" % (self.items, self.combinations)
 
 # simple wrapper class representing the set of items we want to permute
+
 class Inventory(list):
-        def __init__(self, chars):
-                # we are yet another variation on a list
-                super(Inventory, self).__init__(chars)
+def **init**(self, chars): # we are yet another variation on a list
+super(Inventory, self).**init**(chars)
 
         # do we have more items to give?
         def has_next(self):
@@ -83,32 +82,25 @@ class Inventory(list):
                 return self.pop(0)
 
 # wrapper class that actually does the work. We extend the Unit class mainly
+
 # because we want its stats() method
+
 class Permutations(Unit):
-        def __init__(self, items):
-                # we need an inventory
-                self.i = Inventory(items)
-                # get the first item off of the inventory
-                self.u = Unit(self.i.next())
-                # now while the inventory has more items to give us
-                while self.i.has_next():
-                        # make another generation of Units fed with the next item
-                        self.u = self.u.spawn(self.i.next())
-                # at the end, we become whatever the final Unit.spawn() gave us
-                self.extend(self.u)
+def **init**(self, items): # we need an inventory
+self.i = Inventory(items) # get the first item off of the inventory
+self.u = Unit(self.i.next()) # now while the inventory has more items to give us
+while self.i.has_next(): # make another generation of Units fed with the next item
+self.u = self.u.spawn(self.i.next()) # at the end, we become whatever the final Unit.spawn() gave us
+self.extend(self.u)
 
 # if we're called on the command line
-if __name__ == '__main__':
-        import sys
-        # we will permute the command line arguments
-        permutables = sys.argv[1:]
-        # if we got no arguments, default to this
-        if not permutables:
-                permutables = ["life", "the universe", "everything"]
-        # do the work
-        p = Permutations(permutables)
-        # sort the result (a Permutation is just a fancy list, after all)
-        p.sort()
-        # and print it
-        print p
-        print p.stats()</pre>
+
+if **name** == '**main**':
+import sys # we will permute the command line arguments
+permutables = sys.argv[1:] # if we got no arguments, default to this
+if not permutables:
+permutables = ["life", "the universe", "everything"] # do the work
+p = Permutations(permutables) # sort the result (a Permutation is just a fancy list, after all)
+p.sort() # and print it
+print p
+print p.stats()</pre>

@@ -3,6 +3,7 @@ publish: false
 layout: ../../../../../layouts/BlogPost.astro
 title: Calculate Π By Throwing Darts
 ---
+
 <p>
     We can approximate <em>π</em> using nothing more than random numbers and some
     simple geometry: we randomly throw darts at a square board of

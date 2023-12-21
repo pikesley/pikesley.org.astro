@@ -21,6 +21,7 @@
 # - ponting
 # comments: []
 ---
+
 <div>
 <div>
 <p>And lo, it came to pass  that the Mighty Warriors of Albion (and The Colonies) did travel to the  Land Where The Convicts Dwell, and there in their Own Back Yard they did  smite them with ruthlessness and aplomb (save for the Incident at  Perth, which is a strange and wild place). And the Once-smug Ponting did  have his arse handed to him upon a plate, and they cast him out unto  the Wilderness where dwelleth the West Indies of Old, and the Unwise  Phrase "We can win this five-to-nought" did ring in his ears for ever  more.</p>

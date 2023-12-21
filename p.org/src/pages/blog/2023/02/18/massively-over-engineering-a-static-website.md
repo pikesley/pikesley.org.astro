@@ -7,18 +7,17 @@ image: /assets/images/linked-data.jpg
 
 mastodon:
   toot: "109916350521031860"
-
 ---
 
 This story begins in 2014, when I first became aware of the joy of static-site generators. I'd been bumbling around with WordPress, trying to build a website for my band, and then, through working with [James](https://floppy.org.uk/) on the first version of the website for Open Addresses (a doomed, cursed project, unfortunately), I was exposed to the wonders of [Jekyll](https://jekyllrb.com/).
 
-I spent plenty of evenings and weekends crafting the new band site, and soon realised that the way Jekyll likes to structure blog content, with a file at `blog/_posts/1970-01-01-some-blog-post.md` generating a post at `https://yoursite.com/blog/1970/01/01/some-blog-post/` would be *ideal* for individual gig posts. This will be important later.
+I spent plenty of evenings and weekends crafting the new band site, and soon realised that the way Jekyll likes to structure blog content, with a file at `blog/_posts/1970-01-01-some-blog-post.md` generating a post at `https://yoursite.com/blog/1970/01/01/some-blog-post/` would be _ideal_ for individual gig posts. This will be important later.
 
 A brief aside: while implementing this, it occurred to me that it was now possible to [book the band by pull-request](https://github.com/rawfunkmaharishi/rawfunkmaharishi.github.io/blob/master/gigs/_posts/HOW_TO_BOOK_THE_BAND.md). I imagine it will come as no surprise to anybody reading this to learn that, in the eight years this feature has been available, nobody has ever attempted to book us this way, _but_ I did meet [Ben Balter](https://ben.balter.com/) at the ODI Summit and tell him about it, and I believe he included it on an internal Github newsletter, and we [also got on the front page of Hacker News](https://news.ycombinator.com/item?id=11149584), but fuck those guys.
 
 It was at that same ODI Summit (I think) that I heard Sir Tim Berners-Lee talking about how musicians were using JSON-LD for discoverability, which led to me [embedding some extremely noddy JSON in our pages](https://github.com/rawfunkmaharishi/rawfunkmaharishi.github.io/blob/master/_includes/json-ld.html). This also will be important later.
 
-Advance the calendar to early 2018, and we had [a new record coming out](https://rawfunkmaharishi.uk/records/flux/), which inspired me to [rebuild the site from the ground up](https://github.com/rawfunkmaharishi/website-2018), using the then-brand-new [Bootstrap 4](https://getbootstrap.com/docs/4.0/getting-started/introduction/). I had, by this time, learned to not fear JavaScript, so there are a *lot* of JS gimmicks on this iteration of the site.
+Advance the calendar to early 2018, and we had [a new record coming out](https://rawfunkmaharishi.uk/records/flux/), which inspired me to [rebuild the site from the ground up](https://github.com/rawfunkmaharishi/website-2018), using the then-brand-new [Bootstrap 4](https://getbootstrap.com/docs/4.0/getting-started/introduction/). I had, by this time, learned to not fear JavaScript, so there are a _lot_ of JS gimmicks on this iteration of the site.
 
 This site had served us OK for nearly 5 years, but in late 2022 we [returned to the recording studio](https://mastodon.me.uk/@pikesley/109506051605631173), so with a new record on the horizon, I felt it was time for a new website. And this is where the bullshit really began.
 
@@ -47,7 +46,7 @@ but then all other gigs at the same venue would also have those same `location`,
 So I got to work normalising, _by hand_ (and using a handful of shonky, definitely-not-idempotent scripts), dozens of YAML files, into this sort of form:
 
 ```yaml
-time: '21:00'
+time: "21:00"
 venue: luna
 ```
 

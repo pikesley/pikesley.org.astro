@@ -19,6 +19,7 @@
 # - holidays
 # comments: []
 ---
+
 <p><a title="Sunset by Sam Wise, on Flickr" href="https://www.flickr.com/photos/pikesley/5585899597/"><img src="https://farm6.static.flickr.com/5052/5585899597_58571b30b8.jpg" alt="Sunset" width="500" height="335" /></a></p>
 <p>Just had a fantastic holiday!</p>
 <h3>Things to do</h3>

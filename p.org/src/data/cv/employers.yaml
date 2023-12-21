@@ -5,10 +5,12 @@
   dates:
     start: June 2023
     end: present
-  headline: "Demand Logic is a software tool which provides actionable intelligence
+  headline:
+    "Demand Logic is a software tool which provides actionable intelligence
     to property managers and building contractors. It is intended to deliver quantifiable
     benefits in a short space of time and to make the management of buildings easier.\n"
-  profile: I rejoined Demand Logic in the summer of 2023 after Cervest ran out of
+  profile:
+    I rejoined Demand Logic in the summer of 2023 after Cervest ran out of
     money and laid everybody off.
 - name: Cervest
   url: //cervest.earth/
@@ -25,10 +27,12 @@
   dates:
     start: February 2019
     end: September 2021
-  headline: "Demand Logic is a software tool which provides actionable intelligence
+  headline:
+    "Demand Logic is a software tool which provides actionable intelligence
     to property managers and building contractors. It is intended to deliver quantifiable
     benefits in a short space of time and to make the management of buildings easier.\n"
-  profile: "I joined Demand Logic at the beginning of a project to shift their infrastructure
+  profile:
+    "I joined Demand Logic at the beginning of a project to shift their infrastructure
     away from [Rackspace Cloud](//www.rackspace.com/en-gb/cloud) and into [Google
     Cloud](//cloud.google.com). As part of this, I introduced [Terraform](//www.terraform.io),
     which now describes every GCP resource at DL in a repeatable way.I was also responsible
@@ -42,10 +46,12 @@
   dates:
     start: March 2018
     end: February 2019
-  headline: "OpenCorporates is the largest open database of companies and company
+  headline:
+    "OpenCorporates is the largest open database of companies and company
     data in the world, with in excess of 100 million companies in a similarly large
     number of jurisdictions.\n"
-  profile: "I primarily worked as a Ruby dev at OpenCorporates, maintaining their
+  profile:
+    "I primarily worked as a Ruby dev at OpenCorporates, maintaining their
     Rails apps, although I also turned my hand to occasional bits of SysAdmin-ish
     work when required. I was also heavily involved in a project to map corporate
     networks, initially using [Neo4j](//neo4j.com) and later [TigerGraph](//www.tigergraph.com).\n
@@ -58,9 +64,11 @@
   dates:
     start: January 2017
     end: March 2018
-  headline: "Moo is a print-on-demand company printing business cards, postcards,
+  headline:
+    "Moo is a print-on-demand company printing business cards, postcards,
     stickers and other material.\n"
-  profile: "I joined Moo at the beginning of a massive project to migrate from hosted
+  profile:
+    "I joined Moo at the beginning of a massive project to migrate from hosted
     tin to AWS. This involved jumping in at the deep-end with Terraform and Ansible,
     and was pretty much all I worked on until July 2017, when we pulled the trigger
     on a remarkably smooth cut-over.\n\nThe rest of the summer was spent on cleaning-up
@@ -73,9 +81,11 @@
   dates:
     start: January 2013
     end: December 2016
-  headline: "The ODI connects, equips and inspires people around the world to innovate
+  headline:
+    "The ODI connects, equips and inspires people around the world to innovate
     with data.\n"
-  profile: "My role at the ODI encompassed many things - initially, leading on the
+  profile:
+    "My role at the ODI encompassed many things - initially, leading on the
     building and maintenance of all of the [test-driven Chef infrastructure](//github.com/theodi/chef-skellington)
     for the ODI's first round of core tools, primarily [Open Data Certificates](//toolbox.theodi.org/tools/certificates/)
     and [CSV Lint](//toolbox.theodi.org/tools/csvlint/), and our [adoption of GDS's
@@ -97,9 +107,11 @@
   dates:
     start: June 2011
     end: January 2013
-  headline: "AMEE is a start-up whose mission is to measure the carbon footprint of
+  headline:
+    "AMEE is a start-up whose mission is to measure the carbon footprint of
     everything on the planet.\n"
-  profile: "Working closely with AMEE's relatively small team of Java and Ruby devs,
+  profile:
+    "Working closely with AMEE's relatively small team of Java and Ruby devs,
     I was responsible for:\n\n* Putting in a huge amount of Chef plumbing (running
     off of [AMEE's own Chef\n  server](//www.amee.com/blog/2012/02/22/building-a-chef-server-from-scratch/))
     -\n  AMEE's config management previously consisted of a handful of bash scripts\n
@@ -113,10 +125,12 @@
   dates:
     start: August 2009
     end: June 2011
-  headline: "VisualDNA is a dynamic startup based in Soho. The company generates profiles
+  headline:
+    "VisualDNA is a dynamic startup based in Soho. The company generates profiles
     for users\nthrough the use of visual quizzes, working with clients including the
     LA Times,\nmatch.com and the Daily Mirror.\n"
-  profile: "My role at VisualDNA was pretty much DevOps before I knew that DevOps
+  profile:
+    "My role at VisualDNA was pretty much DevOps before I knew that DevOps
     was even a thing\n– as a busy startup with diverse client projects there were
     often multiple\ndeploys per day, meaning I had to work very closely with the developers
     to\nmake sure we were all on the same page.\n\nThis close working relationship
@@ -137,11 +151,13 @@
   dates:
     start: August 2003
     end: August 2009
-  headline: "Rex Features is Britain’s leading independent photographic press agency
+  headline:
+    "Rex Features is Britain’s leading independent photographic press agency
     and\npicture library. Rex supplies a daily service of news, celebrity, features,\n
     and stock photos to all national newspapers, magazines, TV, web and other\nmedia
     in the UK and in more than 30 countries worldwide.\n"
-  profile: "My work at Rex covered the usual gamut of Sysadmin tasks, including: backup\n
+  profile:
+    "My work at Rex covered the usual gamut of Sysadmin tasks, including: backup\n
     and recovery, webserver administration, DNS management, plenty of scripting\n
     (mostly in bash), patching servers, and writing and maintaining documentation.\n
     There was also some SQL Server admin, and a certain amount of desktop support
@@ -180,9 +196,11 @@
   dates:
     start: April 2000
     end: July 2003
-  headline: "Empower Interactive was a telecoms software startup, founded in 2000
+  headline:
+    "Empower Interactive was a telecoms software startup, founded in 2000
     in the\nCity of London.\n"
-  profile: "Having joined Empower at its inception, my initial responsibilities were
+  profile:
+    "Having joined Empower at its inception, my initial responsibilities were
     to\ndesign and implement the IT infrastructure necessary to support the operations\n
     of the fledgling business. This included: network planning; server acquisition\n
     and installation (various internal servers, external mail server, firewall, etc);\n
