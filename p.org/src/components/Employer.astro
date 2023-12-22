@@ -2,7 +2,6 @@
 import { marked } from "marked";
 
 export interface Props {
-  // employer: Object;
   employer: {
     dates: {
       start: string
@@ -39,6 +38,16 @@ const { employer } = Astro.props;
 </li>
 
 <style>
+  time::before {
+    content: "";
+    background-image: url("/assets/flourishes/divider.svg");
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-size: 30%;
+    display: grid;
+    padding-bottom: 3rem;
+  }
+
   li {
     display: grid;
     grid-template-areas:
@@ -46,10 +55,6 @@ const { employer } = Astro.props;
     "role"
     "headline"
     "description";
-    border-top-width: 1px;
-    border-top-style: solid;
-    border-top-color: var(--colour-gold);
-
     padding: 1rem 0;
     gap: 1rem;
   }
@@ -69,5 +74,16 @@ const { employer } = Astro.props;
     font-style: italic;
     font-family: var(--font-fancy);
   }
+
+  </style>
+  <style is:global>
+
+p, ul {
+  font-size: 1rem;
+}
+  /* section.description {
+    background-color: red;
+    font-size: 1rem;
+  } */
 
 </style>

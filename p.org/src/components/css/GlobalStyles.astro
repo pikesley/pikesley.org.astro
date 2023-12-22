@@ -45,6 +45,24 @@ import Colours from "./Colours.astro";
     color: var(--colour-black);
   }
 
+  main::after {
+    content: "";
+    background-image: url("/assets/flourishes/twist.svg");
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-size: 40%;
+    display: grid;
+    align-items: center;
+    padding-bottom: 3rem;
+  }
+
+  @media only screen and (min-width: 500px) {
+    main::after {
+      background-size: 25%;
+      padding-bottom: 5rem;
+    }
+  }
+
   footer {
     grid-area: footer;
     align-self: end;

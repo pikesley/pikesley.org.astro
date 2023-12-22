@@ -1,28 +1,10 @@
 ---
 import HeaderLink from "./HeaderLink.astro";
-
-const links = [
-  {
-    text: "Projects",
-    url: "/projects",
-  },
-  {
-    text: "Blog",
-    url: "/blog",
-  },
-  {
-    text: "Talks",
-    url: "/talks",
-  },
-  {
-    text: "CV",
-    url: "/cv",
-  },
-];
+import NavLinks from "../data/nav.yaml";
 ---
 
 <nav>
-  {links.map((link) => <HeaderLink href={link.url}>{link.text}</HeaderLink>)}
+  {NavLinks.map((link) => <HeaderLink href={link.url}>{link.text}</HeaderLink>)}
 </nav>
 
 <style>
