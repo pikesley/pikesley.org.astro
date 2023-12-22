@@ -54,13 +54,14 @@ import Colours from "./Colours.astro";
     display: grid;
     font-family: var(--font-fancy);
     align-items: center;
-    padding-bottom: 3rem;
+    padding-bottom: 0;
+    height: 3rem;
   }
 
   @media only screen and (min-width: 500px) {
     main::after {
       background-size: 25%;
-      padding-bottom: 5rem;
+      padding-bottom: 4rem;
     }
   }
 
@@ -109,7 +110,7 @@ import Colours from "./Colours.astro";
     text-align: justify;
     margin-inline: auto;
     line-height: 1.5rem;
-    font-size: 1.2rem;
+    font-size: 1rem;
   }
 
   .panel {
@@ -175,9 +176,15 @@ import Colours from "./Colours.astro";
     background-repeat: no-repeat;
     background-position-x: center;
     background-position-y: center;
-    background-size: 20%;
-    height: 3rem;
-    margin: 0;
+    background-size: 50%;
+    height: 2rem;
+  }
+
+  @media only screen and (min-width: 500px) {
+    .from-markdown h2::after {
+      background-size: 20%;
+      padding-bottom: 1rem;
+    }
   }
 
   .from-markdown ul {
