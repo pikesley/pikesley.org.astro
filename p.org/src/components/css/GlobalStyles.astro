@@ -45,6 +45,25 @@ import Colours from "./Colours.astro";
     color: var(--colour-black);
   }
 
+  main::after {
+    content: "";
+    background-image: url("/assets/flourishes/twist.svg");
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-size: 40%;
+    display: grid;
+    font-family: var(--font-fancy);
+    align-items: center;
+    padding-bottom: 3rem;
+  }
+
+  @media only screen and (min-width: 500px) {
+    main::after {
+      background-size: 25%;
+      padding-bottom: 5rem;
+    }
+  }
+
   footer {
     grid-area: footer;
     align-self: end;
@@ -152,12 +171,13 @@ import Colours from "./Colours.astro";
   .from-markdown h2::after {
     content: "";
     display: block;
-    background-image: url("/assets/images/line.svg");
+    background-image: url("/assets/flourishes/divider.svg");
     background-repeat: no-repeat;
     background-position-x: center;
     background-position-y: center;
-    background-size: 30%;
+    background-size: 20%;
     height: 3rem;
+    margin: 0;
   }
 
   .from-markdown ul {
