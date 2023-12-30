@@ -45,17 +45,17 @@ import Colours from "./Colours.astro";
     color: var(--colour-black);
   }
 
-  main::after {
+  /* main::after {
     content: "";
     background-image: url("/assets/flourishes/twist.svg");
     background-repeat: no-repeat;
     background-position-x: center;
-    background-size: 40%;
+    background-size: 20%;
     display: grid;
     font-family: var(--font-fancy);
     align-items: center;
     padding-bottom: 0;
-    height: 3rem;
+    height: 5rem;
   }
 
   @media only screen and (min-width: 500px) {
@@ -63,7 +63,7 @@ import Colours from "./Colours.astro";
       background-size: 25%;
       padding-bottom: 4rem;
     }
-  }
+  } */
 
   footer {
     grid-area: footer;
@@ -111,6 +111,7 @@ import Colours from "./Colours.astro";
     margin-inline: auto;
     line-height: 1.5rem;
     font-size: 1rem;
+    margin-block: 0.5rem;
   }
 
   .panel {
@@ -169,6 +170,10 @@ import Colours from "./Colours.astro";
     margin-top: 1rem;
   }
 
+  h3 {
+    font-size: clamp(1rem, -0.7rem + 8vw, 1.5rem);
+  }
+
   .from-markdown h2::after {
     content: "";
     display: block;
@@ -205,6 +210,7 @@ import Colours from "./Colours.astro";
     margin-inline: auto;
     padding: 1rem;
     overflow: auto;
+    margin-block: 1rem;
   }
 
   code {
