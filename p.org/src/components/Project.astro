@@ -22,8 +22,8 @@ const { project } = Astro.props;
 
 <style>
   :root {
-    --panel-height: 10rem;
-    --panel-width: 15rem;
+    --panel-height: 14rem;
+    --panel-width: 19rem;
   }
 
   li {
@@ -32,6 +32,7 @@ const { project } = Astro.props;
     text-align: center;
     height: var(--panel-height);
     max-width: var(--panel-width);
+    /* margin-bottom: 1rem; */
   }
 
   .project-name {
@@ -39,6 +40,7 @@ const { project } = Astro.props;
     font-size: 2.5rem;
     margin: 0;
     padding: 0;
+    padding-top: 1rem;
     white-space: nowrap;
   }
 </style>
