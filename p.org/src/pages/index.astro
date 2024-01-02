@@ -65,16 +65,21 @@ import me from "../data/me.yaml";
     const toot = document.getElementById("latest-toot");
     if (link && toot) {
       link.addEventListener("mouseover", function handleMouseOver() {
-        toot.style.visibility = "visible";
+        setTimeout(() => {
+          toot.style.visibility = "visible";
+          toot.style.opacity = 1;
+        }, 1000);
       });
 
       toot.addEventListener("mouseout", function handleMouseOut() {
         toot.style.visibility = "hidden";
+        toot.style.opacity = 0;
       });
 
       // https://techstacker.com/how-to-detect-clicks-outside-element-javascript/
       document.addEventListener("click", function (event) {
         toot.style.visibility = "hidden";
+        toot.style.opacity = 0;
       });
     }
   }
@@ -136,9 +141,13 @@ import me from "../data/me.yaml";
 
   #latest-toot {
     visibility: hidden;
+    opacity: 0;
     position: fixed;
     left: 50%;
     bottom: 4rem;
     transform: translateX(-50%);
+    transition:
+      visibility 1s,
+      opacity 1s;
   }
 </style>
