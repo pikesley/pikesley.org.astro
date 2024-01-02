@@ -19,7 +19,7 @@ import me from "../data/me.yaml";
     {
       me.map((item) => (
         <li>
-          <a href={item.url}>
+          <a href={item.url} id={[`link-${item.name}`]}>
             <span class:list={["mdi", `mdi-${item.name}`]} />
 
             <span class="link-name">{item.name}</span>
@@ -34,7 +34,56 @@ import me from "../data/me.yaml";
       >These guys</a
     > are nothing to do with me though)
   </p>
+
+  <iframe
+    class="mastodon-embed"
+    id="latest-toot"
+    style="max-width: 100%; border: 0"
+    width="400"
+    allowfullscreen="allowfullscreen"></iframe>
+  <script src="https://mastodon.me.uk/embed.js" async="async"></script>
 </Base>
+
+<script>
+  function fetchToot() {
+    // https://css-tricks.com/how-to-fetch-and-parse-rss-feeds-in-javascript/
+    const RSS_URL = "https://mastodon.me.uk/users/pikesley.rss";
+    fetch(RSS_URL)
+      .then((response) => response.text())
+      .then((str) => new window.DOMParser().parseFromString(str, "text/xml"))
+      .then((data) => {
+        const items = data.querySelectorAll("item");
+        document
+          .getElementById("latest-toot")
+          ?.setAttribute("src", items[0].childNodes[1].innerHTML + "/embed");
+      });
+  }
+
+  function showToot() {
+    // https://bobbyhadz.com/blog/javascript-show-div-on-hover
+    const link = document.getElementById("link-mastodon");
+    const toot = document.getElementById("latest-toot");
+    if (link && toot) {
+      link.addEventListener("mouseover", function handleMouseOver() {
+        toot.style.visibility = "visible";
+      });
+
+      toot.addEventListener("mouseout", function handleMouseOut() {
+        toot.style.visibility = "hidden";
+      });
+
+      // https://techstacker.com/how-to-detect-clicks-outside-element-javascript/
+      document.addEventListener("click", function (event) {
+        toot.style.visibility = "hidden";
+      });
+    }
+  }
+
+  window.onload = (event) => {
+    fetchToot();
+    showToot();
+  };
+</script>
 
 <style>
   :root {
@@ -83,5 +132,13 @@ import me from "../data/me.yaml";
   p,
   ul {
     max-width: calc(var(--links) * 10rem);
+  }
+
+  #latest-toot {
+    visibility: hidden;
+    position: fixed;
+    left: 50%;
+    bottom: 4rem;
+    transform: translateX(-50%);
   }
 </style>
