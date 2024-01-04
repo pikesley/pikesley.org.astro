@@ -115,16 +115,15 @@ const indent = "1rem";
     avatar.setAttribute("class", "mastodon-avatar");
 
     // use displayname as caption
-    var caption = document.createElement("figcaption")
-    caption.append(fixEmojis(
-      escapeHtml(toot.account.display_name),
-      toot.account.emojis
-    ))
+    var caption = document.createElement("figcaption");
+    caption.append(
+      fixEmojis(escapeHtml(toot.account.display_name), toot.account.emojis)
+    );
 
     // pack the avater and caption into a figure
     var avatarFigure = document.createElement("figure");
-    avatarFigure.append(avatar)
-    avatarFigure.append(caption)
+    avatarFigure.append(avatar);
+    avatarFigure.append(caption);
     avatarLink.append(avatarFigure);
 
     // username span, which also takes the (hidden) avatar
@@ -254,7 +253,7 @@ const indent = "1rem";
       position: relative;
     }
 
-    & span.mastodon-username figure{
+    & span.mastodon-username figure {
       position: absolute;
       bottom: 0.5rem;
       left: 0;
