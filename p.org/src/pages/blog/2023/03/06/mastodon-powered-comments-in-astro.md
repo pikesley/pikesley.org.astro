@@ -57,7 +57,7 @@ I think this will _mostly_ work as a drop-in component, modulo changing the defa
 
 ### Isolating the CSS
 
-The Astro way to build components is to put the CSS in a `<style>` tag right in the component, and then Astro namespaces everything at build-time so nothing leaks. That doesn't really work for us here, though, because those compenent styles only apply to the static content, where Astro is able to apply a `class="41fb17f6"` or whatever to keep everything scoped. There's no way for it to style client-side dynamic content using this approach (is there? maybe I've missed something), so each Mastodon comment goes into a `<article class="mastodon-comment">` and then the styles are all like
+The Astro way to build components is to put the CSS in a `<style>` tag right in the component, and then Astro namespaces everything at build-time so nothing leaks. That doesn't really work for us here, though, because those component styles only apply to the static content, where Astro is able to apply a `class="41fb17f6"` or whatever to keep everything scoped. There's no way for it to style client-side dynamic content using this approach (is there? maybe I've missed something), so each Mastodon comment goes into a `<article class="mastodon-comment">` and then the styles are all like
 
 ```css
   article.mastodon-comment {
