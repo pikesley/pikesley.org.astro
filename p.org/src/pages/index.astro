@@ -23,6 +23,16 @@ import me from "../data/me.yaml";
             <span class:list={["mdi", `mdi-${item.name}`]} />
 
             <span class="link-name">{item.name}</span>
+            {
+              item.name == "mastodon" && (
+              <iframe class="mastodon-embed"
+                      id="latest-toot"
+                      style="max-width: 100%; border: 0"
+                      width="400"
+                      allowfullscreen="allowfullscreen"></iframe>
+                      <script src="https://mastodon.me.uk/embed.js" async="async"></script>
+              )
+            }
           </a>
         </li>
       ))
@@ -35,13 +45,7 @@ import me from "../data/me.yaml";
     > are nothing to do with me though)
   </p>
 
-  <iframe
-    class="mastodon-embed"
-    id="latest-toot"
-    style="max-width: 100%; border: 0"
-    width="400"
-    allowfullscreen="allowfullscreen"></iframe>
-  <script src="https://mastodon.me.uk/embed.js" async="async"></script>
+
 </Base>
 
 <script is:inline>
@@ -59,34 +63,8 @@ import me from "../data/me.yaml";
       });
   }
 
-  function showToot() {
-    // https://bobbyhadz.com/blog/javascript-show-div-on-hover
-    const link = document.getElementById("link-mastodon");
-    const toot = document.getElementById("latest-toot");
-    if (link && toot) {
-      link.addEventListener("mouseover", function handleMouseOver() {
-        setTimeout(() => {
-          toot.style.visibility = "visible";
-          toot.style.opacity = 1;
-        }, 1000);
-      });
-
-      toot.addEventListener("mouseout", function handleMouseOut() {
-        toot.style.visibility = "hidden";
-        toot.style.opacity = 0;
-      });
-
-      // https://techstacker.com/how-to-detect-clicks-outside-element-javascript/
-      document.addEventListener("click", function (event) {
-        toot.style.visibility = "hidden";
-        toot.style.opacity = 0;
-      });
-    }
-  }
-
   window.onload = (event) => {
     fetchToot();
-    showToot();
   };
 </script>
 
@@ -139,7 +117,7 @@ import me from "../data/me.yaml";
     max-width: calc(var(--links) * 10rem);
   }
 
-  #latest-toot {
+  #link-mastodon #latest-toot {
     visibility: hidden;
     opacity: 0;
     position: fixed;
@@ -149,5 +127,11 @@ import me from "../data/me.yaml";
     transition:
       visibility 1s,
       opacity 1s;
+    transition-delay: 1s;
+  }
+
+  #link-mastodon:hover #latest-toot {
+    visibility: visible;
+    opacity: 1;
   }
 </style>
