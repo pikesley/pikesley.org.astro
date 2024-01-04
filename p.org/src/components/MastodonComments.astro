@@ -45,12 +45,7 @@ const indent = "1rem";
   }
 
   function userAccount(account) {
-    var result = `@${account.acct}`;
-    if (account.acct.indexOf("@") === -1) {
-      const domain = new URL(account.url);
-      result += `@${domain.hostname}`;
-    }
-    return result;
+    return "@" + account.acct.split("@")[0];
   }
 
   function makeLink(url, klass = null) {
@@ -114,71 +109,63 @@ const indent = "1rem";
 
   function renderToot(toots, toot, depth) {
     // avatar
+    var avatarLink = makeLink(toot.account.url);
     var avatar = document.createElement("img");
     avatar.setAttribute("src", escapeHtml(toot.account.avatar_static));
-    var avatarLink = makeLink(toot.account.url);
-    avatarLink.append(avatar);
-    var avatarDiv = document.createElement("div");
-    avatarDiv.setAttribute("class", "avatar");
-    avatarDiv.append(avatarLink);
+    avatar.setAttribute("class", "mastodon-avatar");
 
-    // names
-    var displaynameLink = makeLink(toot.account.url, "display-name");
-    displaynameLink.innerHTML = fixEmojis(
+    // use displayname as caption
+    var caption = document.createElement("figcaption")
+    caption.append(fixEmojis(
       escapeHtml(toot.account.display_name),
       toot.account.emojis
-    );
+    ))
 
-    var usernameLink = makeLink(toot.account.url, "username");
+    // pack the avater and caption into a figure
+    var avatarFigure = document.createElement("figure");
+    avatarFigure.append(avatar)
+    avatarFigure.append(caption)
+    avatarLink.append(avatarFigure);
+
+    // username span, which also takes the (hidden) avatar
+    var usernameLink = makeLink(toot.account.url);
     usernameLink.append(userAccount(toot.account));
-    var namesDiv = document.createElement("div");
-    namesDiv.setAttribute("class", "mastodon-names");
-    namesDiv.append(displaynameLink);
-    namesDiv.append(usernameLink);
+    var username = document.createElement("span");
+    username.setAttribute("class", "mastodon-username");
+    username.append(usernameLink);
+    username.append(avatarLink);
 
     // timestamp
-    var timestamp = makeLink(toot.url);
-    timestamp.append(fixTimestamp(toot.created_at));
-    var timestampDiv = document.createElement("time");
-    timestampDiv.setAttribute("class", "toot-timestamp");
-    timestampDiv.append(timestamp);
+    var timedata = document.createElement("time");
+    timedata.append(fixTimestamp(toot.created_at));
+    var tootlink = makeLink(toot.url);
+    tootlink.setAttribute("class", "mastodon-link");
+    tootlink.append(timedata);
+    var timestamp = document.createElement("span");
+    timestamp.setAttribute("class", "mastodon-timestamp");
+    timestamp.append(tootlink);
 
     // content
-    var contentDiv = document.createElement("div");
-    contentDiv.setAttribute("class", "comment-content");
-    contentDiv.innerHTML = toot.content;
-
-    // stats
-    var star = document.createElement("span");
-    star.setAttribute("class", "mdi mdi-star");
-    var favCount = document.createElement("span");
-    favCount.append(star);
-    favCount.append(toot.favourites_count);
-
-    var boost = document.createElement("span");
-    boost.setAttribute("class", "mdi mdi-repeat-variant");
-    var boostCount = document.createElement("span");
-    boostCount.append(boost);
-    boostCount.append(toot.reblogs_count);
-
-    var statsDiv = document.createElement("div");
-    statsDiv.setAttribute("class", "toot-stats");
-    statsDiv.append(favCount);
-    statsDiv.append(boostCount);
+    var content = document.createElement("div");
+    content.setAttribute("class", "mastodon-comment-content");
+    content.innerHTML = toot.content;
 
     // assemble it all
-    var mastodonComment = document.createElement("div");
+    var mastodonComment = document.createElement("article");
     mastodonComment.setAttribute("class", "mastodon-comment");
     mastodonComment.setAttribute(
       "style",
       "margin-left: calc(" + indent + " * " + depth + ")"
     );
 
-    mastodonComment.append(avatarDiv);
-    mastodonComment.append(namesDiv);
-    mastodonComment.append(timestampDiv);
-    mastodonComment.append(contentDiv);
-    // mastodonComment.append(statsDiv);
+    // username and timestamp
+    var metadata = document.createElement("span");
+    metadata.setAttribute("class", "mastodon-metadata");
+    metadata.append(username);
+    metadata.append(timestamp);
+
+    mastodonComment.append(metadata);
+    mastodonComment.append(content);
 
     document
       .getElementById("mastodon-comments")
@@ -243,86 +230,87 @@ const indent = "1rem";
 </script>
 
 <style is:global>
-  div.mastodon-comment {
+  :root {
+    --avatar-width: 10dvw;
+  }
+
+  article.mastodon-comment {
     display: grid;
     grid-template-areas:
-      "avatar mastodon-names"
-      "avatar timestamp"
-      "toot toot"
-      "toot-stats toot-stats";
-    grid-template-columns: 1fr 3fr;
-    border: 1px solid var(--colour-gold);
+      "metadata"
+      "content";
 
+    border-top: 1px solid var(--colour-gold);
     padding: 1rem;
-    gap: 0.5rem;
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
+
+    & span.mastodon-metadata {
+      grid-area: metadata;
+      max-width: fit-content;
+      border-bottom: 1px dotted var(--colour-gold);
+      font-size: 0.9rem;
+    }
+
+    & span.mastodon-username {
+      position: relative;
+    }
+
+    & span.mastodon-username figure{
+      position: absolute;
+      bottom: 0.5rem;
+      left: 0;
+    }
+
+    & span.mastodon-username img {
+      max-width: var(--avatar-width);
+      border: 4px solid var(--colour-gold);
+    }
+
+    & span.mastodon-username::after {
+      content: " // ";
+      color: var(--colour-gold);
+    }
+
+    & a.mastodon-displayname {
+      display: none;
+    }
+
+    & span.mastodon-username figure {
+      visibility: hidden;
+      opacity: 0;
+      transition:
+        visibility 1s,
+        opacity 1s;
+    }
+
+    & span.mastodon-username:hover figure {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    & div.mastodon-comment-content {
+      grid-area: content;
+      margin-left: 1.1rem;
+    }
   }
 
-  div.mastodon-comment img {
-    width: 20dvw;
-  }
-
-  div.mastodon-comment img.emoji {
-    height: 1.2rem;
-    width: 1.2rem;
-  }
-
-  div.mastodon-comment div.avatar {
-    grid-area: avatar;
-  }
-
-  div.mastodon-comment div.mastodon-names {
-    grid-area: mastodon-names;
-    display: flex;
-    justify-content: left;
-    align-items: flex-end;
-    flex-wrap: wrap;
-  }
-
-  div.mastodon-comment a.username {
-    display: none;
-  }
-
-  div.mastodon-comment time {
-    grid-area: timestamp;
-  }
-
-  div.mastodon-comment div.mastodon-names,
-  time.toot-timestamp,
-  div.toot-stats {
-    font-size: 1rem;
-  }
-
-  div.mastodon-comment div.comment-content {
-    grid-area: toot;
+  figure {
     margin: 0;
+    position: relative;
   }
 
-  div.mastodon-comment div.toot-stats {
-    grid-area: toot-stats;
-    display: flex;
-    justify-content: right;
-    column-gap: 1rem;
-  }
-
-  div.mastodon-comment p {
-    margin: 0;
+  figcaption {
+    position: absolute;
+    top: 1rem;
+    left: calc(var(--avatar-width) + 1dvw);
+    font-size: 1.2rem;
+    background-color: var(--colour-ecru);
+    padding: 1rem;
+    visibility: hidden;
   }
 
   hr {
     border: 0;
     height: 1px;
     border-top: 1px solid var(--colour-gold);
-  }
-
-  @media only screen and (min-width: 600px) {
-    div.mastodon-comment {
-      grid-template-columns: 1fr 8fr;
-    }
-
-    div.mastodon-comment img {
-      width: 5dvw;
-    }
   }
 </style>
