@@ -1,0 +1,288 @@
+---
+import Base from "../../../layouts/Base.astro";
+import MastodonComments from "../../../components/MastodonComments.astro";
+
+const mastodon = {
+  toot: "123",
+};
+---
+
+<Base
+  title="Approximating π by throwing darts"
+  titlePrefix="Projects"
+  description="Approximating π by throwing darts"
+>
+  <section id="explanation-link">
+    <a href="#">What's going on here?</a>
+    <dialog id="explanation">
+      <p>
+        We can approximate <em>π</em> using nothing more than random numbers and
+        some simple geometry: we draw a square with side <em>2r</em> around a
+        circle with radius <em>r</em>, then we randomly throw darts at it. We
+        count all of the 'throws'; if a dart lands within the quadrant, we also
+        count a 'hit'.
+      </p>
+
+      <p>For a large number of throws, we see that:</p>
+      <section class="maths">
+        <math>
+          <mfrac>
+            <mi>hits</mi>
+            <mn>throws</mn>
+          </mfrac>
+          <mo>=</mo>
+          <mfrac>
+            <mi>area-of-circle</mi>
+            <mn>area-of-square</mn>
+          </mfrac>
+        </math>
+      </section>
+
+      <p>Some half-remembered geometry tells us that:</p>
+      <section class="maths">
+        <math>
+          <mfrac>
+            <mi>area-of-circle</mi>
+            <mi>area-of-square</mi>
+          </mfrac>
+
+          <mo>=</mo>
+
+          <mfrac>
+            <mrow>
+              <msup><mi>πr</mi><mn>2</mn></msup>
+            </mrow>
+            <mrow>
+              <msup><mi>(2r)</mi><mn>2</mn></msup>
+            </mrow>
+          </mfrac>
+
+          <mo>=</mo>
+
+          <mfrac>
+            <mrow>
+              <msup><mi>πr</mi><mn>2</mn></msup>
+            </mrow>
+            <mrow>
+              <msup><mi>4r</mi><mn>2</mn></msup>
+            </mrow>
+          </mfrac>
+
+          <mo>=</mo>
+
+          <mfrac>
+            <mi>π</mi>
+            <mn>4</mn>
+          </mfrac>
+        </math>
+      </section>
+
+      <p>Or:</p>
+      <section class="maths">
+        <math>
+          <mi>π</mi>
+          <mo>=</mo>
+          <mn>4</mn>
+          <mo>(</mo>
+          <mfrac>
+            <mi>area-of-circle</mi>
+            <mi>area-of-square</mi>
+          </mfrac>
+          <mo>)</mo>
+          <mo>=</mo>
+          <mn>4</mn>
+          <mo>(</mo>
+          <mfrac>
+            <mi>hits</mi>
+            <mi>throws</mi>
+          </mfrac>
+          <mo>)</mo>
+        </math>
+      </section>
+
+      <p>
+        I first solved this problem as an undergraduate sometime in 1994 as part
+        of a Computational Physics module. Using <a
+          href="https://en.wikipedia.org/wiki/Fortran"
+        >
+          FORTRAN 77
+        </a>
+         .
+      </p>
+    </dialog>
+  </section>
+
+  <div id="board"></div>
+  <table>
+    <tr>
+      <td class="label">Throws</td><td id="throws" class="data"></td>
+      <td class="label">Hits</td><td id="hits" class="data"></td>
+    </tr>
+    <tr>
+      <td class="label">π</td><td id="pi" class="data" colspan="3"></td>
+    </tr>
+  </table>
+
+  <section>
+    Made with <a href="https://d3js.org/">D3</a>
+  </section>
+
+  {mastodon && <MastodonComments mastodon={mastodon} />}
+
+  <style>
+    table {
+      margin-bottom: 1rem;
+      font-size: 0.8rem;
+    }
+
+    td {
+      width: 4dvw;
+      text-align: center;
+    }
+
+    td.data {
+      font-family: var(--font-mono);
+    }
+
+    #throws {
+      color: var(--colour-blue);
+    }
+
+    #hits {
+      color: var(--colour-red);
+    }
+
+    #board {
+      aspect-ratio: 1 / 1;
+      max-height: 50dvw;
+      margin: 1rem;
+      margin-inline: auto;
+      padding: 1rem;
+      border: 2px solid var(--colour-gold);
+    }
+
+    dialog {
+      position: fixed;
+      max-width: 80dvw;
+      top: 5rem;
+      background-color: var(--colour-ecru);
+      border: 1px solid var(--colour-gold);
+    }
+
+    section {
+      text-align: center;
+    }
+
+    #explanation-link {
+      text-align: center;
+      margin-top: 1rem;
+      max-width: fit-content;
+      margin-inline: auto;
+    }
+
+    #explanation-link:hover dialog {
+      display: block;
+    }
+
+    @media only screen and (min-width: 500px) {
+      #board {
+        height: 60dvh;
+      }
+
+      dialog {
+        top: 10rem;
+        max-width: 50dvw;
+      }
+    }
+  </style>
+
+  <style is:global>
+    .throw {
+      fill: var(--colour-blue);
+      stroke: var(--colour-black);
+      stroke-width: 0.5;
+    }
+
+    .hit {
+      fill: var(--colour-red);
+      stroke: var(--colour-black);
+      stroke-width: 0.5;
+    }
+  </style>
+
+  <script is:global>
+    const side = 400;
+    const radius = 3;
+
+    const boardScale = d3.scaleLinear().domain([-1, 1]).range([0, side]);
+
+    const board = d3
+      .select("#board")
+      .append("div")
+      .classed("board", true)
+      .append("svg")
+      .attr("preserveAspectRatio", "xMinYMin meet")
+      .attr("viewBox", "0 0 " + (side + radius * 2) + " " + (side + radius * 2))
+      .append("g");
+
+    function update(data) {
+      board
+        .selectAll("circle")
+        .data(data)
+        .enter()
+        .append("circle")
+        .attr("cx", function (d) {
+          return boardScale(d.x) + radius;
+        })
+        .attr("cy", function (d) {
+          return boardScale(d.y) + radius;
+        })
+        .classed("throw", true)
+        .classed("hit", function (d) {
+          if (hit(d)) {
+            hits++;
+            return true;
+          } else {
+            return false;
+          }
+        })
+        .attr("r", 0)
+        .transition()
+        .attr("r", radius);
+    }
+
+    function hit(d) {
+      return Math.sqrt(d.x * d.x + d.y * d.y) < 1;
+    }
+
+    var data = [
+      {
+        x: Math.random(),
+        y: Math.random(),
+      },
+    ];
+
+    var hits = 0;
+    var throws = 0;
+    var interval = 50;
+
+    const piElement = document.getElementById("pi");
+    piElement.textContent = "3";
+    update(data);
+
+    const throwsElement = document.getElementById("throws");
+    const hitsElement = document.getElementById("hits");
+
+    d3.interval(function () {
+      data.push({
+        x: Math.random() * 2 - 1,
+        y: Math.random() * 2 - 1,
+      });
+
+      update(data);
+      throwsElement.textContent = throws++;
+      hitsElement.textContent = hits;
+      piElement.textContent = (4.0 * (hits / throws)).toFixed(16);
+    }, interval);
+  </script>
+</Base>
