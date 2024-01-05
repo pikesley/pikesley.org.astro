@@ -1,3 +1,8 @@
+- name: monte-carlo
+  title: Approximating Π
+  url: /projects/d3/monte-carlo
+  description: Approximating Π by throwing darts, with d3
+  publish: true
 - name: searchodon
   title: Searchodon
   url: /projects/searchodon

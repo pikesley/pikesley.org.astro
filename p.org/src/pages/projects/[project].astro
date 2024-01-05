@@ -5,12 +5,14 @@ import Projects from "../../data/projects.yaml";
 import { refineReadme } from "../../tools";
 
 export function getStaticPaths() {
-  return Projects.filter((proj) => proj.publish).map((proj) => {
-    return {
-      params: { project: proj.name },
-      props: { proj },
-    };
-  });
+  return Projects.filter((proj) => proj.publish)
+    .filter((proj) => proj.github)
+    .map((proj) => {
+      return {
+        params: { project: proj.name },
+        props: { proj },
+      };
+    });
 }
 
 const { proj } = Astro.props;
@@ -33,7 +35,6 @@ const readme = await fetch(
   });
 
 const rendered = refineReadme(readme.content, proj);
-
 ---
 
 <ProjectPage
