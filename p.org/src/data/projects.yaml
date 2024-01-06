@@ -1,7 +1,12 @@
+- name: css-orrery
+  title: CSS Orrery
+  url: https://css-orrery.netlify.app/
+  description: An orrery in pure CSS
+  publish: true
 - name: monte-carlo
-  title: Approximating Π
+  title: Π from darts
   url: /projects/d3/monte-carlo
-  description: Approximating Π by throwing darts, with d3
+  description: Using Monte Carlo Simulations to approximate Π, with d3
   publish: true
 - name: searchodon
   title: Searchodon
