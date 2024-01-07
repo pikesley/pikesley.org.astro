@@ -130,6 +130,10 @@ const mastodon = {
   {mastodon && <MastodonComments mastodon={mastodon} />}
 
   <style>
+    table, th, td {
+      border: 1px solid var(--colour-gold);
+    }
+
     table {
       margin-bottom: 1rem;
       font-size: 0.8rem;
@@ -158,7 +162,7 @@ const mastodon = {
       margin: 1rem;
       margin-inline: auto;
       padding: 1rem;
-      border: 2px solid var(--colour-gold);
+      border: 1px solid var(--colour-gold);
     }
 
     dialog {
@@ -167,6 +171,7 @@ const mastodon = {
       top: 5rem;
       background-color: var(--colour-ecru);
       border: 1px solid var(--colour-gold);
+      opacity: 0.9;
     }
 
     section {
