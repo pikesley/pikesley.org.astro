@@ -239,13 +239,13 @@ const indent = "1rem";
       "metadata"
       "content";
 
-    border-top: 1px solid var(--colour-gold);
+    border-top: 1px solid var(--colour-highlight);
     padding: 1rem;
 
     & span.mastodon-metadata {
       grid-area: metadata;
       max-width: fit-content;
-      border-bottom: 1px dotted var(--colour-gold);
+      border-bottom: 1px dotted var(--colour-highlight);
       font-size: 0.9rem;
     }
 
@@ -261,12 +261,12 @@ const indent = "1rem";
 
     & span.mastodon-username img {
       max-width: var(--avatar-width);
-      border: 4px solid var(--colour-gold);
+      border: 4px solid var(--colour-highlight);
     }
 
     & span.mastodon-username::after {
       content: " // ";
-      color: var(--colour-gold);
+      color: var(--colour-highlight);
     }
 
     & a.mastodon-displayname {
@@ -302,7 +302,7 @@ const indent = "1rem";
     top: 1rem;
     left: calc(var(--avatar-width) + 1dvw);
     font-size: 1.2rem;
-    background-color: var(--colour-ecru);
+    background-color: var(--colour-background);
     padding: 1rem;
     visibility: hidden;
   }
@@ -310,6 +310,6 @@ const indent = "1rem";
   hr {
     border: 0;
     height: 1px;
-    border-top: 1px solid var(--colour-gold);
+    border-top: 1px solid var(--colour-highlight);
   }
 </style>
