@@ -131,7 +131,7 @@ const mastodon = {
 
   <style>
     table, th, td {
-      border: 1px solid var(--colour-gold);
+      border: 1px solid var(--colour-highlight);
     }
 
     table {
@@ -149,11 +149,11 @@ const mastodon = {
     }
 
     #throws {
-      color: var(--colour-blue);
+      color: var(--colour-secondary);
     }
 
     #hits {
-      color: var(--colour-red);
+      color: var(--colour-primary);
     }
 
     #board {
@@ -162,15 +162,15 @@ const mastodon = {
       margin: 1rem;
       margin-inline: auto;
       padding: 1rem;
-      border: 1px solid var(--colour-gold);
+      border: 1px solid var(--colour-highlight);
     }
 
     dialog {
       position: fixed;
       max-width: 80dvw;
       top: 5rem;
-      background-color: var(--colour-ecru);
-      border: 1px solid var(--colour-gold);
+      background-color: var(--colour-background);
+      border: 1px solid var(--colour-highlight);
       opacity: 0.9;
     }
 
@@ -203,14 +203,14 @@ const mastodon = {
 
   <style is:global>
     .throw {
-      fill: var(--colour-blue);
-      stroke: var(--colour-black);
+      fill: var(--colour-secondary);
+      stroke: var(--colour-main);
       stroke-width: 0.5;
     }
 
     .hit {
-      fill: var(--colour-red);
-      stroke: var(--colour-black);
+      fill: var(--colour-primary);
+      stroke: var(--colour-main);
       stroke-width: 0.5;
     }
   </style>

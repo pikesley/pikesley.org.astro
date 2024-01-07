@@ -14,8 +14,8 @@ import Colours from "./Colours.astro";
   }
 
   body {
-    color: var(--colour-black);
-    background-color: var(--colour-ecru);
+    color: var(--colour-main);
+    background-color: var(--colour-background);
 
     position: relative;
     min-height: 100svh;
@@ -35,7 +35,7 @@ import Colours from "./Colours.astro";
 
   header {
     grid-area: header;
-    background-color: var(--colour-blue);
+    background-color: var(--colour-secondary);
   }
 
   main {
@@ -43,7 +43,7 @@ import Colours from "./Colours.astro";
     width: clamp(200px, 80%, 1000px);
     margin-inline: auto;
 
-    color: var(--colour-black);
+    color: var(--colour-main);
   }
 
   /* main::after {
@@ -69,16 +69,16 @@ import Colours from "./Colours.astro";
   footer {
     grid-area: footer;
     align-self: end;
-    background-color: var(--colour-blue);
+    background-color: var(--colour-secondary);
   }
 
   a {
     text-decoration: none;
-    color: var(--colour-blue);
+    color: var(--colour-secondary);
   }
 
   a:hover {
-    color: var(--colour-gold);
+    color: var(--colour-highlight);
   }
 
   nav {
@@ -88,17 +88,17 @@ import Colours from "./Colours.astro";
     justify-content: center;
     width: 100%;
 
-    background-color: var(--colour-red);
-    border-top: 1px solid var(--colour-black);
-    border-bottom: 1px solid var(--colour-black);
+    background-color: var(--colour-primary);
+    border-top: 1px solid var(--colour-main);
+    border-bottom: 1px solid var(--colour-main);
   }
 
   nav a {
-    color: var(--colour-ecru);
+    color: var(--colour-background);
     font-family: var(--font-strong);
     text-transform: uppercase;
     font-size: 1rem;
-    text-shadow: 0.1rem 0.1rem 0.1rem var(--colour-black);
+    text-shadow: 0.1rem 0.1rem 0.1rem var(--colour-main);
   }
 
   ul {
@@ -116,28 +116,28 @@ import Colours from "./Colours.astro";
   }
 
   .panel {
-    background-color: var(--colour-blue);
+    background-color: var(--colour-secondary);
     padding: 1.2rem;
     border-radius: 0.2rem;
-    border: 0.5rem solid var(--colour-gold);
-    color: var(--colour-ecru);
+    border: 0.5rem solid var(--colour-highlight);
+    color: var(--colour-background);
     font-size: 1.1rem;
   }
 
   .panel a {
-    color: var(--colour-red);
+    color: var(--colour-primary);
     font-family: var(--font-fancy);
     text-shadow:
-      -1px -1px 0 var(--colour-ecru),
-      1px -1px 0 var(--colour-ecru),
-      -1px 1px 0 var(--colour-ecru),
-      1px 1px 0 var(--colour-ecru);
+      -1px -1px 0 var(--colour-background),
+      1px -1px 0 var(--colour-background),
+      -1px 1px 0 var(--colour-background),
+      1px 1px 0 var(--colour-background);
     font-variant: small-caps;
     font-size: 1.7rem;
   }
 
   .panel a:hover {
-    color: var(--colour-blue);
+    color: var(--colour-secondary);
   }
 
   .panel * {
@@ -204,8 +204,8 @@ import Colours from "./Colours.astro";
   }
 
   pre {
-    color: var(--colour-ecru);
-    background-color: var(--colour-black);
+    color: var(--colour-background);
+    background-color: var(--colour-main);
     overflow-x: scroll;
     max-width: 80dvw;
     margin-inline: auto;
@@ -227,14 +227,14 @@ import Colours from "./Colours.astro";
   blockquote {
     border-left-width: 2px;
     border-left-style: solid;
-    border-left-color: var(--colour-gold);
+    border-left-color: var(--colour-highlight);
     padding-left: 1rem;
   }
 
   table,
   th,
   td {
-    border: 1px solid var(--colour-red);
+    border: 1px solid var(--colour-primary);
     border-collapse: collapse;
     margin-left: auto;
     margin-right: auto;
@@ -253,6 +253,6 @@ import Colours from "./Colours.astro";
   math {
     font-size: clamp(1rem, -0.7rem + 8vw, 2rem);
     font-family: var(--font-fancy);
-    color: var(--colour-red);
+    color: var(--colour-primary);
   }
 </style>
