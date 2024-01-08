@@ -1,0 +1,14 @@
+---
+import Logos from "../data/logos.yaml";
+
+export interface Props {
+  logoName: string;
+  klass: string
+}
+
+const { logoName, klass } = Astro.props;
+---
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class:list={[`${klass}`]}>
+    <path d={Logos[logoName].data} />
+</svg>

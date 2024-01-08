@@ -3,5 +3,4 @@
 - name: mastodon
   url: //mastodon.me.uk/@pikesley
 - name: bookwyrm
-  icon: book-open-variant-outline
   url: https://ramblingreaders.org/user/pikesley
