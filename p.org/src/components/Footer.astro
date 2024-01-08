@@ -1,13 +1,15 @@
 ---
 import FooterItems from "../data/footer.yaml";
-import Logo from "../components/Logo.astro";
+import Logos from "../data/logos.yaml";
 ---
 
 <nav>
   {
     FooterItems.map((item) => (
       <a href={item.url} title={item.title} class="footer-link">
-        <Logo logoName={item.icon} klass="footer" />
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d={Logos[item.icon].data} />
+        </svg>
       </a>
     ))
   }
@@ -19,10 +21,8 @@ import Logo from "../components/Logo.astro";
     gap: 0.5rem;
     margin-bottom: 0.5rem;
   }
-</style>
 
-<style is:global>
-  svg.footer {
+  svg {
     width: 1rem;
     margin-inline: auto;
     & path {

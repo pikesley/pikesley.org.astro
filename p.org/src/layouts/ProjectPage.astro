@@ -1,7 +1,7 @@
 ---
 import Base from "./Base.astro";
 import MastodonComments from "../components/MastodonComments.astro";
-import Logo from "../components/Logo.astro";
+import Logos from "../data/logos.yaml";
 
 export interface Props {
   content: string;
@@ -24,8 +24,9 @@ function ghUrl(slug: string) {
   <section id="button">
     <article class="panel">
       <a href={ghUrl(GHslug)}>
-        <Logo logoName="github" klass="project-panel" />
-        {title} on Github
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d={Logos.github.data}/>
+        </svg>        {title} on Github
       </a>
     </article>
   </section>
@@ -39,8 +40,8 @@ function ghUrl(slug: string) {
     }
   </style>
 
-  <style is:global>
-    svg.project-panel {
+  <style>
+    svg {
       width: 1.1rem;
       stroke: var(--colour-background);
       stroke-width: 0.07rem;
@@ -50,12 +51,10 @@ function ghUrl(slug: string) {
       }
     }
 
-    a:hover svg.project-panel path {
+    a:hover svg path {
       fill: var(--colour-secondary);
     }
-  </style>
 
-  <style>
     section.project-readme {
       margin-top: 1rem;
     }
