@@ -2,5 +2,6 @@
   url: //github.com/pikesley
 - name: mastodon
   url: //mastodon.me.uk/@pikesley
-- name: instagram
-  url: //instagram.com/pikesley/
+- name: bookwyrm
+  icon: book-open-variant-outline
+  url: https://ramblingreaders.org/user/pikesley
