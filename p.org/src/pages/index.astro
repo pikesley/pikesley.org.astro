@@ -1,9 +1,10 @@
 ---
 import Base from "../layouts/Base.astro";
 import me from "../data/me.yaml";
+import Logo from "../components/Logo.astro";
 
-function getIcon(thing: any) {
-  return "mdi-" + (thing.icon ? thing.icon : thing.name)
+function svgSrc(thing: any) {
+  return "/assets/svgs/" + (thing.icon ? thing.icon : thing.name) + ".svg"
 }
 ---
 
@@ -18,14 +19,14 @@ function getIcon(thing: any) {
   </p>
 
   <p>Some other places you can find me:</p>
-  <span class="iconify" data-icon="mdi-account"></span>
 
   <ul class="panel">
     {
       me.map((item) => (
         <li>
           <a href={item.url} id={[`link-${item.name}`]}>
-            <span class:list={["mdi", getIcon(item)]} />
+
+            <Logo logoName={item.name} klass="front-page"/>
 
             <span class="link-name">{item.name}</span>
             {
@@ -73,10 +74,29 @@ function getIcon(thing: any) {
   };
 </script>
 
+<style is:global>
+  svg.front-page {
+    width: 50%;
+    margin-inline: auto;
+    margin-block: 1rem;
+    stroke: var(--colour-background);
+    stroke-width: 0.03rem;
+
+   & path {
+      fill: var(--colour-primary);
+    }
+  }
+
+  a:hover svg.front-page path {
+    fill: var(--colour-secondary);
+  }
+</style>
+
 <style>
   :root {
     --links: 3;
   }
+
 
   ul {
     display: grid;
@@ -100,12 +120,6 @@ function getIcon(thing: any) {
 
   .panel * {
     line-height: unset;
-  }
-
-  span.mdi {
-    grid-area: icon;
-    font-size: 4rem;
-    font-size: clamp(4rem, -0.7rem + 8vw, 5rem);
   }
 
   span.link-name {
