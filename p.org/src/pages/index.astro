@@ -1,6 +1,10 @@
 ---
 import Base from "../layouts/Base.astro";
 import me from "../data/me.yaml";
+
+function getIcon(thing: any) {
+  return "mdi-" + (thing.icon ? thing.icon : thing.name)
+}
 ---
 
 <Base>
@@ -14,13 +18,14 @@ import me from "../data/me.yaml";
   </p>
 
   <p>Some other places you can find me:</p>
+  <span class="iconify" data-icon="mdi-account"></span>
 
   <ul class="panel">
     {
       me.map((item) => (
         <li>
           <a href={item.url} id={[`link-${item.name}`]}>
-            <span class:list={["mdi", `mdi-${item.name}`]} />
+            <span class:list={["mdi", getIcon(item)]} />
 
             <span class="link-name">{item.name}</span>
             {
