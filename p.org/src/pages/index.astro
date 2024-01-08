@@ -1,11 +1,7 @@
 ---
 import Base from "../layouts/Base.astro";
 import me from "../data/me.yaml";
-import Logo from "../components/Logo.astro";
-
-function svgSrc(thing: any) {
-  return "/assets/svgs/" + (thing.icon ? thing.icon : thing.name) + ".svg"
-}
+import Logos from "../data/logos.yaml";
 ---
 
 <Base>
@@ -25,9 +21,9 @@ function svgSrc(thing: any) {
       me.map((item) => (
         <li>
           <a href={item.url} id={[`link-${item.name}`]}>
-
-            <Logo logoName={item.name} klass="front-page"/>
-
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path d={Logos[item.name].data}/>
+            </svg>
             <span class="link-name">{item.name}</span>
             {
               item.name == "mastodon" && (
@@ -73,24 +69,6 @@ function svgSrc(thing: any) {
     fetchToot();
   };
 </script>
-
-<style is:global>
-  svg.front-page {
-    width: 50%;
-    margin-inline: auto;
-    margin-block: 1rem;
-    stroke: var(--colour-background);
-    stroke-width: 0.03rem;
-
-   & path {
-      fill: var(--colour-primary);
-    }
-  }
-
-  a:hover svg.front-page path {
-    fill: var(--colour-secondary);
-  }
-</style>
 
 <style>
   :root {
@@ -152,5 +130,21 @@ function svgSrc(thing: any) {
   #link-mastodon:hover #latest-toot {
     visibility: visible;
     opacity: 1;
+  }
+
+  svg {
+    width: 50%;
+    margin-inline: auto;
+    margin-block: 1rem;
+    stroke: var(--colour-background);
+    stroke-width: 0.03rem;
+
+   & path {
+      fill: var(--colour-primary);
+    }
+  }
+
+  a:hover svg path {
+    fill: var(--colour-secondary);
   }
 </style>
