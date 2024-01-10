@@ -25,9 +25,18 @@ import Logos from "../data/logos.yaml";
               <path d={Logos[item.name].data}/>
             </svg>
             <span class="link-name">{item.name}</span>
+            </a>
+            {
+              item.name == "github" && (
+                <!--
+                  <div class="popup panel" id="latest-github"></div>
+                  -->
+            )
+            }
+
             {
               item.name == "mastodon" && (
-              <iframe class="mastodon-embed"
+              <iframe class="mastodon-embed popup"
                       id="latest-toot"
                       style="max-width: 100%; border: 0"
                       width="400"
@@ -35,7 +44,12 @@ import Logos from "../data/logos.yaml";
                       <script src="https://mastodon.me.uk/embed.js" async="async"></script>
               )
             }
-          </a>
+
+            {
+              item.name == "bookwyrm" && (
+              <div class="popup panel" id="latest-book"></div>
+              )
+            }
         </li>
       ))
     }
@@ -51,6 +65,25 @@ import Logos from "../data/logos.yaml";
 </Base>
 
 <script is:inline>
+    function fetchGithub() {
+    // https://css-tricks.com/how-to-fetch-and-parse-rss-feeds-in-javascript/
+    const RSS_URL = 'https://corsproxy.io/?' + "https://github.com/pikesley.atom";
+    fetch(RSS_URL)
+      .then((response) => response.text())
+      .then((str) => new window.DOMParser().parseFromString(str, "text/xml"))
+      .then((data) => {
+        const entries = data.querySelectorAll("entry");
+
+        const status = entries[0].querySelector("title")
+        const link = document.createElement("a")
+        link.setAttribute("href", entries[0].querySelector("link").getAttribute("href"))
+        link.append(status)
+
+        document
+          .getElementById("latest-github")?.append(link)
+      });
+  }
+
   function fetchToot() {
     // https://css-tricks.com/how-to-fetch-and-parse-rss-feeds-in-javascript/
     const RSS_URL = "https://mastodon.me.uk/users/pikesley.rss";
@@ -59,14 +92,50 @@ import Logos from "../data/logos.yaml";
       .then((str) => new window.DOMParser().parseFromString(str, "text/xml"))
       .then((data) => {
         const items = data.querySelectorAll("item");
+
         document
           .getElementById("latest-toot")
-          ?.setAttribute("src", items[0].childNodes[1].innerHTML + "/embed");
+          ?.setAttribute("src", items[0].querySelector("guid").innerHTML + "/embed");
+      });
+  }
+
+  function fetchBook() {
+    // https://css-tricks.com/how-to-fetch-and-parse-rss-feeds-in-javascript/
+    const RSS_URL = 'https://corsproxy.io/?' + "https://ramblingreaders.org/user/pikesley/rss";
+    fetch(RSS_URL)
+      .then((response) => response.text())
+      .then((str) => new window.DOMParser().parseFromString(str, "text/xml"))
+      .then((data) => {
+        const items = data.querySelectorAll("item");
+
+        const book =items[0].querySelector("title").innerHTML.split(" ").slice(3).join(" ")
+        const bookParts = book.split(" by ")
+        const bookTitle = bookParts[0]
+        const bookAuthor = bookParts[1]
+
+        const link = document.createElement("a")
+        link.setAttribute("href", items[0].querySelector("link").innerHTML)
+        link.append(bookTitle)
+
+        const textSpan = document.createElement("span");
+        textSpan.append("Currently reading")
+
+        const linkSpan = document.createElement("span")
+        linkSpan.append(link)
+
+        const authorSpan = document.createElement("span")
+        authorSpan.append("by " + bookAuthor)
+
+        document.getElementById("latest-book").append(textSpan)
+        document.getElementById("latest-book").append(linkSpan)
+        document.getElementById("latest-book").append(authorSpan)
       });
   }
 
   window.onload = (event) => {
+    // fetchGithub();
     fetchToot();
+    fetchBook();
   };
 </script>
 
@@ -74,7 +143,6 @@ import Logos from "../data/logos.yaml";
   :root {
     --links: 3;
   }
-
 
   ul {
     display: grid;
@@ -114,7 +182,7 @@ import Logos from "../data/logos.yaml";
     max-width: calc(var(--links) * 10rem);
   }
 
-  #link-mastodon #latest-toot {
+  .popup {
     visibility: hidden;
     opacity: 0;
     position: fixed;
@@ -127,7 +195,29 @@ import Logos from "../data/logos.yaml";
     transition-delay: 1s;
   }
 
-  #link-mastodon:hover #latest-toot {
+  #latest-book {
+    display: grid;
+    width: 20rem;
+    text-transform: none;
+  }
+
+  #latest-github {
+    display: grid;
+    width: 20rem;
+    text-transform: none;
+  }
+
+  #link-github:hover + #latest-github {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  #link-mastodon:hover + #latest-toot {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  #link-bookwyrm:hover + #latest-book {
     visibility: visible;
     opacity: 1;
   }
