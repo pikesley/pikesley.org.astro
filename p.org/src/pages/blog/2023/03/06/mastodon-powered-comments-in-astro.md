@@ -10,7 +10,7 @@ mastodon:
 
 Building on the work of [Jan Wildeboer](https://jan.wildeboer.net/2023/02/Jekyll-Mastodon-Comments/) ([@jwildeboer](https://social.wildeboer.net/@jwildeboer)) and [Daniel Pecos Martínez](https://danielpecos.com/2022/12/25/mastodon-as-comment-system-for-your-static-blog/) ([@dpecos](https://fosstodon.org/@dpecos)) (and others before them, I'm sure), I have implemented Mastodon-powered comments for [Astro](https://astro.build/).
 
-### How does this work then?
+## How does this work then?
 
 I've built it as an [Astro component](https://github.com/pikesley/pikesley.org.astro/blob/main/p.org/src/components/MastodonComments.astro), which expects to be passed an object called `mastodon` which should look like this:
 
@@ -37,7 +37,7 @@ It uses these to construct the "These comments are generated from replies to thi
 
 > A brief aside: there's something weird going on which I don't quite understand: it only seems to work for a Toot which has no ancestors - a Root Toot, if you will. I tried giving it the ID of a Toot from within a thread, and although its `decendants` list was definitely populated, nothing was rendered. I guess it doesn't actually matter for our purposes here, though.
 
-### How I'm using it
+## How I'm using it
 
 The way this site is structured, a blogpost uses the `BlogPost.astro` layout. Within this layout, if `mastodon` exists in the `frontmatter`, we include the component, passing it the data:
 
@@ -55,7 +55,7 @@ There is, as pointed-out in [@jwildeboer](https://social.wildeboer.net/@jwildebo
 
 I think this will _mostly_ work as a drop-in component, modulo changing the default `host` and `user` values. I might actually look into packaging it as a proper [Astro plugin](https://astro.build/integrations/), if anybody has any hints on how to do that.
 
-### Isolating the CSS
+## Isolating the CSS
 
 The Astro way to build components is to put the CSS in a `<style>` tag right in the component, and then Astro namespaces everything at build-time so nothing leaks. That doesn't really work for us here, though, because those component styles only apply to the static content, where Astro is able to apply a `class="41fb17f6"` or whatever to keep everything scoped. There's no way for it to style client-side dynamic content using this approach (is there? maybe I've missed something), so each Mastodon comment goes into a `<article class="mastodon-comment">` and then the styles are all like
 

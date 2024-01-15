@@ -19,7 +19,7 @@ function ghUrl(slug: string) {
 
 <Base title={title} titlePrefix="Projects" description={title}>
   <section class="project-readme">
-    <article set:html={content} class="from-markdown" />
+    <article set:html={content} />
   </section>
   <section id="button">
     <article class="panel">
@@ -72,5 +72,14 @@ function ghUrl(slug: string) {
     a {
       font-size: 1.2rem;
     }
-  </style>
+
+    .project-readme {
+    & ul {
+      list-style-type: disc;
+      margin-left: 2rem;
+    }
+  }
+
+    </style>
+
 </Base>

@@ -7,24 +7,6 @@ import Colours from "./Colours.astro";
 <Colours />
 
 <style is:global>
-  html {
-    font-family: var(--font-plain);
-    height: 100%;
-    overflow-x: hidden;
-  }
-
-  body {
-    color: var(--colour-main);
-    background-color: var(--colour-background);
-
-    position: relative;
-    min-height: 100svh;
-    margin: 0;
-    display: grid;
-    grid-template-areas: "header" "main" "footer";
-    grid-template-rows: auto auto 1fr;
-  }
-
   body,
   nav,
   .panel {
@@ -33,43 +15,11 @@ import Colours from "./Colours.astro";
     background-repeat: repeat;
   }
 
-  header {
-    grid-area: header;
-    background-color: var(--colour-secondary);
-  }
-
-  main {
-    grid-area: main;
-    width: clamp(200px, 80%, 1000px);
-    margin-inline: auto;
-
-    color: var(--colour-main);
-  }
-
-  /* main::after {
-    content: "";
-    background-image: url("/assets/flourishes/twist.svg");
-    background-repeat: no-repeat;
-    background-position-x: center;
-    background-size: 20%;
-    display: grid;
-    font-family: var(--font-fancy);
-    align-items: center;
-    padding-bottom: 0;
-    height: 5rem;
-  }
-
-  @media only screen and (min-width: 500px) {
-    main::after {
-      background-size: 25%;
-      padding-bottom: 4rem;
+  .project-readme {
+    & ul {
+      list-style-type: disc;
+      margin-left: 2rem;
     }
-  } */
-
-  footer {
-    grid-area: footer;
-    align-self: end;
-    background-color: var(--colour-secondary);
   }
 
   a {
@@ -91,14 +41,14 @@ import Colours from "./Colours.astro";
     background-color: var(--colour-primary);
     border-top: 1px solid var(--colour-main);
     border-bottom: 1px solid var(--colour-main);
-  }
 
-  nav a {
-    color: var(--colour-background);
-    font-family: var(--font-strong);
-    text-transform: uppercase;
-    font-size: 1rem;
-    text-shadow: 0.1rem 0.1rem 0.1rem var(--colour-main);
+    & a {
+      color: var(--colour-background);
+      font-family: var(--font-strong);
+      text-transform: uppercase;
+      font-size: 1rem;
+      text-shadow: 0.1rem 0.1rem 0.1rem var(--colour-main);
+    }
   }
 
   ul {
@@ -122,26 +72,30 @@ import Colours from "./Colours.astro";
     border: 0.5rem solid var(--colour-highlight);
     color: var(--colour-background);
     font-size: 1.1rem;
-  }
 
-  .panel a {
-    color: var(--colour-primary);
-    font-family: var(--font-fancy);
-    text-shadow:
-      -1px -1px 0 var(--colour-background),
-      1px -1px 0 var(--colour-background),
-      -1px 1px 0 var(--colour-background),
-      1px 1px 0 var(--colour-background);
-    font-variant: small-caps;
-    font-size: 1.7rem;
-  }
+    & h2::after {
+      background-image: none;
+    }
 
-  .panel a:hover {
-    color: var(--colour-secondary);
-  }
+    & a {
+      color: var(--colour-primary);
+      font-family: var(--font-fancy);
+      text-shadow:
+        -1px -1px 0 var(--colour-background),
+        1px -1px 0 var(--colour-background),
+        -1px 1px 0 var(--colour-background),
+        1px 1px 0 var(--colour-background);
+      font-variant: small-caps;
+      font-size: 1.7rem;
+    }
 
-  .panel * {
-    line-height: 1.5rem;
+    & a:hover {
+      color: var(--colour-secondary);
+    }
+
+    & * {
+      line-height: 1.5rem;
+    }
   }
 
   img,
@@ -175,7 +129,7 @@ import Colours from "./Colours.astro";
     font-size: clamp(1rem, -0.7rem + 8vw, 1.5rem);
   }
 
-  .from-markdown h2::after {
+  h2::after {
     content: "";
     display: block;
     background-image: url("/assets/flourishes/divider.svg");
@@ -187,15 +141,10 @@ import Colours from "./Colours.astro";
   }
 
   @media only screen and (min-width: 500px) {
-    .from-markdown h2::after {
+    h2::after {
       background-size: 20%;
       padding-bottom: 1rem;
     }
-  }
-
-  .from-markdown ul {
-    list-style-type: disc;
-    margin-left: 2rem;
   }
 
   pre,

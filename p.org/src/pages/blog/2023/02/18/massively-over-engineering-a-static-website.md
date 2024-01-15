@@ -23,7 +23,7 @@ This site had served us OK for nearly 5 years, but in late 2022 we [returned to 
 
 Jekyll is powerful and can do some amazing things (I once tortured it into [generating GeoJSON for every gig we've ever played](https://github.com/rawfunkmaharishi/website-2018/blob/master/gig-map.json), which is really not easy without any kind of test framework), but I really hate its [Liquid](https://shopify.github.io/liquid/) templating engine, so I set about looking for something new, and from watching [Kevin Powell's CSS videos](https://www.youtube.com/kevinpowell) I learned about [Astro](https://astro.build/), a JavaScript-powered static-site generator.
 
-### Data-first
+## Data-first
 
 Previously, things like gig pages were being [generated from YAML (embedded in frontmatter)](https://github.com/rawfunkmaharishi/website-2018/blob/master/gigs/_posts/2019-05-18-paper-vintage.md), and then the JSON-LD was being generated per-page and embedded, but this was always a little clunky and I knew I could build something better. It seemed to me that the JSON-LD ought to be a first-class concept, with everything else being an artefact derived from it. So I attempted to make this happen.
 
@@ -66,7 +66,7 @@ Now it turns out that referential integrity is really hard to keep track of with
 
 With my new shiny normalised data, I returned to Astro with renewed vigour, and once again got stuck pushing JSON up a hill.
 
-### Let's build some middleware like it's 2005
+## Let's build some middleware like it's 2005
 
 So I did what any of us would have done in this situation, and started building, in Python, [a bespoke static-site generator purely for the JSON](https://github.com/rawfunkmaharishi/data). While this might sound unhinged, or that I was doing this purely for the sake of of doing it (both of which might be true), it actually inverted the whole problem and made it _much_ easier to think about. I now have some [massively de-normalised JSON](https://json.rawfunkmaharishi.uk/gigs.json) generated using some [fully tested code](https://github.com/rawfunkmaharishi/data/blob/main/tests/test_gig.py), from a [small collection of tiny YAML files](https://github.com/rawfunkmaharishi/data/tree/main/data). It's not really an API (or maybe it is?) but it's ideal for what I need.
 
