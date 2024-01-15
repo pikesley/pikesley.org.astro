@@ -11,6 +11,8 @@ const { frontmatter } = Astro.props;
   description={frontmatter.title}
   image={frontmatter.image}
 >
-  <slot />
+  <div>
+    <slot />
+  </div>
   {frontmatter.mastodon && <MastodonComments mastodon={frontmatter.mastodon} />}
 </Base>

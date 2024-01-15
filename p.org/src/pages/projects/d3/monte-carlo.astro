@@ -105,9 +105,13 @@ const mastodon = {
         of a Computational Physics module. Using <a
           href="https://en.wikipedia.org/wiki/Fortran"
         >
-          FORTRAN 77
-        </a>
-         .
+          FORTRAN 77</a
+        >.
+      </p>
+
+      <p>
+        Note: each blob having a different radius is completely irrelevant to
+        the process, it just makes a nicer image.
       </p>
     </dialog>
   </section>
@@ -130,7 +134,9 @@ const mastodon = {
   {mastodon && <MastodonComments mastodon={mastodon} />}
 
   <style>
-    table, th, td {
+    table,
+    th,
+    td {
       border: 1px solid var(--colour-highlight);
     }
 
@@ -217,7 +223,7 @@ const mastodon = {
 
   <script is:global>
     const side = 400;
-    const radius = 3;
+    const radius = 6;
 
     const boardScale = d3.scaleLinear().domain([-1, 1]).range([0, side]);
 
@@ -251,13 +257,21 @@ const mastodon = {
             return false;
           }
         })
+        // .attr("style", function (d) {
+        //   return "filter: saturate(" + (distance(d)) + ")";
+        // })
         .attr("r", 0)
         .transition()
-        .attr("r", radius);
+        .attr("r", Math.random() * radius);
     }
 
     function hit(d) {
-      return Math.sqrt(d.x * d.x + d.y * d.y) < 1;
+      return distance(d) < 1;
+    }
+
+    function distance(d) {
+      const value = Math.sqrt(d.x * d.x + d.y * d.y);
+      return value;
     }
 
     var data = [
@@ -269,7 +283,7 @@ const mastodon = {
 
     var hits = 0;
     var throws = 0;
-    var interval = 50;
+    var interval = 0;
 
     const piElement = document.getElementById("pi");
     piElement.textContent = "3";

@@ -35,7 +35,7 @@ const { employer } = Astro.props;
     employer.profile && (
       <section
         set:html={marked.parse(employer.profile)}
-        class="description from-markdown"
+        class="description"
       />
     )
   }

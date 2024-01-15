@@ -58,6 +58,42 @@ if (description) {
     <GlobalStyles />
 
     <style>
+      html {
+        font-family: var(--font-plain);
+        height: 100%;
+        overflow-x: hidden;
+      }
+      body {
+        color: var(--colour-main);
+        background-color: var(--colour-background);
+
+        position: relative;
+        min-height: 100svh;
+        margin: 0;
+        display: grid;
+        grid-template-areas: "header" "main" "footer";
+        grid-template-rows: auto auto 1fr;
+      }
+
+      header {
+        grid-area: header;
+        background-color: var(--colour-secondary);
+      }
+
+      main {
+        grid-area: main;
+        width: clamp(200px, 80%, 1000px);
+        margin-inline: auto;
+
+        color: var(--colour-main);
+      }
+
+      footer {
+        grid-area: footer;
+        align-self: end;
+        background-color: var(--colour-secondary);
+      }
+
       :root {
         --flouron: "𑁍";
         /* ߷ ๛ ༄ ෴ ๏ ៚ ᪣ ᯼ ᯽ ※ ⸛ ⸭ ꧁ ꧂ 𑁍 𑅀 𑑛 */
