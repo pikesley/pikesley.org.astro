@@ -1,5 +1,7 @@
 - name: github
   url: //github.com/pikesley
+# - name: scratch
+#   url: https://scratch.mit.edu/users/pikesley/
 - name: mastodon
   url: //mastodon.me.uk/@pikesley
 - name: bookwyrm
