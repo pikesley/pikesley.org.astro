@@ -46,8 +46,21 @@ import Logos from "../data/logos.yaml";
             }
 
             {
+              item.name == "scratch" && (
+                <!--
+                  <iframe class="scratch-embed popup"
+                  id="latest-scratch"
+                  allowtransparency="true"
+                  width="485" height="402"
+                  frameborder="0"
+                  scrolling="no" allowfullscreen></iframe>
+                  -->
+              )
+            }
+
+            {
               item.name == "bookwyrm" && (
-              <div class="popup panel" id="latest-book"></div>
+              <div class="popup panel" id="latest-bookwyrm"></div>
               )
             }
         </li>
@@ -99,7 +112,20 @@ import Logos from "../data/logos.yaml";
       });
   }
 
-  function fetchBook() {
+  function fetchScratch() {
+    // https://css-tricks.com/how-to-fetch-and-parse-rss-feeds-in-javascript/
+    const PROJECTS_URL = 'https://corsproxy.io/?' + "https://api.scratch.mit.edu/users/pikesley/projects/";
+    fetch(PROJECTS_URL)
+      .then((response) => response.json())
+      .then((data) => {
+        const id = data[0].id
+        document
+          .getElementById("latest-scratch")
+          ?.setAttribute("src", "https://scratch.mit.edu/projects/" + id + "/embed");
+      });
+  }
+
+  function fetchBookwyrm() {
     // https://css-tricks.com/how-to-fetch-and-parse-rss-feeds-in-javascript/
     const RSS_URL = 'https://corsproxy.io/?' + "https://ramblingreaders.org/user/pikesley/rss";
     fetch(RSS_URL)
@@ -126,16 +152,19 @@ import Logos from "../data/logos.yaml";
         const authorSpan = document.createElement("span")
         authorSpan.append("by " + bookAuthor)
 
-        document.getElementById("latest-book").append(textSpan)
-        document.getElementById("latest-book").append(linkSpan)
-        document.getElementById("latest-book").append(authorSpan)
+        const bookwyrmElement = document.getElementById("latest-bookwyrm")
+
+        bookwyrmElement.append(textSpan)
+        bookwyrmElement.append(linkSpan)
+        bookwyrmElement.append(authorSpan)
       });
   }
 
   window.onload = (event) => {
     // fetchGithub();
+    fetchScratch();
     fetchToot();
-    fetchBook();
+    fetchBookwyrm();
   };
 </script>
 
@@ -195,7 +224,7 @@ import Logos from "../data/logos.yaml";
     transition-delay: 1s;
   }
 
-  #latest-book {
+  #latest-bookwyrm {
     display: grid;
     width: 20rem;
     text-transform: none;
@@ -207,17 +236,18 @@ import Logos from "../data/logos.yaml";
     text-transform: none;
   }
 
-  #link-github:hover + #latest-github {
+
+
+  #link-github:hover + #latest-github,
+  #link-mastodon:hover + #latest-toot,
+  #link-bookwyrm:hover + #latest-bookwyrm,
+  #link-scratch:hover + #latest-scratch
+ {
     visibility: visible;
     opacity: 1;
   }
 
-  #link-mastodon:hover + #latest-toot {
-    visibility: visible;
-    opacity: 1;
-  }
-
-  #link-bookwyrm:hover + #latest-book {
+  #latest-scratch:hover {
     visibility: visible;
     opacity: 1;
   }
