@@ -1,8 +1,8 @@
-- name: github
-  url: //github.com/pikesley
-# - name: scratch
-#   url: https://scratch.mit.edu/users/pikesley/
+# - name: github
+#   url: //github.com/pikesley
 - name: mastodon
-  url: //mastodon.me.uk/@pikesley
+  url: https://mastodon.me.uk/@pikesley
 - name: bookwyrm
   url: https://ramblingreaders.org/user/pikesley
+- name: scratch
+  url: https://scratch.mit.edu/users/pikesley/

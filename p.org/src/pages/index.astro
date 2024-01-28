@@ -46,19 +46,6 @@ import Logos from "../data/logos.yaml";
             }
 
             {
-              item.name == "scratch" && (
-                <!--
-                  <iframe class="scratch-embed popup"
-                  id="latest-scratch"
-                  allowtransparency="true"
-                  width="485" height="402"
-                  frameborder="0"
-                  scrolling="no" allowfullscreen></iframe>
-                  -->
-              )
-            }
-
-            {
               item.name == "bookwyrm" && (
               <div class="popup panel" id="latest-bookwyrm"></div>
               )
@@ -114,14 +101,14 @@ import Logos from "../data/logos.yaml";
 
   function fetchScratch() {
     // https://css-tricks.com/how-to-fetch-and-parse-rss-feeds-in-javascript/
-    const PROJECTS_URL = 'https://corsproxy.io/?' + "https://api.scratch.mit.edu/users/pikesley/projects/";
+    const PROJECTS_URL = 'https://corsproxy.io/?' + "https://api.scratch.mit.edu/users/pikesley/projects/?" + self.crypto.randomUUID();
     fetch(PROJECTS_URL)
       .then((response) => response.json())
       .then((data) => {
-        const id = data[0].id
+
         document
           .getElementById("latest-scratch")
-          ?.setAttribute("src", "https://scratch.mit.edu/projects/" + id + "/embed");
+          ?.setAttribute("src", data[0].image);
       });
   }
 
@@ -162,7 +149,7 @@ import Logos from "../data/logos.yaml";
 
   window.onload = (event) => {
     // fetchGithub();
-    fetchScratch();
+    // fetchScratch();
     fetchToot();
     fetchBookwyrm();
   };
@@ -236,18 +223,11 @@ import Logos from "../data/logos.yaml";
     text-transform: none;
   }
 
-
-
   #link-github:hover + #latest-github,
   #link-mastodon:hover + #latest-toot,
   #link-bookwyrm:hover + #latest-bookwyrm,
   #link-scratch:hover + #latest-scratch
  {
-    visibility: visible;
-    opacity: 1;
-  }
-
-  #latest-scratch:hover {
     visibility: visible;
     opacity: 1;
   }
