@@ -7,6 +7,31 @@ import Colours from "./Colours.astro";
 <Colours />
 
 <style is:global>
+  /* https://css-tricks.com/the-current-state-of-styling-scrollbars-in-css/ */
+  :root {
+    --colour-scrollbar-thumb: var(--colour-secondary);
+    --colour-scrollbar-ground: var(--colour-background);
+  }
+  body {
+    /* Foreground, Background */
+    scrollbar-color: var(--colour-scrollbar-thumb) var(--colour-scrollbar-ground)
+  }
+
+  body::-webkit-scrollbar {
+    width: 0.5rem; /* Mostly for vertical scrollbars */
+    height: 0.5rem; /* Mostly for horizontal scrollbars */
+  }
+
+  body::-webkit-scrollbar-thumb {
+    /* Foreground */
+    background: var(--colour-scrollbar-thumb)
+  }
+
+  body::-webkit-scrollbar-track {
+    /* Background */
+    background: var(--colour-scrollbar-ground)
+  }
+
   body,
   nav,
   .panel {
