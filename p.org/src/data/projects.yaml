@@ -26,10 +26,10 @@
   publish: true
   mastodon:
     toot: "109989967910686741"
-- name: hatlights
-  title: Hatlights
-  url: /projects/hatlights
-  github: hat-festival/hatlights
+- name: glowing-hat
+  title: Glowing Hat
+  url: /projects/glowing-hat
+  github: hat-festival/glowing-hat
   description: A hat covered in 3d-mapped NeoPixels
   publish: true
 - name: jlock
