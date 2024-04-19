@@ -1,2 +1,4 @@
 # https://docs.netlify.com/routing/redirects/redirect-options/#domain-level-redirects
 https://pikesley.org/* https://sam.pikesley.org/:splat 301!
+
+/projects/hatlights /projects/glowing-hat
