@@ -39,7 +39,7 @@ If you wander about EMF dressed like this, it can take you up to half an hour to
 
 ### The Design
 
-Seeing the beautiful Solarpunk Network design on *everything* really made EMF feel whole in a way it maybe hasn't before. Some of our first-timers said it felt like a properly-established festival (which I guess it is now, but I drunk beer and watched Dr Who under the M1 in 2012 so maybe it's difficult to see from here), and I think the unifying power of the design is a big part of that.
+Seeing the beautiful Solarpunk Network design on *everything* really made EMF feel whole in a way it maybe hasn't before. Some of our first-timers said it felt like a properly-established festival (which I guess it is now, but I drank beer and watched Dr Who under the M1 in 2012 so maybe it's difficult to see from here), and I think the unifying power of the design is a big part of that.
 
 ### Sunday Afternoon
 
