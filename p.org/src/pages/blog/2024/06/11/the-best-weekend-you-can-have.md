@@ -26,7 +26,7 @@ One of our villagers brought their 13-year-old son along. It's safe to say that 
 
 ## The Suit
 
-Dressing-up has long been a theme of EMF (at least for me), but if you're trying to optimise for The Number Of People Who Want To Stop And Talk To You, I can highly recommend a [Test Card Suit](https://mastodon.me.uk/@CatRyan@oldbytes.space/112536514744900516), a [glowing hat](https://sam.pikesley.org/projects/glowing-hat/) and a [solarpunk network](https://www.emfcamp.org/static/2024/theme-guide.pdf) improvised cravat:
+Dressing-up has long been a theme of EMF (at least for me), but if you're trying to optimise for The Number Of People Who Want To Stop And Talk To You, I can highly recommend a [test card suit](https://mastodon.me.uk/@CatRyan@oldbytes.space/112536514744900516), a [glowing hat](https://sam.pikesley.org/projects/glowing-hat/) and a [solarpunk network](https://www.emfcamp.org/static/2024/theme-guide.pdf) improvised cravat:
 
 [![Morag and Sam](/assets/blog-images/2024/06/11/morag-and-sam.jpg)](/assets/blog-images/2024/06/11/morag-and-sam.jpg)
 
