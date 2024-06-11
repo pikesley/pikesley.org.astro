@@ -8,7 +8,7 @@ mastodon:
   toot: "112599612006575574"
 ---
 
-I've started and scrapped this twice already. I think I was attempting to describe the whole of EMF, which doesn't really work because (a) there's too much of it, and (2) much of it resists description anyway. So let's just pull some things out of a bag and see where that takes us...
+I've started and scrapped this twice already. I think I was attempting to describe the whole of EMF, which doesn't really work because (a) there's too much of it, and (2) most of it resists description anyway. So let's just pull some things out of a bag and see where that takes us...
 
 ## Hat Village
 
