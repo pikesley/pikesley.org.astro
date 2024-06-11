@@ -12,7 +12,7 @@ I've started and scrapped this twice already. I think I was attempting to descri
 
 ## Hat Village
 
-[![Hat Village crew](/assets/blog-images/2024/06/04/hat-village.jpg)](/assets/blog-images/2024/06/04/hat-village.jpg)
+[![Hat Village crew](/assets/blog-images/2024/06/11/hat-village.jpg)](/assets/blog-images/2024/06/11/hat-village.jpg)
 
 The core of what is now Hat Village have been EMFing together since 2014, but this time felt extra special, for at least a couple of reasons:
 
@@ -28,7 +28,7 @@ One of our villagers brought their 13-year-old son along. It's safe to say that 
 
 Dressing-up has long been a theme of EMF (at least for me), but if you're trying to optimise for The Number Of People Who Want To Stop And Talk To You, I can highly recommend a [Test Card Suit](https://mastodon.me.uk/@CatRyan@oldbytes.space/112536514744900516), a [glowing hat](https://sam.pikesley.org/projects/glowing-hat/) and a [solarpunk network](https://www.emfcamp.org/static/2024/theme-guide.pdf) improvised cravat:
 
-[![Morag and Sam](/assets/blog-images/2024/06/04/morag-and-sam.jpg)](/assets/blog-images/2024/06/04/morag-and-sam.jpg)
+[![Morag and Sam](/assets/blog-images/2024/06/11/morag-and-sam.jpg)](/assets/blog-images/2024/06/11/morag-and-sam.jpg)
 
 If you wander about EMF dressed like this, it can take you up to half an hour to get fron Null Sector to the Robot Arms, because so many people want to ask you questions about your outfit. I'm not often particularly gregarious, but it was a real treat to speak to so many lovely EMFers. Special shout-out to the man in the Night Market who asked me "Which test card is that?" (he reckoned it was probably Test Card F), and the lady outside the Karaoke who asked me if I'd made the suit myself (I invited her to take a closer look at the fire-hazard polyester construction.)
 
@@ -51,7 +51,7 @@ Maybe this is hopelessly naive, but EMF feels like a slice of what life *could* 
 
 Some of our Hat Village first-timers know me only from work, where I have to be (at least a little) restrained, but at EMF they got to spend time with me being 100% Sam, and one of them told me, as we were drunkenly turning in on Sunday night, "I've never met anybody quite like you", and I can honestly think of no higher compliment.
 
-[![James, Sam and Laura](/assets/blog-images/2024/06/04/james-sam-laura.jpg)](/assets/blog-images/2024/06/04/james-sam-laura.jpg)
+[![James, Sam and Laura](/assets/blog-images/2024/06/11/james-sam-laura.jpg)](/assets/blog-images/2024/06/11/james-sam-laura.jpg)
 
 I'm seeing a lot of excitment and energy on [Mastodon](https://mastodon.me.uk/tags/EMFCamp), and in our groupchat (another of our first-timers said something like "I have found my people" when he found out the group was called Hat Village Idiots), and if we can maintain this, EMF 2026 is going to be something incredible.
 
