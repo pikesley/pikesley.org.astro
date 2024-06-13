@@ -18,7 +18,7 @@ The core of what is now Hat Village have been EMFing together since 2014, but th
 
 ### The First-Timers
 
-We had a few first-timers with us, and it's a rare treat indeed to watch people's minds being blown in real-time as they realise where they are what's going on all around them. They told me later that they had expected that we would all go off and do our own thing during the day, and just come back to camp to sleep (maybe this is how they roll at music fesivals these days? I have no idea, my last Glastonbury was 1995) - I think they were pleasantly surprised to see how The Village is as much as part of the EMF experience as the wider festival.
+We had a few first-timers with us, and it's a rare treat indeed to watch people's minds being blown in real-time as they realise where they are and what's going on all around them. They told me later that they had expected that we would all go off and do our own thing during the day, and just come back to camp to sleep (maybe this is how they roll at music fesivals these days? I have no idea, my last Glastonbury was 1995) - I think they were pleasantly surprised to see how The Village is as much as part of the EMF experience as the wider festival.
 
 ### The Kid
 
@@ -53,6 +53,6 @@ Some of our Hat Village first-timers know me only from work, where I have to be 
 
 [![James, Sam and Laura](/assets/blog-images/2024/06/11/james-sam-laura.jpg)](/assets/blog-images/2024/06/11/james-sam-laura.jpg)
 
-I'm seeing a lot of excitment and energy on [Mastodon](https://mastodon.me.uk/tags/EMFCamp), and in our groupchat (another of our first-timers said something like "I have found my people" when he found out the group was called Hat Village Idiots), and if we can maintain this, EMF 2026 is going to be something incredible.
+I'm seeing a lot of excitment and energy on [Mastodon](https://mastodon.me.uk/tags/EMFCamp), and in our groupchat (another of our first-timers said something like "I have found my people" when he noticed that the group was called Hat Village Idiots), and if we can maintain this, EMF 2026 is going to be something incredible.
 
 In conclusion, then, here are some things we [Overheard at EMF](https://mastodon.me.uk/tags/OverheardAtEMFCamp).
