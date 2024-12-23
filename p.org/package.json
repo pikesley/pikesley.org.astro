@@ -23,7 +23,7 @@
     "@babel/eslint-parser": "^7.22.15",
     "@babel/plugin-transform-modules-commonjs": "^7.23.3",
     "@rollup/plugin-yaml": "^4.1.2",
-    "@typescript-eslint/eslint-plugin": "^5.59.6",
+    "@typescript-eslint/eslint-plugin": "^8.18.1",
     "@typescript-eslint/parser": "^5.62.0",
     "astro-html-beautifier": "^1.0.4",
     "eslint": "^8.56.0",
