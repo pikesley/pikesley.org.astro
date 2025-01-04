@@ -1,3 +1,9 @@
+- name: st7789v2-micropython
+  title: Driving a tiny LCD
+  url: /projects/st7789v2-micropython
+  github: pikesley/st7789v2-micropython
+  description: Lashing together a driver for a weird little screen
+  publish: true
 - name: css-orrery
   title: CSS Orrery
   url: https://css-orrery.netlify.app/
