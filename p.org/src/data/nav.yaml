@@ -1,8 +1,12 @@
+- text: About
+  url: /about
+- text: Ideas
+  url: /ideas
+- text: Now
+  url: /now
 - text: Projects
   url: /projects
 - text: Blog
   url: /blog
-- text: Talks
-  url: /talks
-# - text: CV
-#   url: /cv
+# - text: Talks
+#   url: /talks
