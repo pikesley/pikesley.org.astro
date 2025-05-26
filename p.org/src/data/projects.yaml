@@ -1,5 +1,5 @@
 - name: bloodstorm
-  title: Blood-glucose API
+  title: A tiny BG display
   url: /projects/bloodstorm
   github: pikesley/bloodstorm
   description: Showing my blood-glucose on a tiny screen
