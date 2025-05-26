@@ -1,3 +1,11 @@
+- name: bloodstorm
+  title: Blood-glucose API
+  url: /projects/bloodstorm
+  github: pikesley/bloodstorm
+  description: Showing my blood-glucose on a tiny screen
+  publish: true
+  # mastodon:
+  #   toot: "113770243891056638"
 - name: st7789v2-micropython
   title: Driving a tiny LCD
   url: /projects/st7789v2-micropython
