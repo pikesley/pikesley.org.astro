@@ -4,8 +4,8 @@ layout: ../../../../../layouts/BlogPost.astro
 title: Driving a microcontroller from your phone
 description: With MicroPython and vanilla JavaScript
 
-# mastodon:
-#   toot: "112599612006575574"
+mastodon:
+  toot: "115158647100055335"
 ---
 _Using MicroPython and some (shonky) JavaScript_
 
