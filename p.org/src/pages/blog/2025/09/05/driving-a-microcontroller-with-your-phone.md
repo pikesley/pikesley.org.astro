@@ -279,3 +279,5 @@ Running it off your laptop is all very well, but that doesn't really translate t
 * I've had this same code running on various ESP32 boards, and some [BLE-equipped RasPi Pico boards](https://shop.pimoroni.com/products/pimoroni-pico-plus-2-w?variant=42182811942995). I imagine it'll work wherever you can run `aioble`.
 
 * Beware of cheap ESP32s off of eBay, the wifi / bluetooth hardware seems to be very flaky.
+
+* Absolutely *no* fucking AI hallucination theft bullshit was involved in any of this at any stage
