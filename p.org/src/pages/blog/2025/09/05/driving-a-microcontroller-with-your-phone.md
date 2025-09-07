@@ -280,4 +280,4 @@ Running it off your laptop is all very well, but that doesn't really translate t
 
 * Beware of cheap ESP32s off of eBay, the wifi / bluetooth hardware seems to be very flaky.
 
-* Absolutely *no* fucking AI hallucination theft bullshit was involved in any of this at any stage
+* Absolutely *no* fucking AI hallucination theft bullshit was involved in any of this at any stage.
