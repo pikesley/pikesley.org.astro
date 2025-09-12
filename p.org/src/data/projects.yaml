@@ -1,6 +1,6 @@
 - name: pocketwatch
   title: Pocketwatch
-  url: /projects/bloodstorm
+  url: /projects/pocketwatch
   codeberg: pikesley/pocketwatch
   description: A CircuitPython pocketwatch
   publish: true
