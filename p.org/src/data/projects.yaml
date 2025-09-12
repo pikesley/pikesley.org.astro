@@ -1,9 +1,9 @@
-# - name: pocketwatch
-#   title: Pocketwatch
-#   url: /projects/bloodstorm
-#   codeberg: pikesley/pocketwatch
-#   description: A CircuitPython pocketwatch
-#   publish: true
+- name: pocketwatch
+  title: Pocketwatch
+  url: /projects/pocketwatch
+  codeberg: pikesley/pocketwatch
+  description: A CircuitPython pocketwatch
+  publish: true
   # mastodon:
   #   toot: "114574934391426961"
 - name: bloodstorm
