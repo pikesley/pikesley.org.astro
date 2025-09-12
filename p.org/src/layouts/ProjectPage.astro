@@ -6,14 +6,29 @@ import Logos from "../data/logos.yaml";
 export interface Props {
   content: string;
   title: string;
-  GHslug: string;
+  GHslug?: string;
+  CodebergSlug?: string;
   mastodon?: string;
 }
 
-const { content, title, GHslug, mastodon } = Astro.props;
+const { content, title, GHslug, CodebergSlug, mastodon } = Astro.props;
 
 function ghUrl(slug: string) {
   return "https://github.com/" + slug;
+}
+
+function CodebergUrl(slug: string) {
+  return "https://codeberg.org/" + slug;
+}
+
+var buttonUrl = ghUrl(GHslug);
+var buttonSVG = Logos.github.data;
+var buttonText = title + " on Github";
+
+if (CodebergSlug) {
+  buttonUrl = CodebergUrl(CodebergSlug);
+  buttonSVG = null;
+  buttonText = title + " on Codeberg";
 }
 ---
 
@@ -21,12 +36,18 @@ function ghUrl(slug: string) {
   <section class="project-readme">
     <article set:html={content} />
   </section>
+
   <section id="button">
     <article class="panel">
-      <a href={ghUrl(GHslug)}>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-          <path d={Logos.github.data}/>
-        </svg>        {title} on Github
+      <a href={buttonUrl}>
+        {
+          buttonSVG && (
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path d={buttonSVG} />
+            </svg>
+          )
+        }
+        {buttonText}
       </a>
     </article>
   </section>
@@ -74,12 +95,10 @@ function ghUrl(slug: string) {
     }
 
     .project-readme {
-    & ul {
-      list-style-type: disc;
-      margin-left: 2rem;
+      & ul {
+        list-style-type: disc;
+        margin-left: 2rem;
+      }
     }
-  }
-
-    </style>
-
+  </style>
 </Base>

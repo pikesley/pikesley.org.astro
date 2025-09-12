@@ -45,9 +45,8 @@ export function fullURLs(line, slug) {
   return fixedWords.join(" ");
 }
 
-export function refineReadme(b64, proj) {
+export function refineReadme(markdown, proj) {
   // https://docs.astro.build/en/guides/markdown-content/#fetching-remote-markdown
-  const markdown = Buffer.from(b64, "base64").toString();
   const lines = markdown.split("\n"); // turn it into a array of lines
   const startAt = lines.findIndex((line) => /^#[^#]/.test(line)); // find the first (and only) `h1`
   const trimmed = lines.slice(startAt + 1); // cut off the `h1` and everything above it
@@ -59,4 +58,9 @@ export function refineReadme(b64, proj) {
   const rendered = marked.parse(reconstituted); // parse the markdown into HTML
 
   return rendered;
+}
+
+export function refineB64Readme(b64, proj) {
+    const markdown = Buffer.from(b64, "base64").toString();
+    return refineReadme(markdown, proj)
 }
