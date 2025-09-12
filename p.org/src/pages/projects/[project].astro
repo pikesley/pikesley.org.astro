@@ -2,11 +2,18 @@
 import ProjectPage from "../../layouts/ProjectPage.astro";
 import Projects from "../../data/projects.yaml";
 
-import { refineReadme } from "../../tools";
+import { refineB64Readme, refineReadme } from "../../tools";
 
 export function getStaticPaths() {
   return Projects.filter((proj) => proj.publish)
-    .filter((proj) => proj.github)
+    .filter(function (proj) {
+      if (proj.github) {
+        return proj.github;
+      }
+      if (proj.codeberg) {
+        return proj.codeberg;
+      }
+    })
     .map((proj) => {
       return {
         params: { project: proj.name },
@@ -17,29 +24,44 @@ export function getStaticPaths() {
 
 const { proj } = Astro.props;
 
-// https://stackoverflow.com/a/40403285
-const readme = await fetch(
-  `https://api.github.com/repos/${proj.github}/readme`,
-  {
+var readme;
+
+if (proj.github) {
+  // https://stackoverflow.com/a/40403285
+  readme = await fetch(`https://api.github.com/repos/${proj.github}/readme`, {
     headers: {
       Accept: "application/vnd.github+json",
       Authorization: `Bearer ${import.meta.env.GH_TOKEN}`,
     },
-  }
-)
-  .then(function (response) {
-    return response.json();
   })
-  .then(function (data) {
-    return data;
-  });
-
-const rendered = refineReadme(readme.content, proj);
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      return refineB64Readme(data.content, proj);
+    });
+} else if (proj.codeberg) {
+  readme = await fetch(
+    `https://codeberg.org/${proj.codeberg}/raw/branch/main/README.md`,
+    {
+      headers: {
+        Accept: "application/json",
+      },
+    }
+  )
+    .then(function (response) {
+      return response.text();
+    })
+    .then(function (data) {
+      return refineReadme(data, proj);
+    });
+}
 ---
 
 <ProjectPage
-  content={rendered}
+  content={readme}
   title={proj.title}
   GHslug={proj.github}
+  CodebergSlug={proj.codeberg}
   mastodon={proj.mastodon}
 />
