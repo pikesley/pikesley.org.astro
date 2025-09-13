@@ -1,8 +1,10 @@
+- name: codeberg
+  url: https://codeberg.org/pikesley
 - name: github
   url: https://github.com/pikesley
 - name: mastodon
   url: https://mastodon.me.uk/@pikesley
-- name: bookwyrm
-  url: https://ramblingreaders.org/user/pikesley
+# - name: bookwyrm
+#   url: https://ramblingreaders.org/user/pikesley
 # - name: scratch
 #   url: https://scratch.mit.edu/users/pikesley/
