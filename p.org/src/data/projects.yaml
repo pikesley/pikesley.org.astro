@@ -4,8 +4,8 @@
   codeberg: pikesley/pocketwatch
   description: A CircuitPython pocketwatch
   publish: true
-  # mastodon:
-  #   toot: "114574934391426961"
+  mastodon:
+    toot: "115196798822931942"
 - name: bloodstorm
   title: A tiny BG display
   url: /projects/bloodstorm
