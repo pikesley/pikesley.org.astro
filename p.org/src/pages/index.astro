@@ -26,30 +26,7 @@ import Logos from "../data/logos.yaml";
             </svg>
             <span class="link-name">{item.name}</span>
             </a>
-            {
-              item.name == "github" && (
-                <!--
-                  <div class="popup panel" id="latest-github"></div>
-                  -->
-            )
-            }
 
-            {
-              item.name == "mastodon" && (
-              <iframe class="mastodon-embed popup"
-                      id="latest-toot"
-                      style="max-width: 100%; border: 0"
-                      width="400"
-                      allowfullscreen="allowfullscreen"></iframe>
-                      <script src="https://mastodon.me.uk/embed.js" async="async"></script>
-              )
-            }
-
-            {
-              item.name == "bookwyrm" && (
-              <div class="popup panel" id="latest-bookwyrm"></div>
-              )
-            }
         </li>
       ))
     }
