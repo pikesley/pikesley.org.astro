@@ -1,3 +1,11 @@
+- name: 1982.js
+  title: 1982.js
+  url: /projects/1982.js
+  codeberg: pikesley/1982.js
+  description: Rendering the Spectrum font once again, this time in JavaScript
+  publish: true
+  # mastodon:
+  #   toot: "115196798822931942"
 - name: pocketwatch
   title: Pocketwatch
   url: /projects/pocketwatch
