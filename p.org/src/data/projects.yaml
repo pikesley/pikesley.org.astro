@@ -4,8 +4,8 @@
   codeberg: pikesley/1982.js
   description: Rendering the Spectrum font once again, this time in JavaScript
   publish: true
-  # mastodon:
-  #   toot: "115196798822931942"
+  mastodon:
+    toot: "115593366245153688"
 - name: pocketwatch
   title: Pocketwatch
   url: /projects/pocketwatch
