@@ -6,6 +6,12 @@
   publish: true
   # mastodon:
   #   toot: "115593366245153688"
+- name: clock-of-clocks
+  title: Clock of Clocks
+  url: https://pikesley.codeberg.page/clock-of-clocks/
+  codeberg: pikesley/clock-of-clocks
+  description: A clock made from smaller clocks
+  publish: true
 - name: pocketwatch
   title: Pocketwatch
   url: /projects/pocketwatch
