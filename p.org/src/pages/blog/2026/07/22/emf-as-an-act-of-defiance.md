@@ -3,6 +3,9 @@ publish: true
 layout: ../../../../../layouts/BlogPost.astro
 title: The Best Weekend You Can Have, 2026 Edition
 description: The greatest 3 days out of every 730
+
+mastodon:
+  toot: "116994066699824138"
 ---
 
 I've read a few write-ups now of [EMF 2026](https://www.emfcamp.org/) and the theme seems to be "Everybody has a different EMF" (which is very true), so let's dive into *my* Four Days In Eastnor.
