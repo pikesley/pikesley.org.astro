@@ -36,7 +36,7 @@ I never did go back to the arcade to wake myself up, though.
 
 ## EMF as an act of defiance
 
-Call me a sentimental old fool (for that is what I am), but I genuinely hold EMF to be a Sacred Space<sup>[[1]](#1)</sup>. We are standing on Holy Ground for that one glorious weekend every two years. I think about the several people who have told me that EMF allowed them to be themselves, to discover who they truly are. I think about the young person I met outside the bar on the Sunday who had [just changed their name](https://phones.emfcamp.org/6263) _and was unbelievably excited to tell us about it_. I think about the kid who wanted to watch the World Cup Final so his dad dropped him off at our village to sit with whoever was up there and it was all, just, fine. And on, and on, and on. A better world _is_ extremely possible.
+Call me a sentimental old fool (for that is what I am), but I genuinely hold EMF to be a Sacred Space<sup>[[1]](#1)</sup>. We are standing on Holy Ground for that one glorious weekend every two years. I think about the several people who have told me that EMF allowed them to be themselves, to discover who they truly are. I think about the young person we met outside the bar on the Sunday who had [just changed their name](https://phones.emfcamp.org/6263) _and was unbelievably excited to tell us about it_. I think about the kid who wanted to watch the World Cup Final so his dad dropped him off at our village to sit with whoever was up there and it was all, just, fine. And on, and on, and on. A better world _is_ extremely possible.
 
 I got home and tried to explain what an amazing time we'd all had and I burst into (good, happy, positive) tears.
 
