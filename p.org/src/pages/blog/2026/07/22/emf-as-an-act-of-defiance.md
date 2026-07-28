@@ -16,7 +16,7 @@ With EMF<sup>[[0]](#0)</sup>, you get out of it what you put in. To a certain ex
 
 It turns out that if you've been [constantly hyping-up EMF on Mastodon](https://mastodon.me.uk/search?q=from%3Apikesley+%23EMFCamp+), and then choose to go about the field in a bright-red top hat, _people will recognise you_ and come and say hello. I was slightly freaked-out when somebody _that I definitely hadn't met before_ called out "Hi Sam" from their tent; it wouldn't be the last time.
 
-Being Vaguely Recognised made me feel like much more like I was right in the thick of this EMF, where previous camps were maybe happening all around me and I was just bumbling through. I am often The Person That Comes To A Meetup, Stands Awkwardly On His Own Drinking One Beer, And Then Leaves Without Speaking To Anybody, but some combination of A Joy-Filled Field, Sunshine, and a Red Top Hat gave me Social Superpowers I never knew I could manifest .
+Being Vaguely Recognised made me feel like much more like I was right in the thick of this EMF, where previous camps were maybe happening all around me and I was just bumbling through. I am often The Person That Comes To A Meetup, Stands Awkwardly On His Own Drinking One Beer, And Then Leaves Without Speaking To Anybody, but some combination of A Joy-Filled Field, Sunshine, and a Red Top Hat gave me Social Superpowers I never knew I could manifest.
 
 And then on the Sunday, I posted this
 
