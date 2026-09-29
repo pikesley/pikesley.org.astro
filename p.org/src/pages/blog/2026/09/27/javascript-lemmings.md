@@ -4,8 +4,8 @@ layout: ../../../../../layouts/BlogPost.astro
 title: Lemmings in JavaScript
 description: Run-Length Encoded sprites for some reason
 
-# mastodon:
-#   toot: "116994066699824138"
+mastodon:
+  toot: "117356416073090195"
 ---
 
 <iframe
