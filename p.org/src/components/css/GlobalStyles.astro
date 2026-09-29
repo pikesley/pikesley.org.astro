@@ -15,7 +15,8 @@ import Colours from "./Colours.astro";
 
   body {
     /* Foreground, Background */
-    scrollbar-color: var(--colour-scrollbar-thumb) var(--colour-scrollbar-ground);
+    scrollbar-color: var(--colour-scrollbar-thumb)
+      var(--colour-scrollbar-ground);
   }
 
   body::-webkit-scrollbar {
@@ -25,12 +26,12 @@ import Colours from "./Colours.astro";
 
   body::-webkit-scrollbar-thumb {
     /* Foreground */
-    background: var(--colour-scrollbar-thumb)
+    background: var(--colour-scrollbar-thumb);
   }
 
   body::-webkit-scrollbar-track {
     /* Background */
-    background: var(--colour-scrollbar-ground)
+    background: var(--colour-scrollbar-ground);
   }
 
   body,
@@ -80,7 +81,7 @@ import Colours from "./Colours.astro";
   ul {
     margin-left: 0;
     padding-left: 0;
-    list-style-type: none;
+    list-style-type: disc;
   }
 
   p {
@@ -136,6 +137,10 @@ import Colours from "./Colours.astro";
   video {
     margin-inline: auto;
     border-radius: 0.5rem;
+  }
+
+  iframe#lemmings {
+    width: 100%;
   }
 
   h2,
